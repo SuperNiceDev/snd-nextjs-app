@@ -1,0 +1,12 @@
+@import '../css/globals.scss';
+
+.root {
+  position: relative;
+  overflow-x: hidden;
+  max-width: #{$maxWidthDesktop};
+  margin: 0 auto;
+
+  .main {
+    position: relative;
+  }
+}
