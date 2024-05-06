@@ -1,15 +1,20 @@
 {
   "name": "snd-nextjs-app",
   "version": "1.0.0",
+  "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "next dev",
+    "dev": "yarn cleanNextJs && NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cleanNextJs": "rm -rf ./.next"
   },
   "dependencies": {
+    "@apollo/client": "^3.10.2",
     "framer-motion": "^11.1.7",
+    "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18"

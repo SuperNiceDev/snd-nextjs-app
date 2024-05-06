@@ -1,0 +1,131 @@
+@import '../../css/globals.scss';
+
+.root {
+  position: relative;
+  @include fontStyleNormal();
+
+  :global(> *) {
+    margin-bottom: px(16);
+  }
+
+  :global(strong) {
+    font-weight: $fontWeightBold;
+  }
+
+  &.left {
+    text-align: left;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+
+  &.small {
+    @include fontStyleSmall();
+
+    :global(> *) {
+      margin-bottom: px(16);
+    }
+  }
+
+  &.normal {
+  }
+
+  &.big {
+    @include fontStyleBig();
+    color: $colorHighlight;
+
+    :global(> *) {
+      margin-bottom: px(20);
+    }
+  }
+
+  &.large {
+    @include fontStyleLarge();
+    color: $colorHighlight;
+    
+    // :global(> *) {
+    //   margin-bottom: px(24);
+    //   @include underlineCst($background: $colorBlack);
+    //   @include underlineCstActive();
+    // }
+  }
+
+  :global(> *) {
+    // margin: inherit;
+    // margin-bottom: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+
+  :global(ul) {
+    list-style: disc;
+    margin-bottom: px(24);
+  }
+
+  :global(li) {
+    margin-left: px(16);
+    margin-bottom: px(12);
+  }
+
+  :global(a) {
+    @include underlineCst();
+    @include underlineActive();
+
+    &:after {
+      background: linear-gradient(90deg, rgba($colorBlack, 0), rgba($colorBlack, 0.7), rgba($colorBlack, 0.7), rgba($colorBlack, 0.7), rgba($colorBlack, 0));
+      height: px(1);
+      top: 95%;
+      left: - px(10);
+      width: calc(100% + #{px(20)});
+      transform: translateY(calc(0% + #{px(1)}));
+    }
+  }
+}
+
+// :::::::::::::::::::::::::::::::::::::::::::::: DESKTOP
+
+:global(.desktop) {
+  .root {
+    @include fontStyleNormalDesktop();
+
+    :global(> *) {
+      margin-bottom: px(24);
+    }
+
+    &.small {
+      @include fontStyleSmallDesktop();
+
+      :global(> *) {
+        margin-bottom: px(20);
+      }
+    }
+  
+    &.normal {
+    }
+  
+    &.big {
+      @include fontStyleBigDesktop();
+
+      :global(> *) {
+        margin-bottom: px(20);
+      }
+    }
+  
+    &.large {
+      @include fontStyleLargeDesktop();
+      
+      :global(> *) {
+        margin-bottom: px(20);
+        @include underlineCstDesktop();
+      }
+    }
+
+    :global(ul) {
+      margin-bottom: px(42);
+    }
+  }
+}

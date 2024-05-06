@@ -1,8 +1,8 @@
-@import "./css/globals.scss";
+@import "../css/globals.scss";
 
 :root {
   --maxWidthDesktop: #{$maxWidthDesktop};
-  --fontFamilyPrimary: #{$fontFamilyPrimary};
+  --fontFamilyPri: #{$fontFamilyPri};
 }
 
 * {
@@ -19,7 +19,7 @@ body {
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
 
-  font-family: var(--fontFamilyPrimary);
+  font-family: var(--fontFamilyPri);
   color: $colorBlack;
 }
 

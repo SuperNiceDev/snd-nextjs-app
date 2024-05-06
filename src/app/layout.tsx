@@ -6,10 +6,10 @@ import Nav from "./Nav";
 
 import "./layout.scss";
 
-const fontFamilyPrimary = Montserrat({
+const fontFamilyPri = Montserrat({
   subsets: ["latin"],
   weight: "500",
-  variable: "--fontFamilyPrimary",
+  variable: "--fontFamilyPri",
 });
 
 export default function RootLayout(
@@ -20,7 +20,7 @@ export default function RootLayout(
   return (
     <html lang="en">
       <link rel="preconnect" href={process.env.NEXT_PUBLIC_WEBSITE_DOMAIN} />
-      <body className={`RootLayout ${fontFamilyPrimary.variable}`}>
+      <body className={`RootLayout ${fontFamilyPri.variable}`}>
         {/* {props.children} */}
         <LayoutClient {...props} />
         <Nav />
