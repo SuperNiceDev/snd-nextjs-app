@@ -1,16 +1,14 @@
 import { ReactNode } from "react";
-import { Montserrat } from "next/font/google";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { ThemeProvider } from "@mui/material/styles";
+// https://webkul.com/blog/tailwind-css-material-ui-with-next-js/
 
 import LayoutClient from "./layoutClient";
 import Nav from "./Nav";
+import theme from "./theme";
 
+import "./globals.css";
 import "./layout.scss";
-
-const fontFamilyPri = Montserrat({
-  subsets: ["latin"],
-  weight: "500",
-  variable: "--fontFamilyPri",
-});
 
 export default function RootLayout(
   props: Readonly<{
@@ -20,10 +18,16 @@ export default function RootLayout(
   return (
     <html lang="en">
       <link rel="preconnect" href={process.env.NEXT_PUBLIC_WEBSITE_DOMAIN} />
-      <body className={`RootLayout ${fontFamilyPri.variable}`}>
-        {/* {props.children} */}
-        <LayoutClient {...props} />
-        <Nav />
+      <body className="RootLayout">
+        <AppRouterCacheProvider
+        // options={{ key: 'css' }} default: 'mui'
+        >
+          <ThemeProvider theme={theme}>
+            {/* {props.children} */}
+            <LayoutClient {...props} />
+            <Nav />
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
