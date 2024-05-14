@@ -1,14 +1,16 @@
 {
   "name": "snd-nextjs-app",
-  "version": "1.0.0",
+  "description": "A Next.js boilerplate",
+  "version": "0.1.0",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "scripts": {
     "dev": "yarn cleanNextJs && NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cleanNextJs": "rm -rf ./.next"
+    "cleanNextJs": "rm -rf ./.next",
+    "removeNodeModules": "rm -rf ./node_modules"
   },
   "dependencies": {
     "@apollo/client": "^3.10.2",
