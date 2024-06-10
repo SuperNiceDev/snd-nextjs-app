@@ -8,7 +8,7 @@ const onExitComplete = () => {
   window.scrollTo(0, 0);
 };
 
-export default function LayoutClient ({ children }: { children: ReactNode }) {
+export default function LayoutClient({ children }: { children: ReactNode }) {
   const segment = useSelectedLayoutSegment() || "home";
 
   return (
@@ -30,5 +30,4 @@ export default function LayoutClient ({ children }: { children: ReactNode }) {
       </motion.div>
     </AnimatePresence>
   );
-};
-
+}

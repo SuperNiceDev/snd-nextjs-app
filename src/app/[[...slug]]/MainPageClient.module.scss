@@ -3,7 +3,7 @@
 .root {
   position: relative;
   overflow-x: hidden;
-  max-width: #{$maxWidthDesktop};
+  max-width: var(--maxWidthDesktop);
   margin: 0 auto;
 
   .main {

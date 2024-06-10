@@ -1,6 +1,10 @@
-// https://nextjs.org/docs/app/building-your-application/routing/route-handlers
+import { NextRequest, NextResponse } from "next/server";
 
-import { NextRequest } from "next/server";
+const headers = {
+  "Access-Control-Allow-Origin": "*",
+  // "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  // "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
 
 type ResponseData = {
   message: string;
@@ -8,26 +12,39 @@ type ResponseData = {
   queryB: string;
 };
 
-function handler(req: NextRequest) {
-  const searchParams = req.nextUrl.searchParams;
-  const queryA = searchParams.get("a");
-  const queryB = searchParams.get("b");
+async function handler(req: NextRequest, res: NextResponse) {
+  if (req.method === "GET") {
+    const searchParams = req.nextUrl.searchParams;
+    const queryA = searchParams.get("a");
+    const queryB = searchParams.get("b");
+    console.log("/api/hello: queryA: ", queryA);
+    console.log("/api/hello: queryB: ", queryB);
 
-  return Response.json(
-    {
+    const res = {
       message: "Hello from /api/hello/route.ts",
       queryA,
       queryB,
-    } as ResponseData,
-    {
+    } as ResponseData;
+
+    return Response.json(res, {
       status: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        // "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        // "Access-Control-Allow-Headers": "Content-Type, Authorization",
-      },
-    },
-  );
+      headers,
+    });
+  }
+
+  if (req.method === "POST") {
+    const formData = await req.formData();
+    for (const entry of formData.entries()) {
+      console.log(`/api/hello: ${entry[0]}:`, entry[1]);
+    }
+    const formDataFile = formData?.get("myFileName.suffix");
+
+    return new NextResponse(formDataFile, {
+      status: 200,
+      statusText: "OK",
+      headers,
+    });
+  }
 }
 
 export { handler as GET, handler as POST };
