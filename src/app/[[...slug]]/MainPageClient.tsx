@@ -20,13 +20,17 @@ const MainPageClient = ({ sections, footer }: any) => {
       </main>
       Footer
       {/* <Footer items={footer?.nav} /> */}
-      <div className="m-2 text-3xl font-bold underline">Tailwind</div>
+      <h1 className="tw-m-2 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700">
+        Tailwind
+      </h1>
       <Stack
-        className="m-2 text-3xl font-bold underline"
+        className="tw-m-2 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700"
         spacing={2}
         direction="row"
       >
-        <Button variant="text">Text</Button>
+        <Button className="tw-text-lime-700" variant="text">
+          Text
+        </Button>
         <Button variant="contained">Contained</Button>
         <Button variant="outlined">Outlined</Button>
       </Stack>
