@@ -1,39 +1,45 @@
 "use client";
 
-import Stack from "@mui/material/Stack";
+import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
-
-// import Sections from "@/components/organisms/Sections";
-// import Footer from "@/components/organisms/Footer";
+import Stack from "@mui/material/Stack";
 
 import css from "./MainPageClient.module.scss";
 
-const MainPageClient = ({ sections, footer }: any) => {
-  // console.log("MainPageClient() sections: ", sections);
-
+const MainPageClient = ({ prop }: any) => {
   return (
     <div className={`${css.root} MainPageClient`}>
+      {`<MainPageClient>`}
+
       <main className={css.main}>
-        MainPageClient
-        {/*  */}
-        {/* <Sections items={sections} /> */}
+        <h1 className="tw-m-2 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700">
+          {`Tailwind <h1/>`}
+        </h1>
+
+        <Typography
+          className="tw-m-3 tw-p-3 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700"
+          variant="h2"
+          gutterBottom
+        >
+          {`Mui <Typography/>`}
+        </Typography>
+
+        <Stack
+          className="tw-m-2 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700"
+          spacing={2}
+          direction="row"
+        >
+          <Button variant="contained">Contained</Button>
+          <Button variant="outlined">Outlined</Button>
+          <Button className="tw-text-lime-700" variant="text">
+            Text
+          </Button>
+        </Stack>
       </main>
-      Footer
-      {/* <Footer items={footer?.nav} /> */}
-      <h1 className="tw-m-2 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700">
-        Tailwind
-      </h1>
-      <Stack
-        className="tw-m-2 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700"
-        spacing={2}
-        direction="row"
-      >
-        <Button className="tw-text-lime-700" variant="text">
-          Text
-        </Button>
-        <Button variant="contained">Contained</Button>
-        <Button variant="outlined">Outlined</Button>
-      </Stack>
+
+      {`<Footer/>`}
+      <br />
+      {`</MainPageClient>`}
     </div>
   );
 };

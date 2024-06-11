@@ -5,8 +5,10 @@
   overflow-x: hidden;
   max-width: var(--maxWidthDesktop);
   margin: 0 auto;
+  padding-top: 100px;
 
   .main {
     position: relative;
+    padding: 20px;
   }
 }

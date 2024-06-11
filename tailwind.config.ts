@@ -19,6 +19,10 @@ const config: Config = {
       colors: {
         "lime-700": "#FF00FF",
       },
+      fontFamily: {
+        sans: ["Graphik", "sans-serif"],
+        // serif: ["Merriweather", "serif"],
+      },
       fontSize: {
         h1: "4rem",
         "3xl": "3rem",

@@ -1,14 +1,14 @@
+// https://webkul.com/blog/tailwind-css-material-ui-with-next-js/
 import { ReactNode } from "react";
+
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
-// https://webkul.com/blog/tailwind-css-material-ui-with-next-js/
 
-import LayoutClient from "./layoutClient";
 import Nav from "./Nav";
-import theme from "./theme";
-
 import "./globals.css";
 import "./layout.scss";
+import LayoutClient from "./layoutClient";
+import theme from "./theme";
 
 export default function RootLayout(
   props: Readonly<{

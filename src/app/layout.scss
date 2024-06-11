@@ -3,6 +3,7 @@
 :root {
   --maxWidthDesktop: #{$maxWidthDesktop};
   --fontFamilyPri: #{$fontFamilyPri};
+  --colorBlack: #{$colorBlack};
 }
 
 * {
@@ -20,7 +21,7 @@ body {
   -ms-text-size-adjust: none;
 
   // font-family: var(--fontFamilyPri);
-  // color: $colorBlack;
+  // color: var(--colorBlack);
 }
 
 a {
