@@ -16,14 +16,14 @@ export default async function MainPage({ params }: any) {
   const res: any = await axios.get(url);
   const pageData = res.data?.data;
 
-  console.log("--------------------------------------");
-  console.log("--------------------------------------");
-  console.log("--------------------------------------");
-  console.log("url: ", url);
-  console.log("pageData: ", pageData);
-  console.log("--------------------------------------");
-  console.log("--------------------------------------");
-  console.log("--------------------------------------");
+  // console.log("--------------------------------------");
+  // console.log("--------------------------------------");
+  // console.log("--------------------------------------");
+  // console.log("url: ", url);
+  // console.log("pageData: ", pageData);
+  // console.log("--------------------------------------");
+  // console.log("--------------------------------------");
+  // console.log("--------------------------------------");
 
   if (!pageData?.length) {
     notFound();

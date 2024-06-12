@@ -6,13 +6,18 @@ import NavClient from "./NavClient";
 
 export default async function Nav() {
   // const data: any = await graphQLClient.request(GET_NAV, { uri: "/" });
-  const url = `${process.env.NEXT_PUBLIC_WEBSITE_API}/pages`;
+  const url = `${process.env.NEXT_PUBLIC_WEBSITE_API}/global?populate[0]=navigation&populate[1]=navigation.items`;
   const res: any = await axios.get(url);
 
-  const items = res?.data?.data?.map((item: any) => ({
-    slug: item?.attributes?.slug || "",
-    title: item?.attributes?.title || "",
+  const navigation = res?.data?.data?.attributes?.navigation?.items;
+  const items = navigation?.map?.((item: any) => ({
+    href: item?.href || "",
+    title: item?.label || "",
   }));
+
+  console.log("Nav() res?.data?.data: ", res?.data?.data);
+  // console.log("Nav() navi: ", navigation);
+  // console.log("Nav() items: ", items);
 
   return <NavClient items={items} />;
 }

@@ -96,7 +96,7 @@ export default function NavClient({ items }: NavClientProps) {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                {items.map(({ title, slug }) => (
+                {items?.map(({ title, slug }) => (
                   <MenuItem key={slug} onClick={onCloseNavClose}>
                     <Typography textAlign="center">{title}</Typography>
                   </MenuItem>
@@ -124,7 +124,7 @@ export default function NavClient({ items }: NavClientProps) {
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {items.map(({ title, slug }) => (
+              {items?.map(({ title, slug }) => (
                 <Button
                   key={slug}
                   onClick={onCloseNavClose}
