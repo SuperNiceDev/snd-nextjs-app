@@ -17,7 +17,7 @@ export default function RootLayout(
 ) {
   return (
     <html lang="en">
-      <link rel="preconnect" href={process.env.NEXT_PUBLIC_WEBSITE_DOMAIN} />
+      <link rel="preconnect" href={process.env.NEXT_PUBLIC_WEBSITE_API} />
       <body className="RootLayout">
         <AppRouterCacheProvider
         // options={{ key: 'css' }} default: 'mui'

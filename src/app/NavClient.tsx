@@ -20,22 +20,26 @@ import Typography from "@mui/material/Typography";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-export default function NavClient() {
+type NavClientProps = {
+  items: { title: string; slug: string }[];
+};
+
+export default function NavClient({ items }: NavClientProps) {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
-  const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
+  const onNavMenuClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
+  const onUserMenuOpen = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const onCloseNavClose = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const onUserMenuClose = () => {
     setAnchorElUser(null);
   };
 
@@ -69,7 +73,7 @@ export default function NavClient() {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={handleOpenNavMenu}
+                onClick={onNavMenuClick}
                 color="inherit"
               >
                 {/* <MenuIcon /> */}
@@ -87,14 +91,14 @@ export default function NavClient() {
                   horizontal: "left",
                 }}
                 open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
+                onClose={onCloseNavClose}
                 sx={{
                   display: { xs: "block", md: "none" },
                 }}
               >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                {items.map(({ title, slug }) => (
+                  <MenuItem key={slug} onClick={onCloseNavClose}>
+                    <Typography textAlign="center">{title}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -120,20 +124,20 @@ export default function NavClient() {
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {pages.map((page) => (
+              {items.map(({ title, slug }) => (
                 <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
+                  key={slug}
+                  onClick={onCloseNavClose}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  {page}
+                  {title}
                 </Button>
               ))}
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <IconButton onClick={onUserMenuOpen} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                 </IconButton>
               </Tooltip>
@@ -151,10 +155,10 @@ export default function NavClient() {
                   horizontal: "right",
                 }}
                 open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
+                onClose={onUserMenuClose}
               >
                 {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <MenuItem key={setting} onClick={onUserMenuClose}>
                     <Typography textAlign="center">{setting}</Typography>
                   </MenuItem>
                 ))}

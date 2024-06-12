@@ -1,6 +1,6 @@
+import MainPage from "./MainPage";
 import generateMetadataCst from "./generateMetadata";
 import generateStaticParamsCst from "./generateStaticParams";
-import MainPage from "./MainPage";
 
 export const generateMetadata = generateMetadataCst;
 export const generateStaticParams = generateStaticParamsCst;
