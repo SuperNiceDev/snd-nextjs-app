@@ -1,14 +1,17 @@
 "use client";
 
 import { ReactNode } from "react";
-import { useSelectedLayoutSegment } from "next/navigation";
+
 import { AnimatePresence, motion } from "framer-motion";
+import { useSelectedLayoutSegment } from "next/navigation";
 
 const onExitComplete = () => {
   window.scrollTo(0, 0);
 };
 
 export default function LayoutClient({ children }: { children: ReactNode }) {
+  return children;
+
   const segment = useSelectedLayoutSegment() || "home";
 
   return (

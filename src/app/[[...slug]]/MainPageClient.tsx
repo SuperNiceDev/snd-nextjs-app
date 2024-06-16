@@ -6,7 +6,10 @@ import Stack from "@mui/material/Stack";
 
 import css from "./MainPageClient.module.scss";
 
-const MainPageClient = ({ prop }: any) => {
+const MainPageClient = ({ sections, footer }: any) => {
+  console.log("MainPageClient() sections: ", sections);
+  // console.log("MainPageClient() footer: ", footer);
+
   return (
     <div className={`${css.root} MainPageClient`}>
       {`<MainPageClient>`}
@@ -27,7 +30,7 @@ const MainPageClient = ({ prop }: any) => {
         <Stack
           className="tw-m-2 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700"
           spacing={2}
-          direction="row"
+          direction="column"
         >
           <Button variant="contained">Contained</Button>
           <Button variant="outlined">Outlined</Button>

@@ -1,8 +1,5 @@
+import axios from "axios";
 import type { Metadata } from "next";
-
-import { graphQLClient } from "../../gql/gqlRequest";
-import { GET_PAGE_HEADER_BY_URI } from "../../gql/GqlQueries";
-import parsePageData from "../../utils/parsePageData";
 
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata#dynamic-metadata
 
@@ -10,29 +7,25 @@ export default async function generateMetadata({
   params,
   searchParams,
 }: any): Promise<Metadata> {
-  const uri = `${params?.id?.join("/") || "/"}`;
-  let data: any = await graphQLClient.request(GET_PAGE_HEADER_BY_URI, { uri });
-
-  if (!data?.pageBy) {
-    data = await graphQLClient.request(GET_PAGE_HEADER_BY_URI, {
-      uri: "/404-error",
-    });
-  }
-
-  const dataParsed: any = parsePageData(data);
-  const { title, headerDescription, allowSearchEngines } = dataParsed;
-  const robots = allowSearchEngines ? null : "none";
+  const slug = params?.slug?.join("/") || "home";
+  const url = `${process.env.NEXT_PUBLIC_WEBSITE_API}/pages?filters[slug][$eq]=${slug}&populate[seo]=*`;
+  const res: any = await axios.get(url);
+  const metadata = res.data?.data?.[0]?.attributes?.seo;
 
   // console.log("::::::::::::::::::::::::");
   // console.log(" ");
-  // console.log("generateMetadata dataParsed: ", dataParsed);
+  // console.log("generateMetadata metadata: ", metadata);
   // console.log(" ");
   // console.log("::::::::::::::::::::::::");
+
+  // if (!metadata) {
+  //     /404-error
+  // }
 
   return {
-    title,
-    description: headerDescription,
-    robots,
+    title: metadata?.metaTitle,
+    description: metadata?.metaDescription,
+    // robots,
     // openGraph: {
     //   images: ["/some-specific-page-image.jpg", ...previousImages],
     // },

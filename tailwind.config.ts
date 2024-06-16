@@ -1,5 +1,4 @@
 // https://mui.com/base-ui/guides/working-with-tailwind-css/#getting-started
-
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -11,16 +10,17 @@ const config: Config = {
   prefix: "tw-",
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+      // backgroundImage: {
+      //   "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      //   "gradient-conic":
+      //     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      // },
       colors: {
-        "lime-700": "#FF00FF",
+        "background-pri": "#999999",
+        "lime-700": "#000000",
       },
       fontFamily: {
-        sans: ["Graphik", "sans-serif"],
+        // sans: ["Graphik", "sans-serif"],
         // serif: ["Merriweather", "serif"],
       },
       fontSize: {
