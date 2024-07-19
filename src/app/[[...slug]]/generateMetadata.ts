@@ -8,7 +8,7 @@ export default async function generateMetadata({
   searchParams,
 }: any): Promise<Metadata> {
   const slug = params?.slug?.join("/") || "home";
-  const url = `${process.env.NEXT_PUBLIC_WEBSITE_API}/pages?filters[slug][$eq]=${slug}&populate[seo]=*`;
+  const url = `${process.env.NEXT_PUBLIC_WEBSITE_API_URL}/pages?filters[slug][$eq]=${slug}&populate[seo]=*`;
   const res: any = await axios.get(url);
   const metadata = res.data?.data?.[0]?.attributes?.seo;
 
