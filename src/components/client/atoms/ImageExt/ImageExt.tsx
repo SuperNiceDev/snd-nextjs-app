@@ -1,7 +1,8 @@
 "use client";
 
-import Image, { ImageProps } from "next/image";
 import { useState } from "react";
+
+import Image, { ImageProps } from "next/image";
 
 import css from "./ImageExt.module.scss";
 

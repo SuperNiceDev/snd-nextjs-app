@@ -1,5 +1,5 @@
 // import { headers } from "next/headers";
-import MainPageClient from "./[[...slug]]/MainPageClient";
+import MainPageClient from "../components/client/MainPageClient";
 
 const NotFound = async (args: any) => {
   // const headersList = headers();

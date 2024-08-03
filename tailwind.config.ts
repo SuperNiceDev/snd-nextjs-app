@@ -16,15 +16,17 @@ const config: Config = {
       //     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       // },
       colors: {
-        "background-pri": "#999999",
-        "lime-700": "#000000",
+        "lime-700": "#444",
+        "lime-500": "#666",
+        "lime-300": "#999",
       },
       fontFamily: {
-        // sans: ["Graphik", "sans-serif"],
-        // serif: ["Merriweather", "serif"],
+        display: ["var(--fontRoboto)", "serif"],
       },
       fontSize: {
-        h1: "4rem",
+        h1: "1rem",
+        xl: "1rem",
+        "2xl": "2rem",
         "3xl": "3rem",
       },
     },

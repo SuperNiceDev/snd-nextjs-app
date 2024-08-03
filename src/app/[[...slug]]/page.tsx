@@ -6,6 +6,4 @@ export const generateMetadata = generateMetadataCst;
 export const generateStaticParams = generateStaticParamsCst;
 export const dynamicParams = true;
 
-export default async function page(args: any) {
-  return <MainPage {...args} />;
-}
+export default MainPage;

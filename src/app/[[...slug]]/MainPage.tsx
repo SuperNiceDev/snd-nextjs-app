@@ -1,7 +1,7 @@
 import axios from "axios";
 import { notFound } from "next/navigation";
 
-import MainPageClient from "./MainPageClient";
+import MainPageClient from "../../components/client/MainPageClient";
 
 export default async function MainPage({ params }: any) {
   const apiUrl = process.env.NEXT_PUBLIC_WEBSITE_API_URL;

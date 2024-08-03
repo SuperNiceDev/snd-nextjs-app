@@ -15,18 +15,18 @@ const MainPageClient = ({ sections, footer }: any) => {
       {`<MainPageClient>`}
 
       <main className={css.main}>
-        <h1 className="tw-m-2 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700">
+        <h1 className="tw-m-2 tw-text-3xl tw-font-bold tw-text-lime-700">
           {sections?.map((item: any, idx: number) => {
             return <div key={idx}>{item.text[0].children[0].text}</div>;
           })}
         </h1>
 
-        <h1 className="tw-m-2 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700">
+        <h1 className="tw-m-2 tw-text-3xl tw-font-bold tw-text-lime-700">
           {`Tailwind <h1/>`}
         </h1>
 
         <Typography
-          className="tw-m-3 tw-p-3 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700"
+          className="tw-m-3 tw-p-3 tw-text-3xl tw-font-bold tw-text-lime-700"
           variant="h2"
           gutterBottom
         >
