@@ -4,8 +4,8 @@ import { ReactNode } from "react";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-// import { StyledEngineProvider } from "@mui/material/styles";
 
+// import { StyledEngineProvider } from "@mui/material/styles";
 import theme from "./theme";
 
 export default function MuiProvider({ children }: { children: ReactNode }) {
@@ -20,10 +20,10 @@ export default function MuiProvider({ children }: { children: ReactNode }) {
       }
     >
       {/* <StyledEngineProvider injectFirst> */}
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
       {/* </StyledEngineProvider> */}
     </AppRouterCacheProvider>
   );
