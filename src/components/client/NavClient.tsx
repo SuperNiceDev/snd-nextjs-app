@@ -25,11 +25,11 @@ export default function NavClient({ items }: NavClientProps) {
   return (
     <AppBar
       className={clsx({
-        // "tw-bg-lime-300": true,
-        // "tw-border-lime-500": true,
-        // "tw-border-2": true,
-        // "tw-text-lime-700": true,
-        // "tw-font-display": true,
+        "!tw-bg-lime-300": true,
+        "tw-border-lime-500": true,
+        "tw-border-2": true,
+        "tw-text-lime-700": true,
+        "tw-font-display": true,
       })}
       position="fixed"
     >

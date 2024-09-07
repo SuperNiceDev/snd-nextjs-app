@@ -17,16 +17,16 @@ const MainPageClient = ({ sections, footer }: any) => {
     <div className={`${css.root} MainPageClient`}>
       {`<MainPageClient>`}
 
-      <Text className="tw-text-red-500" text="MyText" />
-
-      <div className="tw-text-red-500">
-        <InputText
-          className="tw-border-2 tw-border-slate-50 tw-text-red-500"
-          placeholder="InputText placeholder"
-        />
-      </div>
-
       <main className={css.main}>
+        <Text className="tw-text-lime-500" text="MyText" />
+
+        <div className="tw-text-lime-500">
+          <InputText
+            className="tw-border-2 tw-border-slate-50 tw-text-lime-500"
+            placeholder="InputText placeholder"
+          />
+        </div>
+
         <h1 className="tw-m-2 tw-text-3xl tw-font-bold tw-text-lime-700">
           {sections?.map((item: any, idx: number) => {
             return <div key={idx}>{item.text[0].children[0].text}</div>;
