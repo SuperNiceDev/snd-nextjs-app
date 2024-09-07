@@ -18,8 +18,13 @@
       },
       { "name": "typescript-plugin-css-modules" }
     ],
+    // "baseUrl": "../../",
     "paths": {
       "@/*": ["./src/*"]
+      // "@/*": ["/apps/snd-nextjs-app/src/*"],
+      // "snd-react-lib/*": [
+      //   "/packages/snd-react-lib/src/*"
+      // ],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
