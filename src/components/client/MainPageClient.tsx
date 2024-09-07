@@ -3,6 +3,9 @@
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+//
+import InputText from "snd-react-lib/src/components/atoms/InputText";
+import Text from "snd-react-lib/src/components/atoms/Text";
 
 import css from "./MainPageClient.module.scss";
 
@@ -13,6 +16,15 @@ const MainPageClient = ({ sections, footer }: any) => {
   return (
     <div className={`${css.root} MainPageClient`}>
       {`<MainPageClient>`}
+
+      <Text className="tw-text-red-500" text="MyText" />
+
+      <div className="tw-text-red-500">
+        <InputText
+          className="tw-border-2 tw-border-slate-50 tw-text-red-500"
+          placeholder="InputText placeholder"
+        />
+      </div>
 
       <main className={css.main}>
         <h1 className="tw-m-2 tw-text-3xl tw-font-bold tw-text-lime-700">
