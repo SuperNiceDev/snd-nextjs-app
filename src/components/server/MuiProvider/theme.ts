@@ -21,9 +21,9 @@ const theme = createTheme({
     // background: {
     //   default: "#222222",
     // },
-    // text: {
-    //   primary: "#ffffff",
-    // },
+    text: {
+      // primary: purple[500],
+    },
     primary: {
       light: "#757ce8",
       main: purple[500],
