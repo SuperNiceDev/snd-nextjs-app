@@ -1,7 +1,6 @@
-import axios from "axios";
+// import axios from "axios";
 import { notFound } from "next/navigation";
 
-// import MainPageClient from "../../components/client/MainPageClient";
 import MainPageClient from "@/components/client/MainPageClient";
 
 export default async function MainPage({ params }: any) {
