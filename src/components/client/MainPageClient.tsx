@@ -7,10 +7,12 @@ import Stack from "@mui/material/Stack";
 import InputText from "snd-react-lib/src/components/atoms/InputText";
 import Text from "snd-react-lib/src/components/atoms/Text";
 
+// import { TextExt } from "snd-react-lib_test/components/atoms/Text";
+//
 import css from "./MainPageClient.module.scss";
 
 const MainPageClient = ({ sections, footer }: any) => {
-  console.log("MainPageClient() sections: ", sections);
+  // console.log("MainPageClient() sections: ", sections);
   // console.log("MainPageClient() footer: ", footer);
 
   return (
@@ -18,6 +20,8 @@ const MainPageClient = ({ sections, footer }: any) => {
       {`<MainPageClient>`}
 
       <main className={css.main}>
+        {/* <TextExt className="tw-text-lime-500" text="MyTextExt" /> */}
+
         <Text className="tw-text-lime-500" text="MyText" />
 
         <div className="tw-text-lime-500">

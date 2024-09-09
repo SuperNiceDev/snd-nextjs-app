@@ -18,17 +18,35 @@
       },
       { "name": "typescript-plugin-css-modules" }
     ],
+
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "snd-react-lib/*": [
+        "../../packages/snd-react-lib/src/*"
+      ],
     },
+
     // "baseUrl": "../../",
     // "paths": {
-    //   "@/*": ["/apps/snd-nextjs-app/src/*"],
+    //   "@/*": ["apps/snd-nextjs-app/src/*"],
     //   "snd-react-lib/*": [
-    //     "../../packages/snd-react-lib/src/*"
+    //     "packages/snd-react-lib/src/*"
     //   ],
+    //   // "snd-react-lib_test/*": [
+    //   //   "packages/snd-react-lib_test/src/*"
+    //   // ],
     // }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    // "packages/*/src"
+  ],
+  "exclude": ["node_modules"],
+  // "references": [
+  //   { "snd-react-lib_test": "packages/snd-react-lib" }
+  // ]
 }
