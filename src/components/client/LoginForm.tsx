@@ -13,7 +13,10 @@ export default function LoginForm() {
       <div>session: {JSON.stringify(session)}</div>
       <div>status: {status}</div>
       <div>
-        <Button onClick={() => signIn("google")}>SignIn</Button>
+        <Button onClick={() => signIn("google")}>SignIn Google</Button>
+      </div>
+      <div>
+        <Button onClick={() => signIn("linkedin")}>SignIn LinkedIn</Button>
       </div>
       <div>
         <Button onClick={() => signOut()}>SignOut</Button>

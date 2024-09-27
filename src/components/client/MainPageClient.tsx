@@ -22,7 +22,7 @@ const MainPageClient = ({ sections, footer }: any) => {
       <main className={css.main}>
         {/* <TextExt className="tw-text-lime-500" text="MyTextExt" /> */}
 
-        <Text className="tw-text-lime-500" text="MyText" />
+        {/* <Text className="tw-text-lime-500" text="MyText" /> */}
 
         <div className="tw-text-lime-500">
           <InputText

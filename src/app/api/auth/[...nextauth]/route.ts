@@ -1,15 +1,16 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import LinkedinProvider from "next-auth/providers/linkedin";
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/auth/signin",
   },
   secret: process.env.NEXTAUTH_SECRET as string,
   providers: [
     GoogleProvider({
-      clientId: process.env.NEXTAUTH_GOOGLE_ID as string,
-      clientSecret: process.env.NEXTAUTH_GOOGLE_SECRET as string,
+      clientId: process.env.NEXTAUTH_GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.NEXTAUTH_GOOGLE_CLIENT_SECRET as string,
       authorization: {
         params: {
           prompt: "consent",
@@ -18,7 +19,19 @@ export const authOptions = {
         },
       },
     }),
+    LinkedinProvider({
+      // https://www.linkedin.com/developers/apps/219502882/auth
+      // http://localhost:3000/api/auth/callback/linkedin
+      clientId: process.env.NEXTAUTH_LINKEDIN_CLIENT_ID as string,
+      clientSecret: process.env.NEXTAUTH_LINKEDIN_CLIENT_SECRET as string,
+    }),
   ],
+  session: {
+    strategy: "jwt",
+  },
+  jwt: {
+    secret: process.env.NEXTAUTH_SECRET,
+  },
   callbacks: {
     async signIn({ account, profile }: any) {
       if (account.provider === "google") {

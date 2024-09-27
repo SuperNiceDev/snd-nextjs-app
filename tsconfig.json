@@ -46,7 +46,7 @@
     // "packages/*/src"
   ],
   "exclude": ["node_modules"],
-  // "references": [
-  //   { "snd-react-lib_test": "packages/snd-react-lib" }
-  // ]
+  "references": [
+    { "path": "../../packages/snd-react-lib" }
+  ]
 }
