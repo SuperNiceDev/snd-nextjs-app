@@ -15,9 +15,11 @@ const config: Config = {
       //     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       // },
       colors: {
-        "lime-300": "#111",
-        "lime-500": "#666",
-        "lime-700": "#444",
+        lime: {
+          "300": "#111",
+          "500": "#666",
+          "700": "#444",
+        },
       },
       fontFamily: {
         display: ["var(--fontRoboto)", "serif"],

@@ -1,7 +1,9 @@
 "use client";
 
-import { purple } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
+import resolveConfig from "tailwindcss/resolveConfig";
+
+import tailwindConfig from "../../../../tailwind.config";
 
 // import { Roboto } from "next/font/google";
 
@@ -11,6 +13,8 @@ import { createTheme } from "@mui/material/styles";
 //   display: "swap",
 // });
 
+const fullTailwindConfig = resolveConfig(tailwindConfig);
+
 const theme = createTheme({
   // typography: {
   //   fontFamily: roboto.style.fontFamily,
@@ -19,23 +23,24 @@ const theme = createTheme({
     mode: "dark",
     // mode: "light",
     // background: {
-    //   default: "#222222",
+    //   default: "#___",
     // },
     text: {
-      // primary: purple[500],
+      // primary: "#___",
     },
     primary: {
-      light: "#757ce8",
-      main: purple[500],
-      dark: "#002884",
-      contrastText: "#fff",
+      // light: "#___",
+      // main: "#FF0000",
+      main: fullTailwindConfig.theme.colors.lime[700],
+      // dark: "#___",
+      // contrastText: "#___",
     },
-    secondary: {
-      light: "#ff7961",
-      main: "#f44336",
-      dark: "#ba000d",
-      contrastText: "#000",
-    },
+    // secondary: {
+    //   light: "#___",
+    //   main: "#___",
+    //   dark: "#___",
+    //   contrastText: "#___",
+    // },
   },
 });
 
