@@ -1,66 +1,17 @@
 "use client";
 
-import { Typography } from "@mui/material";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-//
-import InputText from "snd-react-lib/src/components/atoms/InputText";
-import Text from "snd-react-lib/src/components/atoms/Text";
+import MuiTest from "snd-react-lib/components/molecules/MuiTest";
 
-// import { TextExt } from "snd-react-lib_test/components/atoms/Text";
-//
 import css from "./MainPageClient.module.scss";
 
 const MainPageClient = ({ sections, footer }: any) => {
   // console.log("MainPageClient() sections: ", sections);
-  // console.log("MainPageClient() footer: ", footer);
 
   return (
     <div className={`${css.root} MainPageClient`}>
       {`<MainPageClient>`}
 
-      <main className={css.main}>
-        {/* <TextExt className="tw-text-lime-500" text="MyTextExt" /> */}
-
-        {/* <Text className="tw-text-lime-500" text="MyText" /> */}
-
-        <div className="tw-text-lime-500">
-          <InputText
-            className="tw-border-2 tw-border-slate-50 tw-text-lime-500"
-            placeholder="InputText placeholder"
-          />
-        </div>
-
-        <h1 className="tw-m-2 tw-text-3xl tw-font-bold tw-text-lime-700">
-          {sections?.map((item: any, idx: number) => {
-            return <div key={idx}>{item.text[0].children[0].text}</div>;
-          })}
-        </h1>
-
-        <h1 className="tw-m-2 tw-text-3xl tw-font-bold tw-text-lime-700">
-          {`Tailwind <h1/>`}
-        </h1>
-
-        <Typography
-          className="tw-m-3 tw-p-3 tw-text-3xl tw-font-bold tw-text-lime-700"
-          variant="h2"
-          gutterBottom
-        >
-          {`Mui <Typography/>`}
-        </Typography>
-
-        <Stack
-          className="tw-m-2 tw-text-3xl tw-font-bold tw-underline tw-text-lime-700"
-          spacing={2}
-          direction="column"
-        >
-          <Button variant="contained">Contained</Button>
-          <Button variant="outlined">Outlined</Button>
-          <Button className="tw-text-lime-700" variant="text">
-            Text
-          </Button>
-        </Stack>
-      </main>
+      <MuiTest />
 
       {`<Footer/>`}
       <br />

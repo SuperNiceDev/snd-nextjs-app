@@ -1,24 +1,23 @@
 "use client";
 
 import { createTheme } from "@mui/material/styles";
+import { Roboto } from "next/font/google";
 import resolveConfig from "tailwindcss/resolveConfig";
 
-import tailwindConfig from "../../../../tailwind.config";
+import tailwindConfig from "../../tailwind.config";
 
-// import { Roboto } from "next/font/google";
-
-// const roboto = Roboto({
-//   weight: ["300", "400", "500", "700"],
-//   subsets: ["latin"],
-//   display: "swap",
-// });
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const fullTailwindConfig = resolveConfig(tailwindConfig);
 
-const theme = createTheme({
-  // typography: {
-  //   fontFamily: roboto.style.fontFamily,
-  // },
+const muiTheme = createTheme({
+  typography: {
+    fontFamily: roboto.style.fontFamily,
+  },
   palette: {
     mode: "dark",
     // mode: "light",
@@ -30,7 +29,6 @@ const theme = createTheme({
     },
     primary: {
       // light: "#___",
-      // main: "#FF0000",
       main: fullTailwindConfig.theme.colors.lime[700],
       // dark: "#___",
       // contrastText: "#___",
@@ -44,4 +42,4 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+export default muiTheme;
