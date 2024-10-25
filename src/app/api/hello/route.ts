@@ -12,7 +12,7 @@ type ResponseData = {
   queryB: string;
 };
 
-async function handler(req: NextRequest, res: NextResponse) {
+async function handler(req: NextRequest) {
   if (req.method === "GET") {
     const searchParams = req.nextUrl.searchParams;
     const queryA = searchParams.get("a");
@@ -26,13 +26,21 @@ async function handler(req: NextRequest, res: NextResponse) {
       queryB,
     } as ResponseData;
 
-    return Response.json(res, {
+    return NextResponse.json(res, {
       status: 200,
       headers,
     });
   }
 
   if (req.method === "POST") {
+    // const { input } = await req.json();
+    // --- post request
+    // method: 'POST',
+    // headers: {
+    //   'Content-Type': 'application/json',
+    // },
+    // body: JSON.stringify({ input }),
+    // ---
     const formData = await req.formData();
     for (const entry of formData.entries()) {
       console.log(`/api/hello: ${entry[0]}:`, entry[1]);
