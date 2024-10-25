@@ -1,52 +1,85 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      },
-      { "name": "typescript-plugin-css-modules" }
-    ],
-
+    "jsx": "react-jsx",
+    // "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "snd-react-lib/*": [
-        "../../packages/snd-react-lib/src/*"
-      ],
+      "snd-react-lib/*": ["../snd-react-lib/src/*"]
     },
-
-    // "baseUrl": "../../",
-    // "paths": {
-    //   "@/*": ["apps/snd-nextjs-app/src/*"],
-    //   "snd-react-lib/*": [
-    //     "packages/snd-react-lib/src/*"
-    //   ],
-    //   // "snd-react-lib_test/*": [
-    //   //   "packages/snd-react-lib_test/src/*"
-    //   // ],
-    // }
+    "types": ["node"]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    // "packages/*/src"
-  ],
+  "include": ["packages/*", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
-  "references": [
-    { "path": "../../packages/snd-react-lib" }
-  ]
+  "plugins": [
+    {
+      "name": "next"
+    },
+    { "name": "typescript-plugin-css-modules" }
+  ],
 }
+
+// {
+//   "compilerOptions": {
+//     "lib": ["dom", "dom.iterable", "esnext"],
+//     "allowJs": true,
+//     "skipLibCheck": true,
+//     "strict": true,
+//     "noEmit": true,
+//     "esModuleInterop": true,
+//     "module": "esnext",
+//     "moduleResolution": "bundler",
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "jsx": "preserve",
+//     "incremental": true,
+//     "plugins": [
+//       {
+//         "name": "next"
+//       },
+//       { "name": "typescript-plugin-css-modules" }
+//     ],
+
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": ["./src/*"],
+//       "snd-react-lib/*": [
+//         "../../packages/snd-react-lib/src/*"
+//       ],
+//     },
+
+//     // "baseUrl": "../../",
+//     // "paths": {
+//     //   "@/*": ["apps/snd-nextjs-app/src/*"],
+//     //   "snd-react-lib/*": [
+//     //     "packages/snd-react-lib/src/*"
+//     //   ],
+//     //   // "snd-react-lib_test/*": [
+//     //   //   "packages/snd-react-lib_test/src/*"
+//     //   // ],
+//     // }
+//   },
+//   "include": [
+//     "next-env.d.ts",
+//     "**/*.ts",
+//     "**/*.tsx",
+//     ".next/types/**/*.ts",
+//     // "packages/*/src"
+//   ],
+//   "exclude": ["node_modules"],
+//   "references": [
+//     { "path": "../../packages/snd-react-lib" }
+//   ]
+// }
