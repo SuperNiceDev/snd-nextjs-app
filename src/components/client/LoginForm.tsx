@@ -9,18 +9,22 @@ export default function LoginForm() {
   console.log("status: ", status);
 
   return (
-    <>
-      <div>session: {JSON.stringify(session)}</div>
-      <div>status: {status}</div>
-      <div>
-        <Button onClick={() => signIn("google")}>SignIn Google</Button>
+    <div className="LoginForm">
+      {`<LoginForm>`}
+      <div className="tw-px-4">
+        <div>session: {JSON.stringify(session)}</div>
+        <div>status: {status}</div>
+        <div>
+          <Button onClick={() => signIn("google")}>SignIn Google</Button>
+        </div>
+        <div>
+          <Button onClick={() => signIn("linkedin")}>SignIn LinkedIn</Button>
+        </div>
+        <div>
+          <Button onClick={() => signOut()}>SignOut</Button>
+        </div>
       </div>
-      <div>
-        <Button onClick={() => signIn("linkedin")}>SignIn LinkedIn</Button>
-      </div>
-      <div>
-        <Button onClick={() => signOut()}>SignOut</Button>
-      </div>
-    </>
+      {`</LoginForm>`}
+    </div>
   );
 }

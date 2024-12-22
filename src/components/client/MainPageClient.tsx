@@ -12,12 +12,21 @@ const MainPageClient = ({ sections, footer }: any) => {
     <div className={`${css.root} MainPageClient`}>
       {`<MainPageClient>`}
 
-      <InputText />
+      <div className="tw-px-4">
+        InputText:{" "}
+        <span
+          className="tw-text-lime-700 tw-border tw-border-lime-700 tw-bg-gray-700"
+          style={{}}
+        >
+          <InputText
+            className="tw-text-lime-700 tw-border tw-border-lime-700 tw-bg-gray-700"
+            value="my value"
+          />
+        </span>
+        <MuiTest />
+        {`<Footer/>`}
+      </div>
 
-      <MuiTest />
-
-      {`<Footer/>`}
-      <br />
       {`</MainPageClient>`}
     </div>
   );
