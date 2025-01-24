@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import MainPageClient from "@/components/client/MainPageClient";
 
 export default async function MainPage({ params }: any) {
-  // const apiUrl = process.env.NEXT_PUBLIC_WEBSITE_API_URL;
+  // const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
   const slug = params?.slug?.join("/") || "";
   // const fields = `fields=*&populate[sections][fields]=*&populate[sections][populate][row]=*`;
   // let url = `${apiUrl}/pages?filters[slug][$eq]=${slug}&${fields}`;

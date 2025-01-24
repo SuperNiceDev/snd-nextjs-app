@@ -1,6 +1,9 @@
+import axios from "axios";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import LinkedinProvider from "next-auth/providers/linkedin";
+
+const STRAPI_DOMAIN = process.env.NEXT_PUBLIC_CMS_DOMAIN;
 
 export const authOptions: NextAuthOptions = {
   pages: {
@@ -34,10 +37,59 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async signIn({ account, profile }: any) {
+      // console.log("--------------------------------");
+      // console.log("signIn() account: ", account);
+      // console.log("--------------------------------");
       if (account.provider === "google") {
         return profile.email_verified;
       }
       return true;
+    },
+
+    async jwt({ token, account }) {
+      if (account) {
+        // console.log("--------------------------------");
+        // console.log("jwt() account: ", account);
+        // console.log("- - - - - - - - - - - - - - - -");
+
+        const strapiRes = await axios.get(
+          `${STRAPI_DOMAIN}/api/auth/${account?.provider}/callback?access_token=${account?.access_token}`,
+        );
+
+        const jwt = strapiRes.data.jwt;
+        // console.log("jwt() jwt: ", jwt);
+        // console.log("- - - - - - - - - - - - - - - -");
+
+        const res = await axios({
+          method: "PUT",
+          url: `${STRAPI_DOMAIN}/api/users/me`,
+          data: JSON.stringify({
+            lastLogin: new Date().getTime(),
+          }),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwt}`,
+          },
+        });
+
+        // console.log("session() res: ", res?.data);
+        // console.log("--------------------------------");
+      }
+
+      return token;
+    },
+
+    async session({ session, token, user }) {
+      // console.log("--------------------------------");
+      // console.log("session() session: ", session);
+      // console.log("- - - - - - - - - - - - - - - -");
+      // console.log("session() token: ", token);
+      // console.log("- - - - - - - - - - - - - - - -");
+      // console.log("session() user: ", user);
+      // console.log("--------------------------------");
+
+      // session.user = token;
+      return session;
     },
   },
 };

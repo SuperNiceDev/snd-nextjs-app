@@ -25,7 +25,7 @@ export default function RootLayout(
 ) {
   return (
     <html lang="en">
-      {/* <link rel="preconnect" href={process.env.NEXT_PUBLIC_WEBSITE_DOMAIN} /> */}
+      {/* <link rel="preconnect" href={process.env.NEXT_PUBLIC_CMS_DOMAIN} /> */}
       {/* <body className={`RootLayout ${roboto.variable}`}> */}
       <body className={`RootLayout`}>
         {/* <AppRouterCacheProvider

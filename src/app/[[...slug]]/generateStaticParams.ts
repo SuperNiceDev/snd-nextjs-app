@@ -4,7 +4,7 @@ import axios from "axios";
 // https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration#replacing-fallback
 
 export default async function generateStaticParams() {
-  // const url = `${process.env.NEXT_PUBLIC_WEBSITE_API_URL}/pages`;
+  // const url = `${process.env.NEXT_PUBLIC_CMS_API_URL}/pages`;
   // const res: any = await axios.get(url);
   const res = mock;
 
