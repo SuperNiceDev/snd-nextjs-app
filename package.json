@@ -5,11 +5,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "yarn cleanNextJs && NODE_OPTIONS='--inspect' next dev",
-    "build": "next build",
+    "dev": "yarn removeNextJsTmp && NODE_OPTIONS='--inspect' next dev",
+    "build": "yarn removeNextJsTmp && next build",
     "start": "next start",
     "lint": "next lint",
-    "cleanNextJs": "rm -rf ./.next",
+    "removeNextJsTmp": "rm -rf ./.next",
     "removeNodeModules": "rm -rf ./node_modules"
   },
   "dependencies": {
