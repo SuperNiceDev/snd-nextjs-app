@@ -19,6 +19,9 @@
       "@/*": ["./src/*"],
       "snd-react-lib/*": [
         "../../packages/snd-react-lib/src/*"
+      ],
+      "@src/*": [
+        "../../packages/snd-react-lib/src/*"
       ]
     },
     "types": [
