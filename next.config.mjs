@@ -4,70 +4,73 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // :::::::::::::::::::::::::::::::::::::::::::: webpack
+// @ts-check
 
-  // https://nextjs.org/docs/app/api-reference/config/next-config-js/webpack
-  webpack: (
-    config,
-    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },
-  ) => {
-    // config.module.rules.push({
-    //   test: /\.mdx/,
-    //   use: [
-    //     options.defaultLoaders.babel,
-    //     {
-    //       loader: "@mdx-js/loader",
-    //       options: pluginOptions.options,
-    //     },
-    //   ],
-    // });
-    return config;
-  },
+export default function nextConfigFunc(phase, { defaultConfig, ...rest }) {
+  console.log("phase: ", phase);
+  console.log("rest: ", rest);
 
-  // :::::::::::::::::::::::::::::::::::::::::::: transpile packages
+  /**
+   * @type {import('next').NextConfig}
+   */
+  const nextConfig = {
+    // :::::::::::::::::::::::::::::::::::::::::::: webpack
 
-  // https://nextjs.org/docs/app/api-reference/next-config-js/transpilePackages
-  transpilePackages: [
-    "snd-react-lib",
-    // "snd-react-lib_test",
-    // "lodash-es"
-  ],
+    // https://nextjs.org/docs/app/api-reference/config/next-config-js/webpack
+    webpack: (
+      config,
+      { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },
+    ) => {
+      // config.module.rules.push({
+      //   test: /\.mdx/,
+      //   use: [
+      //     options.defaultLoaders.babel,
+      //     {
+      //       loader: "@mdx-js/loader",
+      //       options: pluginOptions.options,
+      //     },
+      //   ],
+      // });
+      return config;
+    },
 
-  // experimental: {
-  //   externalDir: true,
-  // },
+    // :::::::::::::::::::::::::::::::::::::::::::: transpile packages
 
-  // :::::::::::::::::::::::::::::::::::::::::::: etags
+    // https://nextjs.org/docs/app/api-reference/next-config-js/transpilePackages
+    transpilePackages: [
+      "snd-react-lib",
+      // "lodash-es"
+    ],
 
-  // https://nextjs.org/docs/app/api-reference/next-config-js/generateEtags
-  // generateEtags: false,
+    // experimental: {
+    //   externalDir: true,
+    // },
 
-  // :::::::::::::::::::::::::::::::::::::::::::: standalone build
+    // :::::::::::::::::::::::::::::::::::::::::::: etags
 
-  // https://nextjs.org/docs/pages/api-reference/next-config-js/output#automatically-copying-traced-files
-  // https://mytchall.dev/removing-the-build-folders-when-deploying-next-js-on-plesk/
-  reactStrictMode: true,
-  swcMinify: true,
-  output: "standalone",
-  distDir: ".next",
+    // https://nextjs.org/docs/app/api-reference/next-config-js/generateEtags
+    // generateEtags: false,
 
-  // https://nextjs.org/docs/pages/api-reference/next-config-js/output#caveats
-  experimental: {
-    outputFileTracingRoot: path.join(__dirname, "../../../"),
+    // :::::::::::::::::::::::::::::::::::::::::::: standalone build
+
+    // https://nextjs.org/docs/app/api-reference/config/next-config-js/output
+    // https://mytchall.dev/removing-the-build-folders-when-deploying-next-js-on-plesk/
+    output: "standalone",
+
+    // https://nextjs.org/docs/pages/api-reference/next-config-js/output#caveats
+    // outputFileTracingRoot: path.join(__dirname, "../../../"),
     // outputFileTracingRoot: "../../../",
-  },
 
-  // :::::::::::::::::::::::::::::::::::::::::::: ignores
+    // :::::::::::::::::::::::::::::::::::::::::::: ignores
 
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
+    // typescript: {
+    //   ignoreBuildErrors: true,
+    // },
 
-  // eslint: {
-  //   ignoreDuringBuilds: true,
-  // },
-};
+    // eslint: {
+    //   ignoreDuringBuilds: true,
+    // },
+  };
 
-export default nextConfig;
+  return nextConfig;
+}

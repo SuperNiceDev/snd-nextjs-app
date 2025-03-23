@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "yarn removeNextJsTmp && NODE_OPTIONS='--inspect' next dev",
     "build": "yarn removeNextJsTmp && next build",
+    "build-standalone": "yarn removeNextJsTmp && next build && cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/",
     "start": "next start",
+    "start-standalone": "node .next/standalone/server.js",
     "lint": "next lint",
     "removeNextJsTmp": "rm -rf ./.next",
     "removeNodeModules": "rm -rf ./node_modules"

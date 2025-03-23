@@ -7,7 +7,7 @@ import LinkedinProvider, {
 
 const STRAPI_DOMAIN = process.env.NEXT_PUBLIC_CMS_DOMAIN;
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/auth/signin",
   },
