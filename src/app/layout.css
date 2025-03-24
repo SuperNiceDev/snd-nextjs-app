@@ -1,0 +1,27 @@
+@import "tailwindcss" important prefix(tw);
+
+@theme {
+  /* --color-lime-*: initial; */
+  --color-lime-700: rgba(255,0,0,0.3);
+  /* --color-lime-700: var(--color-red-200); */
+  /* --color-lime: rgb(255,0,0); */
+  /* --color-lime: #FF0000; */
+
+  /* --color-*: initial;
+  --color-lime: #FF0000; */
+}
+
+/* @theme static {
+  --color-primary: var(--color-red-500);
+  --color-secondary: var(--color-blue-500);
+} */
+
+/* :root {
+  --maxWidthDesktop: #{$maxWidthDesktop};
+  --colorBlack: #{$colorBlack};
+} */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

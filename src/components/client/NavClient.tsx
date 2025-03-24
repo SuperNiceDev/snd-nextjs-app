@@ -23,11 +23,11 @@ export default function NavClient({ items }: NavClientProps) {
   return (
     <AppBar
       className={clsx({
-        "!tw-bg-lime-300": true,
-        "tw-border-lime-500": true,
-        "tw-border-2": true,
-        "tw-text-lime-700": true,
-        "tw-font-display": true,
+        "tw:bg-lime-950": true,
+        "tw:border-lime-500": true,
+        "tw:border-2": true,
+        "tw:text-lime-700": true,
+        "tw:font-display": true,
       })}
       position="fixed"
     >
@@ -35,7 +35,7 @@ export default function NavClient({ items }: NavClientProps) {
         <Toolbar disableGutters>
           <Link href="/">
             <Typography
-              className="tw-font-display"
+              className="tw:font-display"
               variant="h6"
               noWrap
               // component="a"

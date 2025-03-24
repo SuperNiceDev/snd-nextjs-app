@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "../css/globals.scss";
+
+// @import "tailwindcss";
+@import "tailwindcss" prefix(tw);
 
 // :root {
 //   --foreground-rgb: 0, 0, 0;
@@ -32,7 +33,7 @@
 //   }
 // }
 
-@import "../css/globals.scss";
+
 
 :root {
   --maxWidthDesktop: #{$maxWidthDesktop};

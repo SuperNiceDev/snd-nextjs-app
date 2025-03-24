@@ -2,9 +2,11 @@
 
 import { createTheme } from "@mui/material/styles";
 import { Roboto } from "next/font/google";
-import resolveConfig from "tailwindcss/resolveConfig";
+import colors from "tailwindcss/colors";
 
-import tailwindConfig from "../../tailwind.config";
+// import resolveConfig from "tailwindcss/resolveConfig";
+
+// import tailwindConfig from "../../tailwind.config";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -12,7 +14,7 @@ const roboto = Roboto({
   display: "swap",
 });
 
-const fullTailwindConfig = resolveConfig(tailwindConfig);
+// const fullTailwindConfig = resolveConfig(tailwindConfig);
 
 const muiTheme = createTheme({
   typography: {
@@ -24,12 +26,17 @@ const muiTheme = createTheme({
     // background: {
     //   default: "#___",
     // },
-    text: {
-      // primary: "#___",
-    },
+    // text: {
+    //   primary: "#___",
+    // },
     primary: {
       // light: "#___",
-      main: fullTailwindConfig.theme.colors.lime[700],
+      // main: "#___",
+      // main: "#666",
+      main: "#FF0000",
+      // main: "--color-gray-950",
+      // main: colors.lime[700],
+      // main: fullTailwindConfig.theme.colors.lime[700],
       // dark: "#___",
       // contrastText: "#___",
     },

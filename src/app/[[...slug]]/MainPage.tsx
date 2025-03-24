@@ -5,7 +5,9 @@ import MainPageClient from "@/components/client/MainPageClient";
 
 export default async function MainPage({ params }: any) {
   // const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
-  const slug = params?.slug?.join("/") || "";
+
+  const { slug: pSlug } = await params;
+  const slug = pSlug?.join("/") || "";
   // const fields = `fields=*&populate[sections][fields]=*&populate[sections][populate][row]=*`;
   // let url = `${apiUrl}/pages?filters[slug][$eq]=${slug}&${fields}`;
   // if (!slug) {
@@ -37,6 +39,7 @@ export default async function MainPage({ params }: any) {
   const footer = mockFooter.data?.data?.attributes?.footer;
 
   return <MainPageClient sections={sections} footer={footer} />;
+  // return <div className="MainPage">MainPage</div>;
 }
 
 const mockPageData: any = {

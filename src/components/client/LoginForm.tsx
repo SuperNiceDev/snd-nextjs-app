@@ -11,7 +11,7 @@ export default function LoginForm() {
   return (
     <div className="LoginForm">
       {`<LoginForm>`}
-      <div className="tw-px-4">
+      <div className="tw:px-4">
         <div>session: {JSON.stringify(session)}</div>
         <div>status: {status}</div>
         <div>

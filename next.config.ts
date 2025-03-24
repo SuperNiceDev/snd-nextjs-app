@@ -1,38 +1,40 @@
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
+import type { NextConfig } from "next";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// import path, { dirname } from "path";
+// import { fileURLToPath } from "url";
 
-// @ts-check
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
-export default function nextConfigFunc(phase, { defaultConfig, ...rest }) {
-  console.log("phase: ", phase);
-  console.log("rest: ", rest);
+const nextConfigFunc = (
+  phase: string,
+  { defaultConfig }: { defaultConfig: NextConfig },
+) => {
+  // console.log("phase: ", phase);
+  // console.log("rest: ", rest);
 
-  /**
-   * @type {import('next').NextConfig}
-   */
-  const nextConfig = {
+  const nextConfig: NextConfig = {
+    ...defaultConfig,
+
     // :::::::::::::::::::::::::::::::::::::::::::: webpack
 
     // https://nextjs.org/docs/app/api-reference/config/next-config-js/webpack
-    webpack: (
-      config,
-      { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },
-    ) => {
-      // config.module.rules.push({
-      //   test: /\.mdx/,
-      //   use: [
-      //     options.defaultLoaders.babel,
-      //     {
-      //       loader: "@mdx-js/loader",
-      //       options: pluginOptions.options,
-      //     },
-      //   ],
-      // });
-      return config;
-    },
+    // webpack: (
+    //   config,
+    //   { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },
+    // ) => {
+    //   // config.module.rules.push({
+    //   //   test: /\.mdx/,
+    //   //   use: [
+    //   //     options.defaultLoaders.babel,
+    //   //     {
+    //   //       loader: "@mdx-js/loader",
+    //   //       options: pluginOptions.options,
+    //   //     },
+    //   //   ],
+    //   // });
+    //   return config;
+    // },
 
     // :::::::::::::::::::::::::::::::::::::::::::: transpile packages
 
@@ -55,7 +57,7 @@ export default function nextConfigFunc(phase, { defaultConfig, ...rest }) {
 
     // https://nextjs.org/docs/app/api-reference/config/next-config-js/output
     // https://mytchall.dev/removing-the-build-folders-when-deploying-next-js-on-plesk/
-    output: "standalone",
+    // output: "standalone",
 
     // https://nextjs.org/docs/pages/api-reference/next-config-js/output#caveats
     // outputFileTracingRoot: path.join(__dirname, "../../../"),
@@ -63,14 +65,16 @@ export default function nextConfigFunc(phase, { defaultConfig, ...rest }) {
 
     // :::::::::::::::::::::::::::::::::::::::::::: ignores
 
-    // typescript: {
-    //   ignoreBuildErrors: true,
-    // },
+    typescript: {
+      ignoreBuildErrors: true,
+    },
 
-    // eslint: {
-    //   ignoreDuringBuilds: true,
-    // },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
   };
 
   return nextConfig;
-}
+};
+
+export default nextConfigFunc;
