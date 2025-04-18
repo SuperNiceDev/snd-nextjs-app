@@ -13,16 +13,17 @@ const MainPageClient = ({ sections, footer }: any) => {
       {`<MainPageClient>`}
 
       <div className="tw-px-4">
-        InputText:{" "}
-        <span
-          className="tw-text-lime-700 tw-border tw-border-lime-700 tw-bg-gray-700"
-          style={{}}
-        >
-          <InputText
-            className="tw-text-lime-700 tw-border tw-border-lime-700 tw-bg-gray-700"
-            value="my value"
-          />
-        </span>
+        <div className="tw-mb-2">
+          {`<InputText>`}
+          <div>
+            <InputText
+              className="tw-px-2 tw-text-lime-700 tw-bg-gray-700 tw-border tw-border-lime-700"
+              placeholder="InputText placeholder prop test"
+              // value="InputText value prop test"
+            />
+          </div>
+          {`</InputText>`}
+        </div>
         <MuiTest />
         {`<Footer/>`}
       </div>
