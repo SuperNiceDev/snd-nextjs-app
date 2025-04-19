@@ -32,5 +32,6 @@
 
 code {
   color: var(--cst-color-code);
+  font-size: 12px;
   /* background-color: var(--cst-color-code-bg); */
 }
