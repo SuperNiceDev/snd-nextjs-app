@@ -57,7 +57,7 @@ const nextConfigFunc = (
 
     // https://nextjs.org/docs/app/api-reference/config/next-config-js/output
     // https://mytchall.dev/removing-the-build-folders-when-deploying-next-js-on-plesk/
-    // output: "standalone",
+    output: "standalone",
 
     // https://nextjs.org/docs/pages/api-reference/next-config-js/output#caveats
     // outputFileTracingRoot: path.join(__dirname, "../../../"),

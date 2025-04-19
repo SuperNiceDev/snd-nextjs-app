@@ -22,13 +22,13 @@ export default function NavClient({ items }: NavClientProps) {
 
   return (
     <AppBar
-      className={clsx({
-        "tw:bg-lime-950": true,
-        "tw:border-lime-500": true,
-        "tw:border-2": true,
-        "tw:text-lime-700": true,
-        "tw:font-display": true,
-      })}
+      // className={clsx({
+      //   "tw:bg-lime-100": true,
+      //   "tw:border-lime-500": true,
+      //   "tw:border-2": true,
+      //   "tw:text-lime-700": true,
+      //   "tw:font-display": true,
+      // })}
       position="fixed"
     >
       <Container maxWidth="xl">
@@ -57,7 +57,13 @@ export default function NavClient({ items }: NavClientProps) {
           <Box>
             {items?.map(({ title, slug }, idx) => (
               <Link href={slug} key={idx}>
-                <Button onClick={onCloseNavClose}>{title}</Button>
+                <Button
+                  variant="primary"
+                  // className="tw:text-lime-700_"
+                  onClick={onCloseNavClose}
+                >
+                  {title}
+                </Button>
               </Link>
             ))}
           </Box>

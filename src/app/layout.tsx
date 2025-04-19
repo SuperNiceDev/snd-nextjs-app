@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 // import { StyledEngineProvider } from "@mui/material";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { getServerSession } from "next-auth";
 
 // import { Roboto } from "next/font/google";
@@ -13,9 +13,9 @@ import NextAuthProvider from "../components/client/NextAuthProvider";
 import Nav from "../components/server/Nav";
 import MuiProvider from "./MuiProvider";
 import { authOptions } from "./api/auth/[...nextauth]/authOptions";
-// import "./layout.scss";
-
 import "./layout.css";
+
+// import "./layout.scss";
 
 // const roboto = Roboto({
 //   weight: ["300", "400", "500", "700"],

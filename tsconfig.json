@@ -22,7 +22,13 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "snd-react-lib/*": [
+        "../../packages/snd-react-lib/src/*"
+      ],
+      "@src/*": [
+        "../../packages/snd-react-lib/src/*"
+      ]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

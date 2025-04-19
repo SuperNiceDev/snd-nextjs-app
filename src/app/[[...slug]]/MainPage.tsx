@@ -39,7 +39,6 @@ export default async function MainPage({ params }: any) {
   const footer = mockFooter.data?.data?.attributes?.footer;
 
   return <MainPageClient sections={sections} footer={footer} />;
-  // return <div className="MainPage">MainPage</div>;
 }
 
 const mockPageData: any = {
