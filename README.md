@@ -311,7 +311,7 @@ cd /Applications
 - install:
   yarn add -D prettier eslint-config-prettier eslint-plugin-prettier @eslint/compat
 
-- add .prettierrc.js
+- add file .prettierrc.js
 
 - adjust eslint.config.mjs
 
@@ -321,10 +321,12 @@ cd /Applications
 - install:
   @trivago/prettier-plugin-sort-imports
 
-- adjust .prettierrc.js
+- adjust file .prettierrc.js
+  https://github.com/trivago/prettier-plugin-sort-imports?tab=readme-ov-file#install
 
 
 ## typescript css-modules
 
-- typescript-plugin-css-modules
+- install:
+  typescript-plugin-css-modules
   (use Workspace version of Type Script)
