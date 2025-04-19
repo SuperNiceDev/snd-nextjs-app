@@ -10,7 +10,7 @@ const MainPageClient = ({ sections, footer }: any) => {
 
   return (
     <div className={`${css.root} MainPageClient`}>
-      {`<MainPageClient>`}
+      <code>{`<MainPageClient>`}</code>
 
       <div className="tw:px-4 tw:flex">
         <div className="tw:w-1/2">
@@ -21,7 +21,7 @@ const MainPageClient = ({ sections, footer }: any) => {
         </div>
       </div>
 
-      {`</MainPageClient>`}
+      <code>{`</MainPageClient>`}</code>
     </div>
   );
 };

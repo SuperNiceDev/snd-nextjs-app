@@ -4,6 +4,9 @@
   --cst-color-100:  #ecdbc7;
   --cst-color-500:  #c59f74 ;
   --cst-color-700:  #ff8800;
+
+  --cst-color-code: #bbbbbb;
+  --cst-color-code-bg: #f5f5f5;
 }
 
 @theme {
@@ -26,3 +29,8 @@
   --color-primary: var(--cst-color-700);
   --color-secondary: var(--cst-color-700);
 } */
+
+code {
+  color: var(--cst-color-code);
+  /* background-color: var(--cst-color-code-bg); */
+}
