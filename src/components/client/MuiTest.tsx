@@ -3,8 +3,8 @@ import React from "react";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import InputText from "@src/components/atoms/InputText";
-import Text from "@src/components/atoms/Text";
+// import InputText from "@src/components/atoms/InputText";
+// import Text from "@src/components/atoms/Text";
 
 export default function MuiTest() {
   return (
@@ -12,13 +12,13 @@ export default function MuiTest() {
       <code>{`<MuiTest>`}</code>
 
       <main className={`tw:px-4`}>
-        <div className="tw:mb-2">
+        {/* <div className="tw:mb-2">
           <code>{`<Text> (snd-react-lib)`}</code>
           <Text className="tw:text-lime-700_" text="Text prop text test" />
           <code>{`</Text>`}</code>
-        </div>
+        </div> */}
 
-        <div className="tw:mb-2">
+        {/* <div className="tw:mb-2">
           <code>{`<InputText> (snd-react-lib)`}</code>
           <div>
             <InputText
@@ -28,7 +28,7 @@ export default function MuiTest() {
             />
           </div>
           <code>{`</InputText>`}</code>
-        </div>
+        </div> */}
 
         <div className="tw:mb-2">
           <code>{`<h1>`}</code>

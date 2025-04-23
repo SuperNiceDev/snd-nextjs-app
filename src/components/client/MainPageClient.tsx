@@ -1,6 +1,6 @@
 "use client";
 
-import MuiTest from "snd-react-lib/components/molecules/MuiTest";
+// import MuiTest from "snd-react-lib/components/molecules/MuiTest";
 
 import css from "./MainPageClient.module.scss";
 import MuiTestLocal from "./MuiTest";
@@ -17,7 +17,7 @@ const MainPageClient = ({ sections, footer }: any) => {
           <MuiTestLocal />
         </div>
         <div className="tw:w-1/2">
-          <MuiTest />
+          {/* <MuiTest /> */}
         </div>
       </div>
 

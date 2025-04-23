@@ -18,20 +18,20 @@ export const authOptions: NextAuthOptions = {
       // https://console.cloud.google.com/auth/clients/551670901458-q7q1j4c7f1rs187o7hi8gcsei64be523.apps.googleusercontent.com
       clientId: process.env.NEXTAUTH_GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.NEXTAUTH_GOOGLE_CLIENT_SECRET as string,
-      authorization: {
-        params: {
-          prompt: "consent",
-          access_type: "offline",
-          response_type: "code",
-        },
-      },
+      // authorization: {
+      //   params: {
+      //     prompt: "consent",
+      //     access_type: "offline",
+      //     response_type: "code",
+      //   },
+      // },
     }),
     LinkedinProvider({
       // https://next-auth.js.org/providers/linkedin
       // https://www.linkedin.com/developers/apps/219502882/auth
       clientId: process.env.NEXTAUTH_LINKEDIN_CLIENT_ID as string,
       clientSecret: process.env.NEXTAUTH_LINKEDIN_CLIENT_SECRET as string,
-      issuer: "https://www.linkedin.com",
+      // issuer: "https://www.linkedin.com",
       profile: (profile: LinkedInProfile) => ({
         id: profile.sub,
         name: profile.name,
@@ -66,6 +66,8 @@ export const authOptions: NextAuthOptions = {
 
     async jwt({ account, token }) {
       console.log("-------------------------------");
+      console.log("------------------------------- jwt() - start");
+      console.log("-------------------------------");
       console.log("jwt() account: ", account);
       console.log("- - - - - - - - - - - - - - - -");
       console.log("jwt() token: ", token);
@@ -82,6 +84,7 @@ export const authOptions: NextAuthOptions = {
           "jwt() strapi /api/auth/ strapiAuthRes.data: ",
           strapiAuthRes.data,
         );
+        console.log("- - - - - - - - - - - - - - - -");
         const strapiJwt = strapiAuthRes.data?.jwt;
         console.log("jwt() strapi /api/auth/ strapiJwt: ", strapiJwt);
         console.log("- - - - - - - - - - - - - - - -");
@@ -101,10 +104,13 @@ export const authOptions: NextAuthOptions = {
             },
           });
           console.log("jwt() strapi /api/users/me : ", strapiUsersMeRes?.data);
-          console.log("-------------------------------");
+          console.log("- - - - - - - - - - - - - - - -");
         }
       }
-
+      
+      console.log("-------------------------------");
+      console.log("------------------------------- jwt() - end");
+      console.log("-------------------------------");
       return token;
     },
 
