@@ -8,7 +8,7 @@ const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 
 export default async function MainPage({ params }: any) {
   const { slug: pSlug } = await params;
-  const slug = pSlug?.join("/") || "";
+  const slug = `/${pSlug?.join("/") || ""}`;
   // console.log("MainPage() slug: ", slug);
 
   const filters = `filters[slug][$eq]=${slug}`;
@@ -48,7 +48,7 @@ export default async function MainPage({ params }: any) {
     : resData?.attributes;
   const sections = attributes?.sections;
 
-  console.log("MainPage() attributes:   ", attributes);
+  // console.log("MainPage() attributes:   ", attributes);
   // console.log("MainPage() sections:   ", sections);
 
   // const footerApiUrl = `${apiUrl}/global?${locale}&populate[footer][populate]=*`;

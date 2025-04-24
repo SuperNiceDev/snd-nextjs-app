@@ -1,63 +1,42 @@
+"use server";
+
 import axios from "axios";
+import { headers } from "next/headers";
 
 import NavClient from "@/components/client/NavClient";
-
-const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
+import getNavRestApiUrl from "@/utils/getNavRestApiUrl";
 
 export default async function Nav() {
-  const locale = ``;
-  // const locale = `locale=de`;
-  const rootFields = `&populate[navigation][populate]=*`;
-  // const rootFields = `&populate[navigation][populate][page]=*`;
-  const deepFields = ``;
-  // const deepFields = `&populate=page`;
-  const fields = `${rootFields}${deepFields}`;
-  const url = `${apiUrl}/global?${locale}${fields}`;
-
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname");
+  const url = getNavRestApiUrl(pathname);
   const res: any = await axios.get(url);
   const resData = res.data?.data?.attributes;
-  const navItems = resData?.navigation?.items;
-
-  // console.log("Nav() resData?.navigation: ", resData?.navigation);
-  // navItems?.forEach((item: any) => {
-  //   console.log("Nav() navItems item: ", item);
-  // });
-
-  // const items = navItems?.map?.((item: any) => {
-  //   return {
-  //     title: item?.label || "",
-  //     slug: `/${item?.page?.data?.attributes?.slug || ""}`,
-  //     href: item?.href || "",
-  //   };
-  // });
-
-  const items = [
-    {
-      title: "About",
-      slug: `/about`,
-      href: "",
-    },
-    {
-      title: "Über uns",
-      slug: `/de/ueber-uns`,
-      href: "",
-    },
-    {
-      title: "NoPage",
-      slug: `/no-page`,
-      href: "",
-    },
-    {
-      title: "nav 3",
-      slug: ``,
-      href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-    },
-    {
-      title: "Signin",
-      slug: `/auth/signin`,
-      href: "",
-    },
-  ];
+  const items = resData?.navigation?.items;
 
   return <NavClient items={items} />;
 }
+
+const items = [
+  {
+    title: "About",
+    href: `/about`,
+  },
+  {
+    title: "Über uns",
+    href: `/de/ueber-uns`,
+  },
+  {
+    title: "NoPage",
+    href: `/no-page`,
+  },
+  {
+    title: "mozilla.org",
+    href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    target: "_blank",
+  },
+  {
+    title: "Signin",
+    slug: `/auth/signin`,
+  },
+];

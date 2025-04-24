@@ -18,6 +18,16 @@ const Main = ({ sections }: MainProps) => {
       <code>{`<Main>`}</code>
 
       <div className="tw:px-4 tw:flex">
+        {sections?.map((item: any, idx: number) => {
+          return (
+            <div key={idx} className="">
+              {JSON.stringify(item)}
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="tw:px-4 tw:flex">
         <div className="tw:w-1/2">
           <MuiTestLocal />
         </div>

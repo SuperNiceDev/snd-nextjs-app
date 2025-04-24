@@ -1,24 +1,56 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
+import axios from "axios";
 // import Typography from "@mui/material/Typography";
 import clsx from "clsx";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import getNavRestApiUrl from "@/utils/getNavRestApiUrl";
 
 type NavClientProps = {
-  items: { title: string; slug: string }[];
+  items: { title: string; href?: string; target?: string }[];
 };
 
-export default function NavClient({ items }: NavClientProps) {
-  const onCloseNavClose = () => {
-    // console.log("onCloseNavClose() ");
+export default function NavClient({ items: itemsProps }: NavClientProps) {
+  const [navItems, setNavItems] = useState<any[] | undefined>(itemsProps);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const callApi = async () => {
+      const url = getNavRestApiUrl(pathname);
+      const res: any = await axios.get(url);
+      const resData = res.data?.data?.attributes;
+      const navItems = resData?.navigation?.items;
+      setNavItems(navItems);
+    };
+
+    callApi();
+  }, [pathname]);
+
+  const onBtnClick = () => {
+    // console.log("onBtnClick() ");
   };
+
+  const items = navItems?.map?.((item: any) => {
+    const { label, href, target } = item;
+    const slug = item?.page?.data?.attributes?.slug || "";
+
+    return {
+      title: label,
+      href: slug || href || "/",
+      target,
+    };
+  });
+
+  // console.log("NavClient() itemsProps: ", itemsProps);
 
   return (
     <AppBar
@@ -33,41 +65,13 @@ export default function NavClient({ items }: NavClientProps) {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link href="/">
-            {/* <Typography
-              className="tw:font-display"
-              variant="h6"
-              noWrap
-              // component="a"
-              // href="/"
-              sx={{
-                mr: 2,
-                // display: { xs: "none", md: "flex" },
-                // fontFamily: "monospace",
-                // fontWeight: 700,
-                // letterSpacing: ".3rem",
-                // color: "inherit",
-                // textDecoration: "none",
-              }}
-            >
-              Home
-            </Typography> */}
-            <Button
-              variant="outlined"
-              // className="tw:text-lime-700"
-              onClick={onCloseNavClose}
-            >
-              Home
-            </Button>
-          </Link>
-
           <Box>
-            {items?.map(({ title, slug }, idx) => (
-              <Link href={slug} key={idx}>
+            {items?.map(({ title, href = "", target }, idx) => (
+              <Link key={idx} href={href} target={target}>
                 <Button
                   variant="outlined"
                   // className="tw:text-lime-700"
-                  onClick={onCloseNavClose}
+                  onClick={onBtnClick}
                 >
                   {title}
                 </Button>
