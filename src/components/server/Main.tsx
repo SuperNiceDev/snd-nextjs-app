@@ -9,9 +9,9 @@ type MainProps = {
 const Main = ({ sections }: MainProps) => {
   // console.log("Main() sections: ", sections);
 
-  sections?.forEach((section) => {
-    console.log("section: ", section);
-  });
+  // sections?.forEach((section) => {
+  //   console.log("section: ", section);
+  // });
 
   return (
     <main className={`${css.root} Main tw:pt-20 tw:text-lime-700`}>

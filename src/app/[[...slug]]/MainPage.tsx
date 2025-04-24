@@ -9,7 +9,7 @@ const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 export default async function MainPage({ params }: any) {
   const { slug: pSlug } = await params;
   const slug = pSlug?.join("/") || "";
-  console.log("MainPage() slug: ", slug);
+  // console.log("MainPage() slug: ", slug);
 
   // --------------------------------------
 
@@ -50,16 +50,6 @@ export default async function MainPage({ params }: any) {
   const resData = res.data?.data;
   // console.log("MainPage() resData: ", resData);
 
-  // console.log("--------------------------------------");
-  // console.log("--------------------------------------");
-  // console.log("--------------------------------------");
-  // console.log("slug: ", slug);
-  // console.log("url: ", url);
-  // console.log("resData: ", resData);
-  // console.log("--------------------------------------");
-  // console.log("--------------------------------------");
-  // console.log("--------------------------------------");
-
   if ((slug && !resData?.length) || (!slug && !resData)) {
     notFound();
   }
@@ -70,7 +60,7 @@ export default async function MainPage({ params }: any) {
 
   const sections = attributes?.sections;
 
-  console.log("MainPage() attributes:   ", attributes);
+  // console.log("MainPage() attributes:   ", attributes);
   // console.log("MainPage() sections:   ", sections);
 
   // const footerApiUrl = `${apiUrl}/global?populate[0]=footer&populate[1]=footer.nav`;

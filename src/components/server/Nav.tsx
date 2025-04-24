@@ -4,21 +4,26 @@ import NavClient from "@/components/client/NavClient";
 
 const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 
-export default async function Nav({ params }: any) {
-  // console.log("Nav() params: ", params);
+export default async function Nav() {
+  const locale = ``;
+  // const locale = `locale=de`;
+  const rootFields = `&populate[navigation][populate]=*`;
+  // const rootFields = `&populate[navigation][populate][page]=*`;
+  const deepFields = ``;
+  // const deepFields = `&populate=page`;
+  const fields = `${rootFields}${deepFields}`;
+  const url = `${apiUrl}/global?${locale}${fields}`;
 
-  // const url = `${apiUrl}/global?populate[0]=navigation&populate[1]=navigation.items&populate[2]=navigation.items.page&populate[3]=footer`;
-  // const url = `${apiUrl}/global?populate[0]=navigation&populate[1]=navigation.items&populate[2]=navigation.items.page`;
-  const url = `${apiUrl}/global?locale=de&populate[navigation][populate]=*`;
-  // const url = `${apiUrl}/pages`;
   const res: any = await axios.get(url);
   const resData = res.data?.data?.attributes;
-  const navigation = resData?.navigation?.items;
-  // console.log("Nav() resData: ", resData);
-  console.log("Nav() navigation: ", navigation);
+  const navItems = resData?.navigation?.items;
+  // console.log("Nav() resData?.navigation: ", resData?.navigation);
 
-  // const navigation = res?.data?.data?.attributes?.navigation?.items;
-  // const items = navigation?.map?.((item: any) => {
+  navItems?.forEach((item: any) => {
+    console.log("navItems item: ", item);
+  });
+
+  // const items = navItems?.map?.((item: any) => {
   //   return {
   //     title: item?.label || "",
   //     slug: `/${item?.page?.data?.attributes?.slug || ""}`,
