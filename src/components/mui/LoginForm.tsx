@@ -10,7 +10,7 @@ export default function LoginForm() {
 
   return (
     <div className="LoginForm">
-      {`<LoginForm>`}
+      <code>{`<LoginForm>`}</code>
       <div className="tw:px-4">
         <div>session: {JSON.stringify(session)}</div>
         <div>status: {status}</div>
@@ -24,7 +24,7 @@ export default function LoginForm() {
           <Button onClick={() => signOut()}>SignOut</Button>
         </div>
       </div>
-      {`</LoginForm>`}
+      <code>{`<LoginForm>`}</code>
     </div>
   );
 }

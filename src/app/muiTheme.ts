@@ -21,8 +21,7 @@ const muiTheme = createTheme({
     fontFamily: roboto.style.fontFamily,
   },
   palette: {
-    // mode: "dark",
-    // mode: "light",
+    mode: "dark",
     // background: {
     //   default: "#___",
     // },

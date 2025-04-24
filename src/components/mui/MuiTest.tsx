@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import { Typography } from "@mui/material";
@@ -6,9 +8,11 @@ import Stack from "@mui/material/Stack";
 import InputText from "snd-react-lib/components/atoms/InputText";
 import Text from "snd-react-lib/components/atoms/Text";
 
+import BasicSelect from "@/components/mui/BasicSelect";
+
 export default function MuiTest() {
   return (
-    <div className={`MuiTest`}>
+    <div className="MuiTest">
       <code>{`<MuiTest>`}</code>
 
       <div className={`tw:px-4`}>
@@ -48,6 +52,12 @@ export default function MuiTest() {
             {`Mui <Typography variant="h1" />`}
           </Typography>
           <code>{`</Typography>`}</code>
+        </div>
+
+        <div className="tw:mb-2">
+          <code>{`<BasicSelect>`}</code>
+          <BasicSelect />
+          <code>{`</BasicSelect>`}</code>
         </div>
 
         <div className="tw:mb-2">

@@ -1,13 +1,13 @@
-import LoginForm from "../../../components/client/LoginForm";
+import LoginForm from "@/components/mui/LoginForm";
 
 export default async function SignInPage() {
   return (
-    <div className="SignInPage tw:mt-10 tw:p-5 tw:pt-40">
-      {`<SignInPage>`}
+    <div className="SignInPage tw:pt-20">
+      <code>{`<SignInPage>`}</code>
       <div className="tw:px-4">
         <LoginForm />
       </div>
-      {`</SignInPage>`}
+      <code>{`</SignInPage>`}</code>
     </div>
   );
 }

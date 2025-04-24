@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-import cmsRedirectsMw from "./middlewares/cmsRedirectsMw";
+import cmsRedirectsMw from "./middleware/cmsRedirectsMw";
 
 const middleware = async (req: NextRequest) => {
   // await cmsRedirectsMw(req);

@@ -2,14 +2,12 @@ import { ReactNode } from "react";
 
 import { getServerSession } from "next-auth";
 
-// import MuiProvider from "snd-react-lib/src/context/MuiProvider";
-
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import muiTheme from "@/app/muiTheme";
+import Nav from "@/components/server/Nav";
+import MuiProvider from "@/provider/MuiProvider";
+import NextAuthProvider from "@/provider/NextAuthProvider";
 
-import NextAuthProvider from "../components/client/NextAuthProvider";
-import Nav from "../components/server/Nav";
-import MuiProvider from "./MuiProvider";
-import { authOptions } from "./api/auth/[...nextauth]/authOptions";
 import "./layout.css";
 
 // import "./layout.scss";

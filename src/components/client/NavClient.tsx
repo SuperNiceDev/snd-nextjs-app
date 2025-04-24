@@ -17,18 +17,18 @@ type NavClientProps = {
 
 export default function NavClient({ items }: NavClientProps) {
   const onCloseNavClose = () => {
-    console.log("onCloseNavClose() ");
+    // console.log("onCloseNavClose() ");
   };
 
   return (
     <AppBar
-      // className={clsx({
-      //   "tw:bg-lime-100": true,
-      //   "tw:border-lime-500": true,
-      //   "tw:border-2": true,
-      //   "tw:text-lime-700": true,
-      //   "tw:font-display": true,
-      // })}
+      className={clsx({
+        // "tw:text-lime-700": true,
+        // "tw:bg-lime-100": true,
+        // "tw:border-lime-500": true,
+        // "tw:border-2": true,
+        // "tw:font-display": true,
+      })}
       position="fixed"
     >
       <Container maxWidth="xl">
@@ -59,7 +59,7 @@ export default function NavClient({ items }: NavClientProps) {
               <Link href={slug} key={idx}>
                 <Button
                   variant="primary"
-                  // className="tw:text-lime-700_"
+                  // className="tw:text-lime-700"
                   onClick={onCloseNavClose}
                 >
                   {title}
