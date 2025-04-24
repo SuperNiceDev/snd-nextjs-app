@@ -38,7 +38,7 @@ export default async function MainPage({ params }: any) {
   // const footer = footerApiRes.data?.data?.attributes?.footer;
   const footer = mockFooter.data?.data?.attributes?.footer;
 
-  return <MainPageClient sections={sections} footer={footer} />;
+  return <MainPageClient sections={sections} />;
 }
 
 const mockPageData: any = {

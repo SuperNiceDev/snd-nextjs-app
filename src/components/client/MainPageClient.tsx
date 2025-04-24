@@ -4,11 +4,11 @@
 import css from "./MainPageClient.module.scss";
 import MuiTestLocal from "./MuiTest";
 
-const MainPageClient = ({ sections, footer }: any) => {
-  // console.log("MainPageClient() sections: ", sections);
+const MainPageClient = ({ sections }: any) => {
+  console.log("MainPageClient() sections: ", sections);
 
   return (
-    <div className={`${css.root} MainPageClient`}>
+    <main className={`${css.root} MainPageClient`}>
       <code>{`<MainPageClient>`}</code>
 
       <div className="tw:px-4 tw:flex">
@@ -19,7 +19,7 @@ const MainPageClient = ({ sections, footer }: any) => {
       </div>
 
       <code>{`</MainPageClient>`}</code>
-    </div>
+    </main>
   );
 };
 

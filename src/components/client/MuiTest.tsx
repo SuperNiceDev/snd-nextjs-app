@@ -8,10 +8,10 @@ import Text from "snd-react-lib/components/atoms/Text";
 
 export default function MuiTest() {
   return (
-    <div className={``}>
+    <div className={`MuiTest`}>
       <code>{`<MuiTest>`}</code>
 
-      <main className={`tw:px-4`}>
+      <div className={`tw:px-4`}>
         <div className="tw:mb-2">
           <code>{`<Text> (snd-react-lib)`}</code>
           <Text className="tw:text-lime-700_" text="Text prop text test" />
@@ -65,7 +65,7 @@ export default function MuiTest() {
           </Stack>
           <code>{`</Stack>`}</code>
         </div>
-      </main>
+      </div>
 
       <code>{`</MuiTest>`}</code>
     </div>
