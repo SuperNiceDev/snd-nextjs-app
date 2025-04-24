@@ -10,6 +10,8 @@ const STRAPI_DOMAIN = process.env.NEXT_PUBLIC_CMS_DOMAIN;
 export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/auth/signin",
+    signOut: "/auth/signin",
+    error: "/auth/error",
   },
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
@@ -107,7 +109,7 @@ export const authOptions: NextAuthOptions = {
           console.log("- - - - - - - - - - - - - - - -");
         }
       }
-      
+
       console.log("-------------------------------");
       console.log("------------------------------- jwt() - end");
       console.log("-------------------------------");
