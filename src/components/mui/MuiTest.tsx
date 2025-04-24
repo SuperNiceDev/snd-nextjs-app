@@ -67,9 +67,22 @@ export default function MuiTest() {
             spacing={2}
             direction="column"
           >
-            <Button variant="contained">Button variant Contained</Button>
-            <Button variant="outlined">Button variant Outlined</Button>
-            <Button className="tw:text-lime-700__" variant="text">
+            <Button
+              className="tw:text-lime-700_ tw:bg-lime-700_"
+              variant="contained"
+            >
+              Button variant Contained
+            </Button>
+            <Button
+              className="tw:text-lime-700_ tw:bg-lime-700_"
+              variant="outlined"
+            >
+              Button variant Outlined
+            </Button>
+            <Button
+              className="tw:text-lime-700_ tw:bg-lime-700_"
+              variant="text"
+            >
               Button variant Text
             </Button>
           </Stack>

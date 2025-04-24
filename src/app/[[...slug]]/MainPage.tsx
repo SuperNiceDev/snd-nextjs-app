@@ -11,7 +11,10 @@ export default async function MainPage({ params }: any) {
   const slug = pSlug?.join("/") || "";
   // console.log("MainPage() slug: ", slug);
 
-  // --------------------------------------
+  const filters = `filters[slug][$eq]=${slug}`;
+
+  // const locale = ``;
+  const locale = pSlug?.[0] === "de" ? `&locale=de` : "";
 
   const rootFields = ``;
   // const rootFields = `&fields[0]=title`;
@@ -19,7 +22,7 @@ export default async function MainPage({ params }: any) {
 
   const sectionsFields = `&populate[sections][populate]=*`;
   // https://docs-v4.strapi.io/dev-docs/api/rest/populate-select#population
-  // populate[dynamic-zone-name][populate]=*
+  // &populate[dynamic-zone-name][populate]=*
 
   // const fields = ``;
   const fields = `${rootFields}${sectionsFields}`;
@@ -27,24 +30,10 @@ export default async function MainPage({ params }: any) {
   const publicationState = ``;
   // const publicationState = `&publicationState=live`;
 
-  // const locale = ``;
-  // const locale = `&locale=en`;
-  const locale = pSlug?.[0] === "de" ? `&locale=de` : "";
-
-  let url = `${apiUrl}/pages?filters[slug][$eq]=${slug}${locale}${fields}${publicationState}`;
+  let url = `${apiUrl}/pages?${filters}${locale}${fields}${publicationState}`;
   if (!slug) {
-    url = `${apiUrl}/pages/1?${fields}${publicationState}${locale}`;
+    url = `${apiUrl}/pages/1?${locale}${fields}${publicationState}`;
   }
-
-  // --------------------------------------
-
-  // const fields = `fields=*&populate[sections][fields]=*&populate[sections][populate][row]=*`;
-  // let url = `${apiUrl}/pages?filters[slug][$eq]=${slug}&${fields}`;
-  // if (!slug) {
-  //   url = `${apiUrl}/pages/1?${fields}`;
-  // }
-
-  // --------------------------------------
 
   const res: any = await axios.get(url);
   const resData = res.data?.data;
@@ -57,16 +46,18 @@ export default async function MainPage({ params }: any) {
   const attributes = resData?.length
     ? resData?.[0]?.attributes
     : resData?.attributes;
-
   const sections = attributes?.sections;
 
-  // console.log("MainPage() attributes:   ", attributes);
+  console.log("MainPage() attributes:   ", attributes);
   // console.log("MainPage() sections:   ", sections);
 
-  // const footerApiUrl = `${apiUrl}/global?populate[0]=footer&populate[1]=footer.nav`;
+  // const footerApiUrl = `${apiUrl}/global?${locale}&populate[footer][populate]=*`;
   // const footerApiRes: any = await axios.get(footerApiUrl);
-  // const footer = footerApiRes.data?.data?.attributes?.footer;
-  // const footer = mockFooter.data?.data?.attributes?.footer;
+  // const footerRes = footerApiRes.data?.data?.attributes?.footer;
+  // console.log("MainPage() footerRes:   ", footerRes);
+  // footerRes?.nav?.forEach((item: any) => {
+  //   console.log("MainPage() footer item: ", item);
+  // });
 
   // return <MainPageClient sections={sections} />;
   return <Main sections={sections} />;

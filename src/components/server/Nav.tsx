@@ -17,11 +17,11 @@ export default async function Nav() {
   const res: any = await axios.get(url);
   const resData = res.data?.data?.attributes;
   const navItems = resData?.navigation?.items;
-  console.log("Nav() resData?.navigation: ", resData?.navigation);
 
-  navItems?.forEach((item: any) => {
-    console.log("navItems item: ", item);
-  });
+  // console.log("Nav() resData?.navigation: ", resData?.navigation);
+  // navItems?.forEach((item: any) => {
+  //   console.log("Nav() navItems item: ", item);
+  // });
 
   // const items = navItems?.map?.((item: any) => {
   //   return {
