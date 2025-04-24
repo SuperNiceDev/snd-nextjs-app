@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -23,7 +23,7 @@ export default function NavClient({ items }: NavClientProps) {
   return (
     <AppBar
       className={clsx({
-        // "tw:text-lime-700": true,
+        "tw:text-lime-700": true,
         // "tw:bg-lime-100": true,
         // "tw:border-lime-500": true,
         // "tw:border-2": true,
@@ -34,7 +34,7 @@ export default function NavClient({ items }: NavClientProps) {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link href="/">
-            <Typography
+            {/* <Typography
               className="tw:font-display"
               variant="h6"
               noWrap
@@ -51,14 +51,21 @@ export default function NavClient({ items }: NavClientProps) {
               }}
             >
               Home
-            </Typography>
+            </Typography> */}
+            <Button
+              variant="outlined"
+              // className="tw:text-lime-700"
+              onClick={onCloseNavClose}
+            >
+              Home
+            </Button>
           </Link>
 
           <Box>
             {items?.map(({ title, slug }, idx) => (
               <Link href={slug} key={idx}>
                 <Button
-                  variant="primary"
+                  variant="outlined"
                   // className="tw:text-lime-700"
                   onClick={onCloseNavClose}
                 >
