@@ -1,19 +1,14 @@
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const urlParamsMw = async (req: NextRequest) => {
+const urlParamsMw = (req: NextRequest) => {
   const url = new URL(req.url);
-  const requestHeaders = new Headers(req.headers);
-  requestHeaders.set("x-url", req.url);
-  requestHeaders.set("x-pathname", url.pathname);
-  requestHeaders.set("x-search", url.search);
-  requestHeaders.set("x-searchParams", url.searchParams.toString());
+  const headers = new Headers(req.headers);
+  headers.set("x-url", req.url);
+  headers.set("x-pathname", url.pathname);
+  headers.set("x-search", url.search);
+  headers.set("x-searchParams", url.searchParams.toString());
 
-  return NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
+  return headers;
 };
 
 export default urlParamsMw;

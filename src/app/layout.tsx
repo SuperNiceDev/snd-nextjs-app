@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import { getServerSession } from "next-auth";
 
-import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions/authOptions";
 import muiTheme from "@/app/muiTheme";
 import Nav from "@/components/server/Nav";
 import MuiProvider from "@/provider/MuiProvider";
