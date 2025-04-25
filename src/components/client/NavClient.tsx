@@ -8,7 +8,6 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import axios from "axios";
-// import Typography from "@mui/material/Typography";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
