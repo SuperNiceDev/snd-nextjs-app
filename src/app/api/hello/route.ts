@@ -17,8 +17,8 @@ async function handler(req: NextRequest) {
 
     const res = {
       message: "Response from GET /api/hello/",
-      paramA,
-      paramB,
+      a: paramA,
+      b: paramB,
     };
 
     return NextResponse.json(res, {
@@ -36,6 +36,7 @@ async function handler(req: NextRequest) {
     if (isJson) {
       const json = await req.json();
       console.log("POST /api/hello: json: ", json);
+
       return new NextResponse(
         JSON.stringify({
           message: "Response from POST /api/hello/ json",
@@ -52,14 +53,16 @@ async function handler(req: NextRequest) {
     const isFormData = contentType.indexOf("multipart/form-data") > -1;
     if (isFormData) {
       const formData = await req.formData();
+      // const formDataTmp = formData?.get("myFileName.suffix");
+
       const jsonObj: any = {
         message: "Response from POST /api/hello/ formData",
       };
+
       for (const entry of formData.entries()) {
         console.log(`POST /api/hello: ${entry[0]}:`, entry[1]);
         jsonObj[entry[0]] = entry[1];
       }
-      // const formDataTmp = formData?.get("myFileName.suffix");
 
       return new NextResponse(JSON.stringify(jsonObj), {
         status: 200,
