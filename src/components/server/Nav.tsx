@@ -16,27 +16,3 @@ export default async function Nav() {
 
   return <NavClient items={items} />;
 }
-
-const items = [
-  {
-    title: "About",
-    href: `/about`,
-  },
-  {
-    title: "Über uns",
-    href: `/de/ueber-uns`,
-  },
-  {
-    title: "NoPage",
-    href: `/no-page`,
-  },
-  {
-    title: "mozilla.org",
-    href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-    target: "_blank",
-  },
-  {
-    title: "Signin",
-    slug: `/auth/signin`,
-  },
-];

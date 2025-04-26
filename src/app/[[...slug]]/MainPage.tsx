@@ -35,7 +35,7 @@ export default async function MainPage({ params }: any) {
     url = `${apiUrl}/pages/1?${locale}${fields}${publicationState}`;
   }
 
-  const res: any = await axios.get(url);
+  const res = await axios.get(url);
   const resData = res.data?.data;
   // console.log("MainPage() resData: ", resData);
 
@@ -62,66 +62,3 @@ export default async function MainPage({ params }: any) {
   // return <MainPageClient sections={sections} />;
   return <Main sections={sections} />;
 }
-
-const mockPageData: any = {
-  data: {
-    data: [
-      {
-        id: 3,
-        attributes: {
-          title: "About",
-          slug: "about",
-          createdAt: "2024-06-12T08:06:43.996Z",
-          updatedAt: "2024-06-17T07:11:01.926Z",
-          publishedAt: "2024-06-12T08:06:50.864Z",
-          locale: "en",
-          sections: [
-            {
-              id: 2,
-              __component: "shared.rich-text",
-              text: [
-                {
-                  type: "paragraph",
-                  children: [
-                    {
-                      type: "text",
-                      text: "About - bla bla bla",
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      },
-    ],
-    meta: {
-      pagination: {
-        page: 1,
-        pageSize: 25,
-        pageCount: 1,
-        total: 1,
-      },
-    },
-  },
-};
-
-const mockFooter: any = {
-  data: {
-    data: {
-      id: 1,
-      attributes: {
-        createdAt: "2024-05-03T08:03:28.356Z",
-        updatedAt: "2024-06-16T09:57:07.446Z",
-        publishedAt: "2024-05-03T08:03:46.368Z",
-        locale: "en",
-        footer: {
-          id: 1,
-          myText: null,
-          nav: [],
-        },
-      },
-    },
-    meta: {},
-  },
-};
