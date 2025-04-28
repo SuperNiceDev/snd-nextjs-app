@@ -5,7 +5,12 @@ import axios from "axios";
 
 export default async function generateStaticParams() {
   const url = `${process.env.NEXT_PUBLIC_CMS_API_URL}/pages?locale=de&populate=*`;
+
   const res = await axios.get(url);
+  const resData = res.data;
+  // const resData = mockDataGenerateMetadata;
+  // const resData = {};
+  console.log("generateStaticParams() resData: ", resData);
 
   // console.clear();
   // console.log("--------------------------------------");
@@ -13,11 +18,13 @@ export default async function generateStaticParams() {
   // console.log("--------------------------------------");
   // console.log("res: ", res?.data?.data);
 
-  const paths = res?.data?.data?.map((item: any) => {
+  const paths = resData?.data?.map((item: any) => {
     // console.log("item: ", item);
     const localizations = item?.attributes?.localizations;
+
     localizations?.data?.map((item: any) => {
-      // console.log("locale: ", item.attributes.locale);
+      const locale = item.attributes.locale;
+      // console.log("locale: ", locale);
     });
     return {
       slug: [item?.attributes?.slug || ""],
@@ -27,18 +34,13 @@ export default async function generateStaticParams() {
   // console.log("--------------------------------------");
   // console.log("--------------------------------------");
   // console.log("--------------------------------------");
-  // console.log("paths: ", paths);
+  // console.log("generateStaticParams() paths: ", paths);
   // console.log("--------------------------------------");
   // console.log("--------------------------------------");
   // console.log("--------------------------------------");
 
-  return paths;
+  // return paths;
 
-  // const paths2: any = [
-  //   { slug: ["home"] },
-  //   { slug: ["projects", "project-1"] },
-  //   { slug: ["about"] },
-  // ];
-
-  // return paths2;
+  const mock: any = [{ slug: ["home"] }, { slug: ["about"] }];
+  return mock;
 }
