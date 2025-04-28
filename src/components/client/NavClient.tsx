@@ -27,11 +27,13 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
     const callApi = async () => {
       const url = getNavRestApiUrl(pathname);
 
-      // const res: any = await axios.get(url);
-      // const resData = res.data;
-      const resData: any = mockDataNav;
+      const res: any = await axios.get(url);
+      const resData = res.data;
+      // const resData: any = mockDataNav;
 
-      const resData2 = resData?.data?.attributes;
+      
+      // const resData2 = resData?.data?.attributes; // strapi v4
+      const resData2 = resData?.data; // strapi v5
       const items = resData2?.navigation?.items;
       setNavItems(items);
     };

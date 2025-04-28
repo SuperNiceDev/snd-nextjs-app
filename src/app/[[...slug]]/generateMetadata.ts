@@ -11,11 +11,10 @@ export default async function generateMetadata({
 }: any): Promise<Metadata> {
   const { slug: pSlug } = await params;
   const slug = `/${pSlug?.join("/") || ""}`;
-  // console.log("generateMetadata() slug: ", slug);
 
   const filters = `filters[slug][$eq]=${slug}`;
   const locale = pSlug?.[0] === "de" ? `&locale=de` : "";
-  const fields = `&populate[seo]=*`;
+  const fields = `&populate[seo][populate]=*`;
   const publicationState = ``;
 
   let url = `${apiUrl}/pages?${filters}${locale}${fields}${publicationState}`;
@@ -23,13 +22,14 @@ export default async function generateMetadata({
     url = `${apiUrl}/pages/1?${locale}${fields}${publicationState}`;
   }
 
-  // const res = await axios.get(url);
-  // const resData = res.data;
-  const resData = mockDataGenerateMetadata;
+    const res = await axios.get(url);
+    const resData = res.data;
+  // const resData = mockDataGenerateMetadata;
   // const resData = {};
   // console.log("generateMetadata() resData: ", resData);
 
-  const metadata = resData?.data?.[0]?.attributes?.seo;
+  // const metadata = resData?.data?.[0]?.attributes?.seo;
+  const metadata = resData?.data?.[0]?.seo;
 
   // console.log("::::::::::::::::::::::::");
   // console.log(" ");
@@ -55,7 +55,7 @@ const mockDataGenerateMetadata = {
   data: [
     {
       id: 1,
-      attributes: {
+      // attributes: {
         title: "Home",
         slug: "/",
         createdAt: "2024-05-02T14:44:40.027Z",
@@ -72,7 +72,7 @@ const mockDataGenerateMetadata = {
           metaViewport: null,
           canonicalURL: null,
         },
-      },
+      // },
     },
   ],
   meta: {

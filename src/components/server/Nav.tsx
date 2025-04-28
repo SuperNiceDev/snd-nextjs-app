@@ -11,13 +11,14 @@ export default async function Nav() {
   const pathname = headersList.get("x-pathname");
   const url = getNavRestApiUrl(pathname);
 
-  // const res: any = await axios.get(url);
-  // const resData = res.data;
-  const resData: any = mockDataNav;
+  const res: any = await axios.get(url);
+  const resData = res.data;
+  // const resData: any = mockDataNav;
 
   // console.log("Nav() resData: ", resData);
 
-  const resData2 = resData?.data?.attributes;
+  // const resData2 = resData?.data?.attributes; // strapi v4
+  const resData2 = resData?.data; // strapi v5
   const items = resData2?.navigation?.items;
 
   return <NavClient items={items} />;

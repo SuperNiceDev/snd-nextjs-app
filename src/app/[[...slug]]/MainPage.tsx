@@ -35,9 +35,9 @@ export default async function MainPage({ params }: any) {
     url = `${apiUrl}/pages/1?${locale}${fields}${publicationState}`;
   }
 
-  // const res = await axios.get(url);
-  // const resData = res.data;
-  const resData: any = mockDataNav;
+  const res = await axios.get(url);
+  const resData = res.data;
+  // const resData: any = mockDataNav;
   // const resData: any = {};
   // console.log("MainPage() resData: ", resData);
 
@@ -47,9 +47,13 @@ export default async function MainPage({ params }: any) {
     notFound();
   }
 
-  const attributes = resData2?.length
-    ? resData2?.[0]?.attributes
-    : resData2?.attributes;
+  // const attributes = resData2?.length
+  //   ? resData2?.[0]?.attributes
+  //   : resData2?.attributes;
+ 
+    const attributes = resData2?.length
+    ? resData2?.[0]
+    : resData2;
   const sections = attributes?.sections;
 
   // console.log("MainPage() attributes:   ", attributes);
