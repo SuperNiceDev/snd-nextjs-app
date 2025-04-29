@@ -2,7 +2,7 @@ import axios from "axios";
 import { notFound } from "next/navigation";
 
 // import MainPageClient from "@/components/client/MainPageClient";
-import Main from "@/components/server/Main";
+import Main from "@/components/Main/Main";
 
 const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 
@@ -50,10 +50,8 @@ export default async function MainPage({ params }: any) {
   // const attributes = resData2?.length
   //   ? resData2?.[0]?.attributes
   //   : resData2?.attributes;
- 
-    const attributes = resData2?.length
-    ? resData2?.[0]
-    : resData2;
+
+  const attributes = resData2?.length ? resData2?.[0] : resData2;
   const sections = attributes?.sections;
 
   // console.log("MainPage() attributes:   ", attributes);
@@ -70,42 +68,3 @@ export default async function MainPage({ params }: any) {
   // return <MainPageClient sections={sections} />;
   return <Main sections={sections} />;
 }
-
-const mockDataNav = {
-  data: [
-    {
-      id: 2,
-      attributes: {
-        title: "Startseite",
-        slug: "/de",
-        createdAt: "2024-05-03T09:10:56.327Z",
-        updatedAt: "2025-04-26T08:37:33.949Z",
-        publishedAt: "2025-04-24T10:05:14.504Z",
-        locale: "de",
-        sections: [
-          {
-            id: 13,
-            __component: "blocks.row",
-            rowId: "rowId0",
-            richText: [
-              {
-                id: 3,
-                text: "Startseite - sections - row - richText - text",
-                size: "xs",
-              },
-            ],
-            link: [],
-          },
-        ],
-      },
-    },
-  ],
-  meta: {
-    pagination: {
-      page: 1,
-      pageSize: 25,
-      pageCount: 1,
-      total: 1,
-    },
-  },
-};

@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions/authOptions";
 import muiTheme from "@/app/muiTheme";
-import Nav from "@/components/server/Nav";
+import Nav from "@/components/Nav";
 import MuiProvider from "@/provider/MuiProvider";
 import NextAuthProvider from "@/provider/NextAuthProvider";
 

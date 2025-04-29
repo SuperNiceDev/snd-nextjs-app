@@ -10,10 +10,10 @@ import Text from "snd-react-lib/components/atoms/Text";
 
 import BasicSelect from "@/components/mui/BasicSelect";
 
-export default function MuiTest() {
+export default function MuiElementsTest() {
   return (
-    <div className="MuiTest">
-      <code>{`<MuiTest>`}</code>
+    <div className="MuiElementsTest">
+      <code>{`<MuiElementsTest>`}</code>
 
       <div className={`tw:px-4`}>
         <div className="tw:mb-2">
@@ -90,7 +90,7 @@ export default function MuiTest() {
         </div>
       </div>
 
-      <code>{`</MuiTest>`}</code>
+      <code>{`</MuiElementsTest>`}</code>
     </div>
   );
 }
