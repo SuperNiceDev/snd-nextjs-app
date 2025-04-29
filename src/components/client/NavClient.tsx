@@ -46,7 +46,8 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
 
   const items = navItems?.map?.((item: any) => {
     const { label, href, target } = item;
-    const slug = item?.page?.data?.attributes?.slug || "";
+    // const slug = item?.page?.data?.attributes?.slug || ""; // strapi v4
+    const slug = item?.page?.slug || ""; // strapi v5
 
     return {
       title: label,
