@@ -3,7 +3,8 @@
 import axios from "axios";
 import { headers } from "next/headers";
 
-import NavClient, { mockDataNav } from "@/components/client/NavClient";
+import NavClient from "@/components/client/NavClient";
+import { mockDataNav } from "@/mockData/mockDataNav";
 import getNavRestApiUrl from "@/utils/getNavRestApiUrl";
 
 export default async function Nav() {
