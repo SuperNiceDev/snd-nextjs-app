@@ -1,8 +1,9 @@
 import axios from "axios";
 import { notFound } from "next/navigation";
 
-// import MainPageClient from "@/components/client/MainPageClient";
 import Main from "@/components/Main/Main";
+import getLocale from "@/utils/getLocale";
+import getPopulateSlugFilter from "@/utils/getPopulateSlugFilter";
 
 const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 
@@ -11,10 +12,10 @@ export default async function MainPage({ params }: any) {
   const slug = `/${pSlug?.join("/") || ""}`;
   // console.log("MainPage() slug: ", slug);
 
-  const filters = `filters[slug][$eq]=${slug}`;
+  const filters = getPopulateSlugFilter(slug);
 
   // const locale = ``;
-  const locale = pSlug?.[0] === "de" ? `&locale=de` : "";
+  const locale = getLocale(pSlug);
 
   const rootFields = ``;
   // const rootFields = `&fields[0]=title`;
@@ -30,10 +31,7 @@ export default async function MainPage({ params }: any) {
   const publicationState = ``;
   // const publicationState = `&publicationState=live`;
 
-  let url = `${apiUrl}/pages?${filters}${locale}${fields}${publicationState}`;
-  if (!slug) {
-    url = `${apiUrl}/pages/1?${locale}${fields}${publicationState}`;
-  }
+  const url = `${apiUrl}/pages?${filters}${locale}${fields}${publicationState}`;
 
   const res = await axios.get(url);
   const resData = res.data;
@@ -47,24 +45,17 @@ export default async function MainPage({ params }: any) {
     notFound();
   }
 
+  // strapi v4
   // const attributes = resData2?.length
   //   ? resData2?.[0]?.attributes
   //   : resData2?.attributes;
 
+  // strapi v5
   const attributes = resData2?.length ? resData2?.[0] : resData2;
   const sections = attributes?.sections;
 
   // console.log("MainPage() attributes:   ", attributes);
   // console.log("MainPage() sections:   ", sections);
 
-  // const footerApiUrl = `${apiUrl}/global?${locale}&populate[footer][populate]=*`;
-  // const footerApiRes: any = await axios.get(footerApiUrl);
-  // const footerRes = footerApiRes.data?.data?.attributes?.footer;
-  // console.log("MainPage() footerRes:   ", footerRes);
-  // footerRes?.nav?.forEach((item: any) => {
-  //   console.log("MainPage() footer item: ", item);
-  // });
-
-  // return <MainPageClient sections={sections} />;
   return <Main sections={sections} />;
 }
