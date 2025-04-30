@@ -3,9 +3,8 @@ import { ReactNode } from "react";
 import { getServerSession } from "next-auth";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions/authOptions";
-import muiTheme from "@/app/muiTheme";
+import MuiTheme from "@/components/MuiTheme";
 import Nav from "@/components/Nav";
-import MuiProvider from "@/provider/MuiProvider";
 import NextAuthProvider from "@/provider/NextAuthProvider";
 
 import "./layout.css";
@@ -15,7 +14,7 @@ import "./layout.css";
 // import { Roboto } from "next/font/google";
 
 // const roboto = Roboto({
-//   weight: ["300", "400", "500", "700"],
+//   weight: ["300", "400", "500", "800"],
 //   subsets: ["latin"],
 //   display: "swap",
 //   variable: "--fontRoboto",
@@ -32,13 +31,15 @@ export default async function RootLayout(
     <html lang="en">
       <link rel="preconnect" href={process.env.NEXT_PUBLIC_CMS_DOMAIN} />
       {/* <body className={`RootLayout ${roboto.variable}`}> */}
-      <body className={`RootLayout`}>
-        <MuiProvider theme={muiTheme}>
-          <NextAuthProvider session={session}>
+      <body
+        className={`RootLayout tw:text-fuchsia-800 tw:bg-white tw:dark:bg-neutral-900`}
+      >
+        <NextAuthProvider session={session}>
+          <MuiTheme>
             {props.children}
             <Nav />
-          </NextAuthProvider>
-        </MuiProvider>
+          </MuiTheme>
+        </NextAuthProvider>
       </body>
     </html>
   );

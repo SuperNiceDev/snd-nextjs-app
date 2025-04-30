@@ -6,24 +6,27 @@ import { Roboto } from "next/font/google";
 import colors from "tailwindcss/colors";
 
 const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
+  weight: ["300", "400", "500", "800"],
   subsets: ["latin"],
   display: "swap",
 });
 
-const primColor = colors.lime[700];
-// const primColor = colors.pink[700];
+// const bgDarkColor = colors.neutral[900];
+// const bgDarkColorHex = formatHex(oklch(bgDarkColor)) || "#FF0000";
+
+const primColor = colors.fuchsia[800];
 const primColorHex = formatHex(oklch(primColor)) || "#FF0000";
+
 // console.log("primColorHex: ", primColorHex);
 
-const muiTheme = createTheme({
+export const muiThemeLight = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
   },
   palette: {
-    mode: "dark",
+    mode: "light",
     // background: {
-    //   default: "#___",
+    //   default: "white",
     // },
     // text: {
     //   // primary: "#___",
@@ -47,4 +50,17 @@ const muiTheme = createTheme({
   },
 });
 
-export default muiTheme;
+export const muiThemeDark = createTheme({
+  typography: {
+    fontFamily: roboto.style.fontFamily,
+  },
+  palette: {
+    mode: "dark",
+    // background: {
+    //   default: bgDarkColorHex,
+    // },
+    primary: {
+      main: primColorHex,
+    },
+  },
+});

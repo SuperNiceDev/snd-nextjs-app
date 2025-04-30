@@ -6,7 +6,7 @@ const NotFound = async () => {
   // console.log("NotFound() headersList: ", headersList);
 
   return (
-    <div className="NotFound tw:pt-20">
+    <div className="NotFound twCenterContent">
       <code>{`<NotFound>`}</code>
       <div className="tw:pl-4">Not found</div>
       <code>{`<NotFound>`}</code>

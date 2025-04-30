@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const STRAPI_DOMAIN = process.env.NEXT_PUBLIC_CMS_DOMAIN;
+const DOMAIN = process.env.NEXT_PUBLIC_CMS_DOMAIN;
 
 export async function jwtCallback({ account, token }: any) {
   console.log("-------------------------------");
@@ -15,7 +15,7 @@ export async function jwtCallback({ account, token }: any) {
     const { provider, access_token } = account;
 
     const strapiAuthRes = await axios.get(
-      `${STRAPI_DOMAIN}/api/auth/${provider}/callback?access_token=${access_token}`,
+      `${DOMAIN}/api/auth/${provider}/callback?access_token=${access_token}`,
     );
 
     console.log(
@@ -32,7 +32,7 @@ export async function jwtCallback({ account, token }: any) {
 
       const strapiUsersMeRes = await axios({
         method: "PUT",
-        url: `${STRAPI_DOMAIN}/api/users/me`,
+        url: `${DOMAIN}/api/users/me`,
         data: JSON.stringify({
           lastLogin: new Date().getTime(),
         }),

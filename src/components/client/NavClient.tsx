@@ -59,33 +59,47 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
   // console.log("NavClient() itemsProps: ", itemsProps);
 
   return (
-    <AppBar
-      className={clsx({
-        "tw:text-lime-700": true,
-        // "tw:bg-lime-100": true,
-        // "tw:border-lime-500": true,
-        // "tw:border-2": true,
-        // "tw:font-display": true,
-      })}
-      position="fixed"
-    >
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Box>
-            {items?.map(({ title, href = "", target }, idx) => (
-              <Link key={idx} href={href} target={target}>
-                <Button
-                  variant="outlined"
-                  // className="tw:text-lime-700"
-                  onClick={onBtnClick}
-                >
-                  {title}
-                </Button>
-              </Link>
-            ))}
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    // <AppBar
+    //   className={clsx({
+    //     NavClient: true,
+    //     "tw:bg-white": true,
+    //     "tw:py-2": true,
+    //   })}
+    //   position="fixed"
+    // >
+    //   <Container maxWidth="xl">
+    //     <Toolbar disableGutters>
+    //       <Box>
+    //         {items?.map(({ title, href = "", target }, idx) => (
+    //           <Link key={idx} href={href} target={target}>
+    //             <Button
+    //               variant="outlined"
+    //               // className="tw:text-white tw:border-white tw:mr-2"
+    //               className="tw:mb-2 tw:mr-2"
+    //               onClick={onBtnClick}
+    //             >
+    //               {title}
+    //             </Button>
+    //           </Link>
+    //         ))}
+    //       </Box>
+    //     </Toolbar>
+    //   </Container>
+    // </AppBar>
+    <div className="NavClient tw:fixed tw:top-0 tw:w-full tw:bg-white tw:dark:bg-neutral-900">
+      <div className="tw:max-w-6xl tw:mx-auto tw:px-4 tw:py-4">
+        {items?.map(({ title, href = "", target }, idx) => (
+          <Link key={idx} href={href} target={target}>
+            <Button
+              variant="outlined"
+              className="tw:mb-2 tw:mr-2"
+              onClick={onBtnClick}
+            >
+              {title}
+            </Button>
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }

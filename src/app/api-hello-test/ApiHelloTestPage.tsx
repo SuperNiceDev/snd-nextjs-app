@@ -47,7 +47,7 @@ export default function ApiHelloTestPage() {
   };
 
   return (
-    <div className="ApiHelloTestPage tw:pt-20">
+    <div className="ApiHelloTestPage twCenterContent">
       <code>{`<ApiHelloTestPage>`}</code>
       <div className="tw:px-4">
         <div className="tw:pb-4">

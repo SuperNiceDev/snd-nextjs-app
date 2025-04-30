@@ -14,7 +14,7 @@ const Main = ({ sections }: MainProps) => {
   // });
 
   return (
-    <main className={`${css.root} Main tw:pt-20 tw:text-lime-700`}>
+    <main className={`${css.root} Main twCenterContent`}>
       <code>{`<Main>`}</code>
 
       <div className="tw:px-4 tw:flex">
@@ -28,10 +28,10 @@ const Main = ({ sections }: MainProps) => {
       </div>
 
       <div className="tw:px-4 tw:flex">
-        <div className="tw:w-1/2">
+        <div className="tw:lg:w-1/2">
           <MuiElementsTestLocal />
         </div>
-        <div className="tw:w-1/2">
+        <div className="tw:lg:w-1/2">
           {/*  */}
           {/* <MuiElementsTest /> */}
         </div>

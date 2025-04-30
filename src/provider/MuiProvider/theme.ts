@@ -7,7 +7,7 @@ import { createTheme } from "@mui/material/styles";
 // import tailwindConfig from "../../../tailwind.config";
 
 // const roboto = Roboto({
-//   weight: ["300", "400", "500", "700"],
+//   weight: ["300", "400", "500", "800"],
 //   subsets: ["latin"],
 //   display: "swap",
 // });
@@ -30,7 +30,7 @@ const theme = createTheme({
     // primary: {
     //   // light: "#___",
     //   // main: "#FF0000",
-    //   main: tailwindConfig?.theme?.colors?.lime?.[700],
+    //   main: tailwindConfig?.theme?.colors?.fuchsia?.[800],
     //   // dark: "#___",
     //   // contrastText: "#___",
     // },
