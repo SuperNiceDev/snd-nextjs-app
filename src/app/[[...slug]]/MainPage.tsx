@@ -1,103 +1,61 @@
-// import axios from "axios";
+import axios from "axios";
 import { notFound } from "next/navigation";
 
-import MainPageClient from "@/components/client/MainPageClient";
+import Main from "@/components/Main/Main";
+import getLocale from "@/utils/getLocale";
+import getPopulateSlugFilter from "@/utils/getPopulateSlugFilter";
+
+const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 
 export default async function MainPage({ params }: any) {
-  // const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
-  const slug = params?.slug?.join("/") || "";
-  // const fields = `fields=*&populate[sections][fields]=*&populate[sections][populate][row]=*`;
-  // let url = `${apiUrl}/pages?filters[slug][$eq]=${slug}&${fields}`;
-  // if (!slug) {
-  //   url = `${apiUrl}/pages/1?${fields}`;
-  // }
-  // const res: any = await axios.get(url);
-  // const pageData = res.data?.data;
-  const pageData = mockPageData.data?.data;
+  const { slug: pSlug } = await params;
+  const slug = `/${pSlug?.join("/") || ""}`;
+  // console.log("MainPage() slug: ", slug);
 
-  // console.log("--------------------------------------");
-  // console.log("--------------------------------------");
-  // console.log("--------------------------------------");
-  // console.log("slug: ", slug);
-  // console.log("url: ", url);
-  // console.log("pageData: ", pageData);
-  // console.log("--------------------------------------");
-  // console.log("--------------------------------------");
-  // console.log("--------------------------------------");
+  const filters = getPopulateSlugFilter(slug);
 
-  if ((slug && !pageData?.length) || (!slug && !pageData)) {
+  // const locale = ``;
+  const locale = getLocale(pSlug);
+
+  const rootFields = ``;
+  // const rootFields = `&fields[0]=title`;
+  // const rootFields = `&fields=*`;
+
+  const sectionsFields = `&populate[sections][populate]=*`;
+  // https://docs-v4.strapi.io/dev-docs/api/rest/populate-select#population
+  // &populate[dynamic-zone-name][populate]=*
+
+  // const fields = ``;
+  const fields = `${rootFields}${sectionsFields}`;
+
+  const publicationState = ``;
+  // const publicationState = `&publicationState=live`;
+
+  const url = `${apiUrl}/pages?${filters}${locale}${fields}${publicationState}`;
+
+  const res = await axios.get(url);
+  const resData = res.data;
+  // const resData: any = mockDataNav;
+  // const resData: any = {};
+  // console.log("MainPage() resData: ", resData);
+
+  const resData2 = resData?.data;
+
+  if ((slug && !resData2?.length) || (!slug && !resData2)) {
     notFound();
   }
 
-  const sections = pageData?.attributes?.sections;
+  // strapi v4
+  // const attributes = resData2?.length
+  //   ? resData2?.[0]?.attributes
+  //   : resData2?.attributes;
 
-  // const footerApiUrl = `${apiUrl}/global?populate[0]=footer&populate[1]=footer.nav`;
-  // const footerApiRes: any = await axios.get(footerApiUrl);
-  // const footer = footerApiRes.data?.data?.attributes?.footer;
-  const footer = mockFooter.data?.data?.attributes?.footer;
+  // strapi v5
+  const attributes = resData2?.length ? resData2?.[0] : resData2;
+  const sections = attributes?.sections;
 
-  return <MainPageClient sections={sections} footer={footer} />;
+  // console.log("MainPage() attributes:   ", attributes);
+  // console.log("MainPage() sections:   ", sections);
+
+  return <Main sections={sections} />;
 }
-
-const mockPageData: any = {
-  data: {
-    data: [
-      {
-        id: 3,
-        attributes: {
-          title: "About",
-          slug: "about",
-          createdAt: "2024-06-12T08:06:43.996Z",
-          updatedAt: "2024-06-17T07:11:01.926Z",
-          publishedAt: "2024-06-12T08:06:50.864Z",
-          locale: "en",
-          sections: [
-            {
-              id: 2,
-              __component: "shared.rich-text",
-              text: [
-                {
-                  type: "paragraph",
-                  children: [
-                    {
-                      type: "text",
-                      text: "About - bla bla bla",
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      },
-    ],
-    meta: {
-      pagination: {
-        page: 1,
-        pageSize: 25,
-        pageCount: 1,
-        total: 1,
-      },
-    },
-  },
-};
-
-const mockFooter: any = {
-  data: {
-    data: {
-      id: 1,
-      attributes: {
-        createdAt: "2024-05-03T08:03:28.356Z",
-        updatedAt: "2024-06-16T09:57:07.446Z",
-        publishedAt: "2024-05-03T08:03:46.368Z",
-        locale: "en",
-        footer: {
-          id: 1,
-          myText: null,
-          nav: [],
-        },
-      },
-    },
-    meta: {},
-  },
-};

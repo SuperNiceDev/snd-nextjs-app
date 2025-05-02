@@ -1,36 +1,44 @@
 "use client";
 
 import { createTheme } from "@mui/material/styles";
+import { formatHex, oklch } from "culori";
 import { Roboto } from "next/font/google";
-import resolveConfig from "tailwindcss/resolveConfig";
-
-import tailwindConfig from "../../tailwind.config";
+import colors from "tailwindcss/colors";
 
 const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
+  weight: ["300", "400", "500", "800"],
   subsets: ["latin"],
   display: "swap",
 });
 
-const fullTailwindConfig = resolveConfig(tailwindConfig);
+// const bgDarkColor = colors.neutral[900];
+// const bgDarkColorHex = formatHex(oklch(bgDarkColor)) || "#FF0000";
 
-const muiTheme = createTheme({
+const primColor = colors.fuchsia[800];
+const primColorHex = formatHex(oklch(primColor)) || "#FF0000";
+
+// console.log("primColorHex: ", primColorHex);
+
+export const muiThemeLight = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
   },
   palette: {
-    mode: "dark",
-    // mode: "light",
+    mode: "light",
     // background: {
-    //   default: "#___",
+    //   default: "white",
     // },
-    text: {
-      // primary: "#___",
-    },
+    // text: {
+    //   // primary: "#___",
+    //   primary: primColorHex,
+    // },
     primary: {
       // light: "#___",
-      main: fullTailwindConfig.theme.colors.lime[700],
-      // dark: "#___",
+      // main: "#___",
+      // main: "#FF0000",
+      main: primColorHex,
+      // main: "var(--cst-color-500)",
+      // dark: primColorHex,
       // contrastText: "#___",
     },
     // secondary: {
@@ -42,4 +50,17 @@ const muiTheme = createTheme({
   },
 });
 
-export default muiTheme;
+export const muiThemeDark = createTheme({
+  typography: {
+    fontFamily: roboto.style.fontFamily,
+  },
+  palette: {
+    mode: "dark",
+    // background: {
+    //   default: bgDarkColorHex,
+    // },
+    primary: {
+      main: primColorHex,
+    },
+  },
+});

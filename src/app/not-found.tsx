@@ -1,15 +1,17 @@
 // import { headers } from "next/headers";
-import MainPageClient from "../components/client/MainPageClient";
 
-const NotFound = async (args: any) => {
+const NotFound = async () => {
   // const headersList = headers();
   // const domain = headersList.get("host");
   // console.log("NotFound() headersList: ", headersList);
 
-  // const sections = null;
-  // const footer = null;
-  // return <MainPageClient sections={sections} footer={footer} />;
-  return <div>Not found</div>;
+  return (
+    <div className="NotFound twCenterContent">
+      <code>{`<NotFound>`}</code>
+      <div className="tw:pl-4">Not found</div>
+      <code>{`<NotFound>`}</code>
+    </div>
+  );
 };
 
 export default NotFound;
