@@ -19,9 +19,9 @@ https://classic.yarnpkg.com/en/docs/install#mac-stable
 yarn
 ```
 
-- Setup [Strapi CMS]("https://github.com/SuperNiceDev/snd-strapi-cms").
+- setup [Strapi CMS]("https://github.com/SuperNiceDev/snd-strapi-cms").
 
-- Duplicate and rename .env.example file to .env and add credentials:
+- duplicate and rename .env.example file to .env and add credentials:
 ```
 NEXT_PUBLIC_CMS_DOMAIN=http://localhost:1337
 NEXT_PUBLIC_CMS_API_URL=http://localhost:1337/api
@@ -37,7 +37,7 @@ NEXTAUTH_LINKEDIN_CLIENT_ID=...
 NEXTAUTH_LINKEDIN_CLIENT_SECRET=...
 ```
 
-- Run dev
+- run dev
 ```sh
 yarn dev
 ```
