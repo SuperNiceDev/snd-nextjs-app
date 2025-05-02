@@ -2,7 +2,7 @@
 
 Welcome to [SuperNice Dev](https://www.supernice-dev.com/en) snd-nextjs-app.
 
-This is a Next.js app boilerplate that uses a Strapi cms app for data. But you can also run it with mock data.
+This is a Next.js app boilerplate that uses a [snd-strapi-cms](https://github.com/SuperNiceDev/snd-strapi-cms) for data. But you can also run it with local mock data.
 
 ## Setup
 
