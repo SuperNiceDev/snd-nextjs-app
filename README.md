@@ -1,0 +1,27 @@
+## 🚀 SETUP
+
+Install node modules
+```sh
+yarn
+```
+
+Create .env file
+```
+NEXT_PUBLIC_CMS_DOMAIN=http://localhost:1337
+NEXT_PUBLIC_CMS_API_URL=http://localhost:1337/api
+NEXT_PUBLIC_CMS_API_GRAPHQL_URL=http://localhost:1337/graphql
+
+NEXTAUTH_URL=http://localhost:3000/
+NEXTAUTH_SECRET=KUHo8b8n8Nlihldn323nOnro3n3904nlnOHO6dmß0J9n7bdVSDN
+
+NEXTAUTH_GOOGLE_CLIENT_ID=551670901458-q7q1j4c7f1rs187o7hi8gcsei64be523.apps.googleusercontent.com
+NEXTAUTH_GOOGLE_CLIENT_SECRET=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
+
+NEXTAUTH_LINKEDIN_CLIENT_ID=77hiq25rauvmxz
+NEXTAUTH_LINKEDIN_CLIENT_SECRET=T2LdpAGo3IKVwHOv
+```
+
+Run dev
+```sh
+yarn dev
+```
