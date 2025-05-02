@@ -37,7 +37,7 @@ NEXTAUTH_LINKEDIN_CLIENT_ID=...
 NEXTAUTH_LINKEDIN_CLIENT_SECRET=...
 ```
 
-- run dev
+- run dev:
 ```sh
 yarn dev
 ```
