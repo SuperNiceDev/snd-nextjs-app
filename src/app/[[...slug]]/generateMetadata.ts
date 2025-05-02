@@ -1,6 +1,7 @@
-import axios from "axios";
 import type { Metadata } from "next";
 
+import { mockDataGenerateMetadata } from "@/mockData/mockDataGenerateMetadata";
+import axiosInstance from "@/utils/axiosInstance";
 import getLocale from "@/utils/getLocale";
 import getPopulateSlugFilter from "@/utils/getPopulateSlugFilter";
 
@@ -21,31 +22,19 @@ export default async function generateMetadata({
   const publicationState = ``;
   const url = `${apiUrl}/pages?${filters}${locale}${fields}${publicationState}`;
 
-  const res = await axios.get(url);
-  const resData = res.data;
-  // const resData = mockDataGenerateMetadata;
-  // const resData = {};
-  // console.log("generateMetadata() resData: ", resData);
+  let resData: any = null;
+  try {
+    const res: any = await axiosInstance.get(url);
+    resData = res.data;
+  } catch (err: any) {
+    console.warn("generateMetadata() err: ", err);
+    resData = mockDataGenerateMetadata;
+  }
 
-  // const metadata = resData?.data?.[0]?.attributes?.seo; // strapi v4
-  const metadata = resData?.data?.[0]?.seo; // strapi v5
-
-  // console.log("::::::::::::::::::::::::");
-  // console.log(" ");
-  // console.log("generateMetadata metadata: ", metadata);
-  // console.log(" ");
-  // console.log("::::::::::::::::::::::::");
-
-  // if (!metadata) {
-  //     /404-error
-  // }
+  const metadata = resData?.data?.[0]?.seo;
 
   return {
     title: metadata?.metaTitle,
     description: metadata?.metaDescription,
-    // robots,
-    // openGraph: {
-    //   images: ["/some-specific-page-image.jpg", ...previousImages],
-    // },
   };
 }
