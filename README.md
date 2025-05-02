@@ -1,18 +1,21 @@
 ## Setup
 
-install Node.js
+- install Node.js:
 https://nodejs.org/en/download
 
-install yarn
+- install yarn:
 https://yarnpkg.com/getting-started/install
 https://classic.yarnpkg.com/en/docs/install#mac-stable
 
-Install node modules
+
+- install dependencies:
 ```sh
 yarn
 ```
 
-Duplicate and rename .env.example file to .env and add credentials
+- Setup [Strapi CMS]("https://github.com/SuperNiceDev/snd-strapi-cms").
+
+- Duplicate and rename .env.example file to .env and add credentials:
 ```
 NEXT_PUBLIC_CMS_DOMAIN=http://localhost:1337
 NEXT_PUBLIC_CMS_API_URL=http://localhost:1337/api
@@ -28,7 +31,7 @@ NEXTAUTH_LINKEDIN_CLIENT_ID=...
 NEXTAUTH_LINKEDIN_CLIENT_SECRET=...
 ```
 
-Run dev
+- Run dev
 ```sh
 yarn dev
 ```
