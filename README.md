@@ -1,27 +1,38 @@
 # snd-nextjs-app
 
-Welcome to [SuperNice Dev](https://www.supernice-dev.com/en) snd-nextjs-app.
+Welcome to [SuperNice Dev](https://www.supernice-dev.com/en) Next.js app.
 
-This is a Next.js app boilerplate that uses a [snd-strapi-cms](https://github.com/SuperNiceDev/snd-strapi-cms) for data. But you can also run it with local mock data.
+This is a Next.js app boilerplate that uses a [snd-strapi-cms](https://github.com/SuperNiceDev/snd-strapi-cms) for data and local mock data as fallback.
+
+
+## Main Technologies
+
+- [Node.js 22](https://nodejs.org/docs/latest-v22.x/api/index.html)
+- [React 19](https://react.dev/)
+- [Next.js 15](https://nextjs.org/docs)
+- [Tailwind 4](https://tailwindcss.com/docs/installation/using-postcss)
+
 
 ## Setup
 
 - install Node.js:
 https://nodejs.org/en/download
 
+
 - install yarn:
 https://yarnpkg.com/getting-started/install
 https://classic.yarnpkg.com/en/docs/install#mac-stable
 
 
-- install dependencies:
+- install node modules:
 ```sh
 yarn
 ```
 
-- setup [Strapi CMS]("https://github.com/SuperNiceDev/snd-strapi-cms").
+- setup [Strapi CMS](https://github.com/SuperNiceDev/snd-strapi-cms).
 
-- duplicate and rename .env.example file to .env and add credentials:
+
+- duplicate [.env.example](./.env.example) file, rename to .env and add credentials:
 ```
 NEXT_PUBLIC_CMS_DOMAIN=http://localhost:1337
 NEXT_PUBLIC_CMS_API_URL=http://localhost:1337/api
