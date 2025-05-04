@@ -2,8 +2,9 @@
 
 Welcome to [SuperNice Dev](https://www.supernice-dev.com/en) Next.js app.
 
-This is a Next.js app boilerplate that uses a [snd-strapi-cms](https://github.com/SuperNiceDev/snd-strapi-cms) for data and local mock data as fallback.
+This is a Next.js app boilerplate that uses [snd-react-lib](https://github.com/SuperNiceDev/snd-react-lib) and [snd-strapi-cms](https://github.com/SuperNiceDev/snd-strapi-cms) for remote data and local mock data as fallback.
 
+Best option is to use it with [snd-nextjs-app-monorepo](https://github.com/SuperNiceDev/snd-nextjs-app-monorepo)
 
 ## Main Technologies
 
