@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 import Button from "@mui/material/Button";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -17,6 +18,7 @@ type NavClientProps = {
 export default function NavClient({ items: itemsProps }: NavClientProps) {
   const [navItems, setNavItems] = useState<any[] | undefined>(itemsProps);
   const pathname = usePathname();
+  const { setTheme } = useTheme();
 
   useEffect(() => {
     const callApi = async () => {
@@ -68,6 +70,33 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
             </Button>
           </Link>
         ))}
+        <Button
+          variant="outlined"
+          className="tw:mb-2 tw:mr-2"
+          onClick={() => {
+            setTheme("light");
+          }}
+        >
+          light
+        </Button>
+        <Button
+          variant="outlined"
+          className="tw:mb-2 tw:mr-2"
+          onClick={() => {
+            setTheme("dark");
+          }}
+        >
+          dark
+        </Button>
+        <Button
+          variant="outlined"
+          className="tw:mb-2 tw:mr-2"
+          onClick={() => {
+            setTheme("system");
+          }}
+        >
+          system
+        </Button>
       </div>
     </div>
   );

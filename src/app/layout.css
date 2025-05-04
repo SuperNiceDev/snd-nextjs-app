@@ -1,37 +1,22 @@
 @import "tailwindcss" important prefix(tw);
 
 :root {
-  --cst-color-800:  #368420;
-
+  --cst-color:  #a00876;
   --cst-color-code: #acacac;
-  /* --cst-color-code-bg: #f5f5f5; */
 }
 
 @theme {
-  /* --color-fuchsia-*: initial; */
-  /* --color-fuchsia-800: #0000FF; */
-
-  /* --color-fuchsia-800: var(--cst-color-800); */
-  
-  /* --color-fuchsia-800: rgba(255,0,0,0.9); */
-  /* --color-fuchsia-800: oklch(0.72 0.11 178); */
-  /* --color-fuchsia: rgb(255,0,0); */
-
-  /* --color-*: initial;
-  --color-fuchsia: #FF0000; */
+  --color-fuchsia-800: var(--cst-color);
 }
-
-/* @theme static {
-  --color-primary: var(--cst-color-800);
-  --color-secondary: var(--cst-color-800);
-} */
 
 code {
   color: var(--cst-color-code);
   font-size: 12px;
-  /* background-color: var(--cst-color-code-bg); */
 }
 
 .twCenterContent {
   @apply tw:max-w-6xl tw:mx-auto tw:pt-30 tw:px-4;
 }
+
+/* https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
+@custom-variant dark (&:where(.dark, .dark *));

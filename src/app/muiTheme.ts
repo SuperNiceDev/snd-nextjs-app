@@ -11,13 +11,12 @@ const roboto = Roboto({
   display: "swap",
 });
 
-// const bgDarkColor = colors.neutral[900];
-// const bgDarkColorHex = formatHex(oklch(bgDarkColor)) || "#FF0000";
+const bgDarkColor = colors.neutral[900];
+const bgDarkColorHex = formatHex(oklch(bgDarkColor)) || "#000000";
 
-const primColor = colors.fuchsia[800];
-const primColorHex = formatHex(oklch(primColor)) || "#FF0000";
-
-// console.log("primColorHex: ", primColorHex);
+// const primColor = colors.fuchsia[800];
+// const primColorHex = formatHex(oklch(primColor)) || "#FF0000";
+const primColorHex = "#a00876";
 
 export const muiThemeLight = createTheme({
   typography: {
@@ -60,6 +59,7 @@ export const muiThemeDark = createTheme({
     //   default: bgDarkColorHex,
     // },
     primary: {
+      // main: "#00FF00",
       main: primColorHex,
     },
   },

@@ -2,7 +2,7 @@
 
 import { headers } from "next/headers";
 
-import NavClient from "@/components/client/NavClient";
+import NavClient from "@/components/NavClient";
 import { mockDataNav } from "@/mockData/mockDataNav";
 import axiosInstance from "@/utils/axiosInstance";
 import getNavRestApiUrl from "@/utils/getNavRestApiUrl";

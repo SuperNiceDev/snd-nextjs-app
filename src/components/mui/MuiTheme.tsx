@@ -3,6 +3,7 @@
 import { ReactNode, useMemo } from "react";
 
 import { useMediaQuery } from "@mui/material";
+import { useTheme } from "next-themes";
 
 import { muiThemeDark, muiThemeLight } from "@/app/muiTheme";
 import MuiProvider from "@/provider/MuiProvider";
@@ -12,14 +13,17 @@ export default function MuiTheme(
     children: ReactNode;
   }>,
 ) {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  // const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  // const theme = useMemo(
+  //   () => (prefersDarkMode ? muiThemeDark : muiThemeLight),
+  //   [prefersDarkMode],
+  // );
 
+  const { theme: themeClass } = useTheme();
   const theme = useMemo(
-    () => (prefersDarkMode ? muiThemeDark : muiThemeLight),
-    [prefersDarkMode],
+    () => (themeClass === "light" ? muiThemeLight : muiThemeDark),
+    [themeClass],
   );
-
-  // https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
 
   return <MuiProvider theme={theme}>{props.children}</MuiProvider>;
 }
