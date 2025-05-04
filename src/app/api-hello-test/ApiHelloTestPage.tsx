@@ -4,9 +4,8 @@ import { useState } from "react";
 
 import { Button } from "@mui/material";
 import axios from "axios";
-import dynamic from "next/dynamic";
 
-const ReactJson = dynamic(() => import("react-json-view"), { ssr: false });
+import ReactJson from "@/components/ReactJson";
 
 const paramsOrBody = {
   a: "value_a",
@@ -69,16 +68,7 @@ export default function ApiHelloTestPage() {
             POST /api/hello FormData
           </Button>
         </div>
-        {data && (
-          <div className="tw:w-1/2 tw:text-xs">
-            <ReactJson
-              src={data}
-              name="response"
-              enableClipboard={false}
-              theme="monokai"
-            />
-          </div>
-        )}
+        <ReactJson src={data} />
       </div>
       <code>{`</ApiHelloTestPage>`}</code>
     </div>

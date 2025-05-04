@@ -20,7 +20,7 @@ const Main = ({ sections }: MainProps) => {
       <div className="tw:px-4 tw:flex">
         {sections?.map((item: any, idx: number) => {
           return (
-            <div key={idx} className="">
+            <div key={idx} className="tw:lg:w-1/2">
               {JSON.stringify(item)}
             </div>
           );

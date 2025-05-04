@@ -1,11 +1,13 @@
 import LoginForm from "@/components/mui/LoginForm";
 
-export default async function SignInPage() {
+export default function SignInPage() {
   return (
     <div className="SignInPage twCenterContent">
       <code>{`<SignInPage>`}</code>
-      <div className="tw:px-4">
-        <LoginForm />
+      <div className="tw:px-4 tw:flex">
+        <div className="tw:lg:w-1/2">
+          <LoginForm />
+        </div>
       </div>
       <code>{`</SignInPage>`}</code>
     </div>

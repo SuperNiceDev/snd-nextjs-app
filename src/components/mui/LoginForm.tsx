@@ -1,16 +1,25 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { Button } from "@mui/material";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 
+import ReactJson from "@/components/ReactJson";
+
 const signinUrl = "/auth/signin";
 
 export default function LoginForm() {
+  const [data, setData] = useState<any>();
   const { data: session, status } = useSession();
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
   // const callbackUrl = searchParams.get("callbackUrl");
+
+  useEffect(() => {
+    setData(session);
+  }, [session]);
 
   const onSignInBtnClick = (provider: string) => () => {
     signIn(provider, { callbackUrl: signinUrl });
@@ -20,19 +29,31 @@ export default function LoginForm() {
     signOut({ callbackUrl: signinUrl });
   };
 
-  // console.log("error: ", error);
+  // console.log("data: ", data);
 
   return (
     <div className="LoginForm">
       <code>{`<LoginForm>`}</code>
       <div className="tw:px-4">
-        {error && <div className="tw:text-red-600">error: {error}</div>}
-        <div>session: {JSON.stringify(session)}</div>
-        <div>status: {status}</div>
+        <div className="tw:mb-4">
+          {error && <div className="tw:text-red-600">error: {error}</div>}
+          <div>
+            <b>status: </b>
+            {status}
+          </div>
+          <div className="tw:wrap-break-word">
+            <b>session: </b>
+            {data && <ReactJson src={data} />}
+          </div>
+        </div>
         {!session && (
           <>
             <div>
-              <Button variant="outlined" onClick={onSignInBtnClick("google")}>
+              <Button
+                className="tw:mb-2"
+                variant="outlined"
+                onClick={onSignInBtnClick("google")}
+              >
                 SignIn Google
               </Button>
             </div>
@@ -45,7 +66,6 @@ export default function LoginForm() {
         )}
 
         {session && (
-          // {true && (
           <div>
             <Button variant="outlined" onClick={onSignOutBtnClick}>
               SignOut

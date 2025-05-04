@@ -72,7 +72,7 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
         ))}
         <Button
           variant="outlined"
-          className="tw:mb-2 tw:mr-2"
+          className="tw:mb-2 tw:mr-2 tw:ml-6"
           onClick={() => {
             setTheme("light");
           }}
