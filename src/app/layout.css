@@ -1,4 +1,5 @@
-@import "tailwindcss" important prefix(tw);
+/* @import "tailwindcss" important prefix(tw); */
+@import "tailwindcss" important;
 @import "tw-animate-css";
 
 :root {
@@ -53,7 +54,8 @@ code {
 }
 
 .twCenterContent {
-  @apply tw:max-w-6xl tw:mx-auto tw:pt-30 tw:px-4;
+  /* @apply tw:max-w-6xl tw:mx-auto tw:pt-30 tw:px-4; */
+  @apply max-w-6xl mx-auto;
 }
 
 /* https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
@@ -133,9 +135,9 @@ code {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    /* @apply border-border outline-ring/50; */
   }
   body {
-    @apply bg-background text-foreground;
+    /* @apply bg-background text-foreground; */
   }
 }

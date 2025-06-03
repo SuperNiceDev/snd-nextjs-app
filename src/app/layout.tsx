@@ -4,7 +4,10 @@ import { getServerSession } from "next-auth";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions/authOptions";
 import Nav from "@/components/Nav";
+import { AppSidebar } from "@/components/app-sidebar";
 import MuiTheme from "@/components/mui/MuiTheme";
+import { SiteHeader } from "@/components/site-header";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import NextAuthProvider from "@/provider/NextAuthProvider";
 import ThemeProvider from "@/provider/ThemeProvider";
 
@@ -21,7 +24,8 @@ export default async function RootLayout(
     <html lang="en" suppressHydrationWarning>
       <link rel="preconnect" href={process.env.NEXT_PUBLIC_CMS_DOMAIN} />
       <body
-        className={`RootLayout tw:text-fuchsia-800 tw:bg-white tw:dark:bg-neutral-900`}
+        // className={`RootLayout tw:text-fuchsia-800 tw:bg-white tw:dark:bg-neutral-900`}
+        className={`RootLayout text-fuchsia-800 bg-white dark:bg-neutral-900`}
       >
         <ThemeProvider
           attribute="class"
@@ -31,8 +35,28 @@ export default async function RootLayout(
         >
           <MuiTheme>
             <NextAuthProvider session={session}>
-              {props.children}
-              <Nav />
+              {/* <Nav /> */}
+              {/* {props.children} */}
+              <SidebarProvider
+                style={
+                  {
+                    "--sidebar-width": "calc(var(--spacing) * 72)",
+                    "--header-height": "calc(var(--spacing) * 12)",
+                  } as React.CSSProperties
+                }
+              >
+                <AppSidebar variant="inset" />
+                <SidebarInset>
+                  <SiteHeader />
+                  <div className="flex flex-1 flex-col">
+                    <div className="@container/main flex flex-1 flex-col gap-2">
+                      <div className="flex flex-col gap-4 p-4 md:gap-6 md:p-4">
+                        {props.children}
+                      </div>
+                    </div>
+                  </div>
+                </SidebarInset>
+              </SidebarProvider>
             </NextAuthProvider>
           </MuiTheme>
         </ThemeProvider>
