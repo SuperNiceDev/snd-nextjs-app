@@ -1,5 +1,4 @@
-// import MuiElementsTest from "snd-react-lib/components/molecules/MuiElementsTest";
-import MuiElementsTestLocal from "../mui/MuiElementsTest";
+import MuiElementsTest from "../mui/MuiElementsTest";
 import css from "./Main.module.scss";
 
 type MainProps = {
@@ -29,12 +28,9 @@ const Main = ({ sections }: MainProps) => {
 
       <div className="tw:px-4 tw:flex">
         <div className="tw:lg:w-1/2">
-          <MuiElementsTestLocal />
+          <MuiElementsTest />
         </div>
-        <div className="tw:lg:w-1/2">
-          {/*  */}
-          {/* <MuiElementsTest /> */}
-        </div>
+        <div className="tw:lg:w-1/2"></div>
       </div>
 
       <code>{`</Main>`}</code>

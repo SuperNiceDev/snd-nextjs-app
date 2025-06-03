@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import Button from "@mui/material/Button";
 import { useTheme } from "next-themes";
@@ -47,11 +47,11 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
 
   const items = navItems?.map?.((item: any) => {
     const { label, href, target } = item;
-    const slug = item?.page?.slug || "";
+    const slug = item?.page?.slug;
 
     return {
       title: label,
-      href: slug || href || "/",
+      href: slug || href,
       target,
     };
   });
@@ -59,17 +59,24 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
   return (
     <div className="NavClient tw:fixed tw:top-0 tw:w-full tw:bg-white tw:dark:bg-neutral-900">
       <div className="tw:max-w-6xl tw:mx-auto tw:px-4 tw:py-4">
-        {items?.map(({ title, href = "", target }, idx) => (
-          <Link key={idx} href={href} target={target}>
-            <Button
-              variant="outlined"
-              className="tw:mb-2 tw:mr-2"
-              onClick={onBtnClick}
-            >
-              {title}
-            </Button>
-          </Link>
-        ))}
+        {items?.map(({ title, href, target }, idx) => {
+          const Cmp: any = href ? Link : Fragment;
+          const cmpProps = href ? { href, target } : {};
+
+          return (
+            <Cmp key={idx} {...cmpProps}>
+              {/* <Link key={idx} href={href} target={target}> */}
+              <Button
+                variant="outlined"
+                className="tw:mb-2 tw:mr-2"
+                onClick={onBtnClick}
+              >
+                {title}
+              </Button>
+            </Cmp>
+            // </Link>
+          );
+        })}
         <Button
           variant="outlined"
           className="tw:mb-2 tw:mr-2 tw:ml-6"

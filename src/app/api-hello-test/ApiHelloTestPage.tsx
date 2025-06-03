@@ -21,14 +21,12 @@ export default function ApiHelloTestPage() {
       params: paramsOrBody,
     });
     setData(res);
-    // console.log("onGetBtnClick() res.data: ", res.data);
   };
 
   const onPostJsonBtnClick = async () => {
     setData(null);
     const res = await axios.post("/api/hello", paramsOrBody);
     setData(res);
-    // console.log("onPostJsonBtnClick() res.data: ", res.data);
   };
 
   const onPostFormDataBtnClick = async () => {
@@ -42,7 +40,6 @@ export default function ApiHelloTestPage() {
       },
     });
     setData(res);
-    // console.log("onPostFormDataBtnClick() res.data: ", res.data);
   };
 
   return (

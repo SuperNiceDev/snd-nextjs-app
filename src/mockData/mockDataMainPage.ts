@@ -11,6 +11,7 @@ export const mockDataMainPage = {
       documentId: "go03i9e4vusvq3vv0673nwft",
       sections: [
         {
+          fallback: "CMS is not reachable. This is fallback mock data.",
           __component: "blocks.row",
           id: 12,
           rowId: "rowId0",

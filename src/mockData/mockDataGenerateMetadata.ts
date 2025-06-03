@@ -11,8 +11,8 @@ export const mockDataGenerateMetadata = {
       documentId: "go03i9e4vusvq3vv0673nwft",
       seo: {
         id: 1,
-        metaTitle: "Home metaTitle",
-        metaDescription: "Home metaDescription",
+        metaTitle: "Home metaTitle (fallback mock data)",
+        metaDescription: "Home metaDescription (fallback mock data)",
         keywords: null,
         metaRobots: null,
         structuredData: null,

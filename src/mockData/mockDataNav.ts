@@ -11,6 +11,10 @@ export const mockDataNav = {
       myText: "myText test",
       items: [
         {
+          id: 1,
+          label: "Fallback",
+        },
+        {
           id: 18,
           href: "/de",
           label: "DE",

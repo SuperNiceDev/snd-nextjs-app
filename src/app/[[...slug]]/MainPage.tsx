@@ -11,11 +11,8 @@ const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 export default async function MainPage({ params }: any) {
   const { slug: pSlug } = await params;
   const slug = `/${pSlug?.join("/") || ""}`;
-
   const filters = getPopulateSlugFilter(slug);
-
   const locale = getLocale(pSlug);
-
   const rootFields = ``;
   const sectionsFields = `&populate[sections][populate]=*`;
   const fields = `${rootFields}${sectionsFields}`;
