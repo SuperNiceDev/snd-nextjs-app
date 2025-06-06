@@ -1,9 +1,8 @@
 "use client";
 
-import { type Icon, IconCirclePlusFilled, IconMail } from "@tabler/icons-react";
+import { type Icon } from "@tabler/icons-react";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -14,8 +13,10 @@ import {
 } from "@/components/ui/sidebar";
 
 export function NavMain({
+  groupLabel,
   items,
 }: {
+  groupLabel?: string;
   items: {
     title: string;
     url: string;
@@ -25,7 +26,7 @@ export function NavMain({
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
-        <SidebarGroupLabel>Static Routes</SidebarGroupLabel>
+        <SidebarGroupLabel>{groupLabel || "Static Routes"}</SidebarGroupLabel>
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
