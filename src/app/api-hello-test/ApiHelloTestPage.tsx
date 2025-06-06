@@ -45,18 +45,18 @@ export default function ApiHelloTestPage() {
   return (
     <div className="ApiHelloTestPage twCenterContent">
       <code>{`<ApiHelloTestPage>`}</code>
-      <div className="tw:px-4">
-        <div className="tw:pb-4">
+      <div className="px-4">
+        <div className="pb-4">
           <Button className="" variant="contained" onClick={onGetBtnClick}>
             GET /api/hello
           </Button>
         </div>
-        <div className="tw:pb-4">
+        <div className="pb-4">
           <Button className="" variant="contained" onClick={onPostJsonBtnClick}>
             POST /api/hello JSON
           </Button>
         </div>
-        <div className="tw:pb-4">
+        <div className="pb-4">
           <Button
             className=""
             variant="contained"

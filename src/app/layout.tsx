@@ -24,7 +24,7 @@ export default async function RootLayout(
     <html lang="en" suppressHydrationWarning>
       <link rel="preconnect" href={process.env.NEXT_PUBLIC_CMS_DOMAIN} />
       <body
-        // className={`RootLayout tw:text-fuchsia-800 tw:bg-white tw:dark:bg-neutral-900`}
+        // className={`RootLayout text-fuchsia-800 bg-white dark:bg-neutral-900`}
         className={`RootLayout text-fuchsia-800 bg-white dark:bg-neutral-900`}
       >
         <ThemeProvider
@@ -49,10 +49,8 @@ export default async function RootLayout(
                 <SidebarInset>
                   <SiteHeader />
                   <div className="flex flex-1 flex-col">
-                    <div className="@container/main flex flex-1 flex-col gap-2">
-                      <div className="flex flex-col gap-4 p-4 md:gap-6 md:p-4">
-                        {props.children}
-                      </div>
+                    <div className="gap-4 p-4 md:gap-6 md:p-4">
+                      {props.children}
                     </div>
                   </div>
                 </SidebarInset>

@@ -1,4 +1,3 @@
-import MuiElementsTest from "../mui/MuiElementsTest";
 import css from "./Main.module.scss";
 
 type MainProps = {
@@ -13,28 +12,21 @@ const Main = ({ sections }: MainProps) => {
   // });
 
   return (
-    <main className={`${css.root} Main twCenterContent`}>
+    <div className={`${css.root} Main twCenterContent`}>
       <code>{`<Main>`}</code>
 
-      <div className="tw:px-4 tw:flex">
+      <div className="px-4 flex">
         {sections?.map((item: any, idx: number) => {
           return (
-            <div key={idx} className="tw:lg:w-1/2">
+            <div key={idx} className="lg:w-1/2">
               {JSON.stringify(item)}
             </div>
           );
         })}
       </div>
 
-      <div className="tw:px-4 tw:flex">
-        <div className="tw:lg:w-1/2">
-          <MuiElementsTest />
-        </div>
-        <div className="tw:lg:w-1/2"></div>
-      </div>
-
       <code>{`</Main>`}</code>
-    </main>
+    </div>
   );
 };
 

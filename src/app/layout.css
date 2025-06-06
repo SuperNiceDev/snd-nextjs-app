@@ -54,7 +54,7 @@ code {
 }
 
 .twCenterContent {
-  /* @apply tw:max-w-6xl tw:mx-auto tw:pt-30 tw:px-4; */
+  /* @apply max-w-6xl mx-auto pt-30 px-4; */
   @apply max-w-6xl mx-auto;
 }
 

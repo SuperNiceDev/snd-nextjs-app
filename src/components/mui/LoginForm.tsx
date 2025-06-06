@@ -22,7 +22,7 @@ export default function LoginForm() {
   }, [session]);
 
   const onSignInBtnClick = (provider: string) => () => {
-    signIn(provider, { callbackUrl: signinUrl });
+    signIn(provider, { callbackUrl: signinUrl }, "TEST_TEST_TEST");
   };
 
   const onSignOutBtnClick = () => {
@@ -34,14 +34,14 @@ export default function LoginForm() {
   return (
     <div className="LoginForm">
       <code>{`<LoginForm>`}</code>
-      <div className="tw:px-4">
-        <div className="tw:mb-4">
-          {error && <div className="tw:text-red-600">error: {error}</div>}
+      <div className="px-4">
+        <div className="mb-4">
+          {error && <div className="text-red-600">error: {error}</div>}
           <div>
             <b>status: </b>
             {status}
           </div>
-          <div className="tw:wrap-break-word">
+          <div className="wrap-break-word">
             <b>session: </b>
             {data && <ReactJson src={data} />}
           </div>
@@ -50,7 +50,7 @@ export default function LoginForm() {
           <>
             <div>
               <Button
-                className="tw:mb-2"
+                className="mb-2"
                 variant="outlined"
                 onClick={onSignInBtnClick("google")}
               >

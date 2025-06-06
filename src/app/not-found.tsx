@@ -8,7 +8,7 @@ const NotFound = async () => {
   return (
     <div className="NotFound twCenterContent">
       <code>{`<NotFound>`}</code>
-      <div className="tw:pl-4">Not found</div>
+      <div className="pl-4">Not found</div>
       <code>{`<NotFound>`}</code>
     </div>
   );

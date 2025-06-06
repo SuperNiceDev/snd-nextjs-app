@@ -4,26 +4,17 @@ import * as React from "react";
 
 import {
   IconCamera,
-  IconChartBar,
-  IconDashboard,
-  IconDatabase,
   IconFileAi,
   IconFileDescription,
-  IconFileWord,
   IconFolder,
   IconHelp,
   IconInnerShadowTop,
-  IconListDetails,
-  IconReport,
   IconSearch,
   IconSettings,
-  IconUsers,
 } from "@tabler/icons-react";
 
 import { NavDocuments } from "@/components/nav-documents";
 import { NavMain } from "@/components/nav-main";
-import { NavSecondary } from "@/components/nav-secondary";
-import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -42,22 +33,17 @@ const data = {
   },
   navMain: [
     {
-      title: "Home",
-      url: "/",
+      title: "snd-react-lib Components",
+      url: "/snd-react-lib-components",
       icon: IconFolder,
     },
     {
-      title: "Startseite",
-      url: "/de",
+      title: "MUI Components",
+      url: "/mui-components",
       icon: IconFolder,
     },
     {
-      title: "About",
-      url: "/about",
-      icon: IconFolder,
-    },
-    {
-      title: "Dashboard",
+      title: "shadcn Dashboard",
       url: "/dashboard",
       icon: IconFolder,
     },
@@ -67,40 +53,10 @@ const data = {
       icon: IconFolder,
     },
     {
-      title: "Auth Provider SignIn",
+      title: "Auth Provider Test",
       url: "/auth/signin",
       icon: IconFolder,
     },
-    {
-      title: "Not found",
-      url: "/not-found-link",
-      icon: IconFolder,
-    },
-    // {
-    //   title: "Dashboard",
-    //   url: "#",
-    //   icon: IconDashboard,
-    // },
-    // {
-    //   title: "Lifecycle",
-    //   url: "#",
-    //   icon: IconListDetails,
-    // },
-    // {
-    //   title: "Analytics",
-    //   url: "#",
-    //   icon: IconChartBar,
-    // },
-    // {
-    //   title: "Projects",
-    //   url: "#",
-    //   icon: IconFolder,
-    // },
-    // {
-    //   title: "Team",
-    //   url: "#",
-    //   icon: IconUsers,
-    // },
   ],
   navClouds: [
     {
@@ -169,19 +125,24 @@ const data = {
   ],
   documents: [
     {
-      name: "Data Library",
-      url: "#",
-      icon: IconDatabase,
+      title: "Home",
+      url: "/",
+      icon: IconFolder,
     },
     {
-      name: "Reports",
-      url: "#",
-      icon: IconReport,
+      title: "Startseite",
+      url: "/de",
+      icon: IconFolder,
     },
     {
-      name: "Word Assistant",
-      url: "#",
-      icon: IconFileWord,
+      title: "About",
+      url: "/about-us",
+      icon: IconFolder,
+    },
+    {
+      title: "Not found",
+      url: "/not-found",
+      icon: IconFolder,
     },
   ],
 };
@@ -196,8 +157,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <a href="https://www.supernice-dev.com/" target="_blank">
+              <a href="https://www.supernice-dev.com/en" target="_blank">
                 <IconInnerShadowTop className="!size-5" />
+                {/* <span className="text-base font-semibold">SuperNice Dev</span> */}
                 <span className="text-base font-semibold">SuperNice Dev</span>
               </a>
             </SidebarMenuButton>
@@ -206,6 +168,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
+        <NavMain items={data.documents} />
         {/* <NavDocuments items={data.documents} /> */}
         {/* <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
       </SidebarContent>

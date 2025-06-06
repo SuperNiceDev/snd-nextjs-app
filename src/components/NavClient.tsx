@@ -57,8 +57,8 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
   });
 
   return (
-    <div className="NavClient tw:fixed tw:top-0 tw:w-full tw:bg-white tw:dark:bg-neutral-900">
-      <div className="tw:max-w-6xl tw:mx-auto tw:px-4 tw:py-4">
+    <div className="NavClient fixed top-0 w-full bg-white dark:bg-neutral-900">
+      <div className="max-w-6xl mx-auto px-4 py-4">
         {items?.map(({ title, href, target }, idx) => {
           const Cmp: any = href ? Link : Fragment;
           const cmpProps = href ? { href, target } : {};
@@ -68,7 +68,7 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
               {/* <Link key={idx} href={href} target={target}> */}
               <Button
                 variant="outlined"
-                className="tw:mb-2 tw:mr-2"
+                className="mb-2 mr-2"
                 onClick={onBtnClick}
               >
                 {title}
@@ -79,7 +79,7 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
         })}
         <Button
           variant="outlined"
-          className="tw:mb-2 tw:mr-2 tw:ml-6"
+          className="mb-2 mr-2 ml-6"
           onClick={() => {
             setTheme("light");
           }}
@@ -88,7 +88,7 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
         </Button>
         <Button
           variant="outlined"
-          className="tw:mb-2 tw:mr-2"
+          className="mb-2 mr-2"
           onClick={() => {
             setTheme("dark");
           }}
@@ -97,7 +97,7 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
         </Button>
         <Button
           variant="outlined"
-          className="tw:mb-2 tw:mr-2"
+          className="mb-2 mr-2"
           onClick={() => {
             setTheme("system");
           }}
