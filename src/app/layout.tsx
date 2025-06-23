@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 
 import { getServerSession } from "next-auth";
 
@@ -13,18 +13,23 @@ import ThemeProvider from "@/provider/ThemeProvider";
 
 import "./layout.css";
 
-export default async function RootLayout(
-  props: Readonly<{
-    children: ReactNode;
-  }>,
-) {
+const style = {
+  "--sidebar-width": "calc(var(--spacing) * 72)",
+  "--header-height": "calc(var(--spacing) * 12)",
+} as CSSProperties;
+
+type RootLayoutProps = Readonly<{
+  children: ReactNode;
+}>;
+
+export default async function RootLayout({ children }: RootLayoutProps) {
   const session = await getServerSession(authOptions);
 
   return (
+    // TODO: remove suppressHydrationWarning
     <html lang="en" suppressHydrationWarning>
       <link rel="preconnect" href={process.env.NEXT_PUBLIC_CMS_DOMAIN} />
       <body
-        // className={`RootLayout text-fuchsia-800 bg-white dark:bg-neutral-900`}
         className={`RootLayout text-fuchsia-800 bg-white dark:bg-neutral-900`}
       >
         <ThemeProvider
@@ -36,22 +41,13 @@ export default async function RootLayout(
           <MuiTheme>
             <NextAuthProvider session={session}>
               {/* <Nav /> */}
-              {/* {props.children} */}
-              <SidebarProvider
-                style={
-                  {
-                    "--sidebar-width": "calc(var(--spacing) * 72)",
-                    "--header-height": "calc(var(--spacing) * 12)",
-                  } as React.CSSProperties
-                }
-              >
+              {/* {children} */}
+              <SidebarProvider style={style}>
                 <AppSidebar variant="inset" />
                 <SidebarInset>
                   <SiteHeader />
                   <div className="flex flex-1 flex-col">
-                    <div className="gap-4 p-4 md:gap-6 md:p-4">
-                      {props.children}
-                    </div>
+                    <div className="gap-4 p-4 md:gap-6 md:p-4">{children}</div>
                   </div>
                 </SidebarInset>
               </SidebarProvider>
