@@ -8,10 +8,10 @@ import Stack from "@mui/material/Stack";
 
 import BasicSelect from "@/components/mui/BasicSelect";
 
-export default function MuiElementsTest() {
+export default function MuiComponents() {
   return (
-    <div className="MuiElementsTest twCenterContent">
-      <code>{`<MuiElementsTest>`}</code>
+    <div className="MuiComponents twCenterContent">
+      <code>{`<MuiComponents>`}</code>
 
       <div className={`px-4`}>
         <div className="mb-2">
@@ -70,7 +70,7 @@ export default function MuiElementsTest() {
         </div>
       </div>
 
-      <code>{`</MuiElementsTest>`}</code>
+      <code>{`</MuiComponents>`}</code>
     </div>
   );
 }

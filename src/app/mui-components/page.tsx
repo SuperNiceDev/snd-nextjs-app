@@ -1,9 +1,5 @@
-import MuiElementsTest from "@/components/mui/MuiElementsTest";
+import MuiComponents from "@/components/mui/MuiComponents";
 
 export default function Page() {
-  return (
-    <div className={`MuiElementPage`}>
-      <MuiElementsTest />
-    </div>
-  );
+  return <MuiComponents />;
 }
