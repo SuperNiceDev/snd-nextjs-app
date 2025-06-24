@@ -13,7 +13,7 @@ export default function MuiComponents() {
     <div className="MuiComponents twCenterContent">
       <code>{`<MuiComponents>`}</code>
 
-      <div className={`px-4`}>
+      <div className="px-4">
         <div className="mb-2">
           <code>{`<h1>`}</code>
           <h1 className="text-3xl font-bold text-fuchsia-800_">
