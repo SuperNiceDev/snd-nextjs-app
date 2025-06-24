@@ -24,6 +24,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const data = {
   user: {
@@ -159,10 +160,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="https://www.supernice-dev.com/en" target="_blank">
                 <IconInnerShadowTop className="!size-5" />
-                {/* <span className="text-base font-semibold">SuperNice Dev</span> */}
                 <span className="text-base font-semibold">SuperNice Dev</span>
               </a>
             </SidebarMenuButton>
+            <div className="absolute right-0 top-0">
+              <ThemeToggle />
+            </div>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
@@ -172,6 +175,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           groupLabel="Dynamic Routes (Strapi CMS)"
           items={data.documents}
         />
+
         {/* <NavDocuments items={data.documents} /> */}
         {/* <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
       </SidebarContent>
