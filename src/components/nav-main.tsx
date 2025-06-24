@@ -17,9 +17,9 @@ export function NavMain({
   items,
 }: {
   groupLabel?: string;
-  items: {
+  items?: {
     title: string;
-    url: string;
+    href: string;
     icon?: Icon;
   }[];
 }) {
@@ -28,12 +28,12 @@ export function NavMain({
       <SidebarGroupContent className="flex flex-col gap-2">
         <SidebarGroupLabel>{groupLabel || "Static Routes"}</SidebarGroupLabel>
         <SidebarMenu>
-          {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <Link href={item.url}>
-                <SidebarMenuButton tooltip={item.title}>
-                  {item.icon && <item.icon />}
-                  <span>{item.title}</span>
+          {items?.map((item, k) => (
+            <SidebarMenuItem key={k}>
+              <Link href={item?.href || ""}>
+                <SidebarMenuButton tooltip={item?.title}>
+                  {item?.icon && <item.icon />}
+                  <span>{item?.title}</span>
                 </SidebarMenuButton>
               </Link>
             </SidebarMenuItem>

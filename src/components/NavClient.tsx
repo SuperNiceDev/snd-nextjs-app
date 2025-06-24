@@ -35,6 +35,7 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
 
       const resData2 = resData?.data;
       const items = resData2?.navigation?.items;
+      console.log("NavClient() items: ", items);
       setNavItems(items);
     };
 
@@ -57,8 +58,8 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
   });
 
   return (
-    <div className="NavClient fixed top-0 w-full bg-white dark:bg-neutral-900">
-      <div className="max-w-6xl mx-auto px-4 py-4">
+    <div className="NavClient fixed top-0 right-0 w-full_ bg-white_ dark:bg-neutral-900_">
+      <div className="max-w-6xl mx-auto px-4 py-3">
         {items?.map(({ title, href, target }, idx) => {
           const Cmp: any = href ? Link : Fragment;
           const cmpProps = href ? { href, target } : {};

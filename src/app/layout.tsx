@@ -40,8 +40,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         >
           <MuiTheme>
             <NextAuthProvider session={session}>
-              {/* <Nav /> */}
-              {/* {children} */}
               <SidebarProvider style={style}>
                 <AppSidebar variant="inset" />
                 <SidebarInset>
@@ -51,6 +49,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
                   </div>
                 </SidebarInset>
               </SidebarProvider>
+              {/* <Nav /> */}
             </NextAuthProvider>
           </MuiTheme>
         </ThemeProvider>
