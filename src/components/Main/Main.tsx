@@ -1,3 +1,5 @@
+import ReactJson from "@/components/ReactJson";
+
 import css from "./Main.module.scss";
 
 type MainProps = {
@@ -19,7 +21,7 @@ const Main = ({ sections }: MainProps) => {
         {sections?.map((item: any, idx: number) => {
           return (
             <div key={idx} className="lg:w-1/2">
-              {JSON.stringify(item)}
+              <ReactJson src={item} />
             </div>
           );
         })}

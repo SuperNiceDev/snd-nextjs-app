@@ -55,8 +55,19 @@ const data = {
   ],
 };
 
-export function AppSidebar({ ...props }: ComponentProps<typeof Sidebar>) {
-  const [navItems, setNavItems] = useState<any[] | undefined>();
+type NavItemType = {
+  title: string;
+  href?: string;
+  target?: string;
+};
+
+type AppSidebarProps = ComponentProps<typeof Sidebar> & {
+  items?: NavItemType[];
+};
+
+export function AppSidebar(props: AppSidebarProps) {
+  const { items, ...propsRest } = props;
+  const [navItems, setNavItems] = useState<NavItemType[] | undefined>(items);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -72,7 +83,7 @@ export function AppSidebar({ ...props }: ComponentProps<typeof Sidebar>) {
         resData = mockDataNav;
       }
 
-      const items2 = resData?.data?.navigation?.items?.map((item: any) => {
+      const items = resData?.data?.navigation?.items?.map((item: any) => {
         const { label, href, target } = item;
         const slug = item?.page?.slug;
         return {
@@ -83,14 +94,14 @@ export function AppSidebar({ ...props }: ComponentProps<typeof Sidebar>) {
         };
       });
 
-      setNavItems(items2);
+      setNavItems(items);
     };
 
     callApi();
   }, [pathname]);
 
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
+    <Sidebar collapsible="offcanvas" {...propsRest}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>

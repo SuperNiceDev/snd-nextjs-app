@@ -4,7 +4,6 @@ import { getServerSession } from "next-auth";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions/authOptions";
 import Nav from "@/components/Nav";
-import { AppSidebar } from "@/components/app-sidebar";
 import MuiTheme from "@/components/mui/MuiTheme";
 import { SiteHeader } from "@/components/site-header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
@@ -41,7 +40,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           <MuiTheme>
             <NextAuthProvider session={session}>
               <SidebarProvider style={style}>
-                <AppSidebar variant="inset" />
+                <Nav />
                 <SidebarInset>
                   <SiteHeader />
                   <div className="flex flex-1 flex-col">
@@ -49,7 +48,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
                   </div>
                 </SidebarInset>
               </SidebarProvider>
-              {/* <Nav /> */}
             </NextAuthProvider>
           </MuiTheme>
         </ThemeProvider>

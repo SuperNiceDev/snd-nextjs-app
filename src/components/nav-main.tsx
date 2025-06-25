@@ -1,6 +1,8 @@
 "use client";
 
-import { type Icon } from "@tabler/icons-react";
+import { Fragment } from "react";
+
+import { type Icon, IconFolder } from "@tabler/icons-react";
 import Link from "next/link";
 
 import {
@@ -19,7 +21,8 @@ export function NavMain({
   groupLabel?: string;
   items?: {
     title: string;
-    href: string;
+    href?: string;
+    target?: string;
     icon?: Icon;
   }[];
 }) {
@@ -28,16 +31,22 @@ export function NavMain({
       <SidebarGroupContent className="flex flex-col gap-2">
         <SidebarGroupLabel>{groupLabel || "Static Routes"}</SidebarGroupLabel>
         <SidebarMenu>
-          {items?.map((item, k) => (
-            <SidebarMenuItem key={k}>
-              <Link href={item?.href || ""}>
-                <SidebarMenuButton tooltip={item?.title}>
-                  {item?.icon && <item.icon />}
-                  <span>{item?.title}</span>
-                </SidebarMenuButton>
-              </Link>
-            </SidebarMenuItem>
-          ))}
+          {items?.map(({ title, href, target, icon }, idx) => {
+            const Icon = icon || IconFolder;
+            const Cmp: any = href ? Link : Fragment;
+            const cmpProps = href ? { href, target } : {};
+
+            return (
+              <SidebarMenuItem key={idx}>
+                <Cmp {...cmpProps}>
+                  <SidebarMenuButton tooltip={title}>
+                    {icon && <Icon />}
+                    <span>{title}</span>
+                  </SidebarMenuButton>
+                </Cmp>
+              </SidebarMenuItem>
+            );
+          })}
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

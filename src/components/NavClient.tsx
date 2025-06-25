@@ -35,7 +35,6 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
 
       const resData2 = resData?.data;
       const items = resData2?.navigation?.items;
-      console.log("NavClient() items: ", items);
       setNavItems(items);
     };
 

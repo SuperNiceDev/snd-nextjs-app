@@ -22,7 +22,7 @@ export default function SndReactLibComponents() {
           <code>{`<InputText>`}</code>
           <div>
             <InputText
-              className="px-2"
+              className="px-2 border"
               placeholder="InputText prop placeholder test"
               // value="InputText prop value test"
             />

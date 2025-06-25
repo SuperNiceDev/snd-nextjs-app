@@ -11,21 +11,9 @@ export const mockDataNav = {
       myText: "myText test",
       items: [
         {
-          id: 1,
-          label: "Fallback",
-        },
-        {
-          id: 18,
-          href: "/de",
-          label: "DE",
-          target: null,
-          isExternal: false,
-          page: null,
-        },
-        {
           id: 8,
           href: null,
-          label: "Home",
+          label: "Home - 404 Fallback",
           target: null,
           isExternal: false,
           page: {
@@ -42,7 +30,7 @@ export const mockDataNav = {
         {
           id: 9,
           href: null,
-          label: "About",
+          label: "About - 404 Fallback",
           target: null,
           isExternal: false,
           page: {
@@ -55,38 +43,6 @@ export const mockDataNav = {
             locale: "en",
             documentId: "tdy4ku2393v732p0uub3qsn6",
           },
-        },
-        {
-          id: 22,
-          href: "/api-hello-test",
-          label: "/api/hello Test",
-          target: null,
-          isExternal: false,
-          page: null,
-        },
-        {
-          id: 21,
-          href: "/auth/signin",
-          label: "Auth Provider SignIn",
-          target: null,
-          isExternal: false,
-          page: null,
-        },
-        {
-          id: 17,
-          href: "/not-found-link",
-          label: "Not found",
-          target: null,
-          isExternal: false,
-          page: null,
-        },
-        {
-          id: 16,
-          href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-          label: "Extern Link",
-          target: "_blank",
-          isExternal: false,
-          page: null,
         },
       ],
     },
