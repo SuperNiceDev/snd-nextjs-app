@@ -3,6 +3,7 @@
 import React, { ComponentProps, useEffect, useState } from "react";
 
 import { IconFolder, IconInnerShadowTop } from "@tabler/icons-react";
+import { AxiosResponse } from "axios";
 import { usePathname } from "next/navigation";
 
 import { NavMain } from "@/components/nav-main";
@@ -17,6 +18,7 @@ import {
 } from "@/components/ui/sidebar";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { mockDataNav } from "@/mockData/mockDataNav";
+import { NavDataNavItemType, NavDataType } from "@/types/types";
 import axiosInstance from "@/utils/axiosInstance";
 import getNavRestApiUrl from "@/utils/getNavRestApiUrl";
 
@@ -28,71 +30,69 @@ const data = {
   },
   navMain: [
     {
-      title: "snd-react-lib Components",
+      label: "snd-react-lib Components",
       href: "/snd-react-lib-components",
       icon: IconFolder,
     },
     {
-      title: "MUI Components",
+      label: "MUI Components",
       href: "/mui-components",
       icon: IconFolder,
     },
     {
-      title: "shadcn Dashboard",
+      label: "shadcn Dashboard",
       href: "/dashboard",
       icon: IconFolder,
     },
     {
-      title: "API Hello Test",
+      label: "API Hello Test",
       href: "/api-hello-test",
       icon: IconFolder,
     },
     {
-      title: "Auth Provider Test",
+      label: "Auth Provider Test",
       href: "/auth/signin",
       icon: IconFolder,
     },
   ],
 };
 
-type NavItemType = {
-  title: string;
-  href?: string;
-  target?: string;
-};
-
 type AppSidebarProps = ComponentProps<typeof Sidebar> & {
-  items?: NavItemType[];
+  items?: NavDataNavItemType[];
 };
 
 export function AppSidebar(props: AppSidebarProps) {
   const { items, ...propsRest } = props;
-  const [navItems, setNavItems] = useState<NavItemType[] | undefined>(items);
+  const [navItems, setNavItems] = useState<NavDataNavItemType[] | undefined>(
+    items,
+  );
   const pathname = usePathname();
 
   useEffect(() => {
     const callApi = async () => {
       const url = getNavRestApiUrl(pathname);
 
-      let resData: any = null;
+      let resData: NavDataType;
       try {
-        const res: any = await axiosInstance.get(url);
+        const res: AxiosResponse<NavDataType> = await axiosInstance.get(url);
         resData = res.data;
-      } catch (err: any) {
+      } catch (err) {
         console.warn("NavClient() err: ", err);
         resData = mockDataNav;
       }
 
-      const items = resData?.data?.navigation?.items?.map((item: any) => {
-        const { label, href, target } = item;
-        const slug = item?.page?.slug;
-        return {
-          title: label,
-          href: slug || href,
-          target,
-          icon: IconFolder,
-        };
-      });
+      const items = resData?.data?.navigation?.items?.map(
+        (item: NavDataNavItemType) => {
+          const { label, href, target } = item;
+          const slug = item?.page?.slug;
+          return {
+            label,
+            href: slug || href,
+            target,
+            icon: IconFolder,
+          };
+        },
+      );
 
       setNavItems(items);
     };

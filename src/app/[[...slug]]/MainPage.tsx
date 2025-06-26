@@ -1,30 +1,25 @@
+import { AxiosResponse } from "axios";
 import { notFound } from "next/navigation";
 
 import Main from "@/components/Main/Main";
 import { mockDataMainPage } from "@/mockData/mockDataMainPage";
 import axiosInstance from "@/utils/axiosInstance";
-import getLocale from "@/utils/getLocale";
-import getPopulateSlugFilter from "@/utils/getPopulateSlugFilter";
+import getNavPageApiUrl from "@/utils/getNavPageApiUrl";
 
-const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
+type MainPagePropsType = {
+  params: Promise<{ slug: string[] }>;
+};
 
-export default async function MainPage({ params }: any) {
+export default async function MainPage({ params }: MainPagePropsType) {
   const { slug: pSlug } = await params;
   const slug = `/${pSlug?.join("/") || ""}`;
-  const filters = getPopulateSlugFilter(slug);
-  const locale = getLocale(pSlug);
-  const rootFields = ``;
-  const sectionsFields = `&populate[sections][populate]=*`;
-  const fields = `${rootFields}${sectionsFields}`;
-  const publicationState = ``;
-  // const publicationState = `&publicationState=live`;
-  const url = `${apiUrl}/pages?${filters}${locale}${fields}${publicationState}`;
+  const url = getNavPageApiUrl(pSlug);
 
-  let resData: any = null;
+  let resData;
   try {
-    const res: any = await axiosInstance.get(url);
+    const res: AxiosResponse = await axiosInstance.get(url);
     resData = res.data;
-  } catch (err: any) {
+  } catch (err) {
     console.warn("MainPage() err: ", err);
     resData = mockDataMainPage;
   }

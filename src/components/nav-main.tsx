@@ -2,7 +2,7 @@
 
 import { Fragment } from "react";
 
-import { type Icon, IconFolder } from "@tabler/icons-react";
+import { IconFolder } from "@tabler/icons-react";
 import Link from "next/link";
 
 import {
@@ -13,35 +13,31 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { NavDataNavItemType } from "@/types/types";
 
 export function NavMain({
   groupLabel,
   items,
 }: {
   groupLabel?: string;
-  items?: {
-    title: string;
-    href?: string;
-    target?: string;
-    icon?: Icon;
-  }[];
+  items?: NavDataNavItemType[];
 }) {
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
         <SidebarGroupLabel>{groupLabel || "Static Routes"}</SidebarGroupLabel>
         <SidebarMenu>
-          {items?.map(({ title, href, target, icon }, idx) => {
-            const Icon = icon || IconFolder;
+          {items?.map(({ label, href, target }, idx) => {
+            // const Icon = icon || IconFolder;
             const Cmp: any = href ? Link : Fragment;
             const cmpProps = href ? { href, target } : {};
 
             return (
               <SidebarMenuItem key={idx}>
                 <Cmp {...cmpProps}>
-                  <SidebarMenuButton tooltip={title}>
-                    {icon && <Icon />}
-                    <span>{title}</span>
+                  <SidebarMenuButton tooltip={label}>
+                    <IconFolder />
+                    <span>{label}</span>
                   </SidebarMenuButton>
                 </Cmp>
               </SidebarMenuItem>

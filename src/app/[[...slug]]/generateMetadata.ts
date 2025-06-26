@@ -1,3 +1,4 @@
+import { AxiosResponse } from "axios";
 import type { Metadata } from "next";
 
 import { mockDataGenerateMetadata } from "@/mockData/mockDataGenerateMetadata";
@@ -9,10 +10,17 @@ import getPopulateSlugFilter from "@/utils/getPopulateSlugFilter";
 
 const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 
+type SearchParams = { [key: string]: string | string[] | undefined };
+
+type GenerateMetadataType = {
+  params: Promise<{ slug: string[] }>;
+  searchParams: SearchParams;
+};
+
 export default async function generateMetadata({
   params,
-  searchParams,
-}: any): Promise<Metadata> {
+  // searchParams,
+}: GenerateMetadataType): Promise<Metadata> {
   const { slug: pSlug } = await params;
   const slug = `/${pSlug?.join("/") || ""}`;
 
@@ -22,11 +30,11 @@ export default async function generateMetadata({
   const publicationState = ``;
   const url = `${apiUrl}/pages?${filters}${locale}${fields}${publicationState}`;
 
-  let resData: any = null;
+  let resData;
   try {
-    const res: any = await axiosInstance.get(url);
+    const res: AxiosResponse<any> = await axiosInstance.get(url);
     resData = res.data;
-  } catch (err: any) {
+  } catch (err) {
     console.warn("generateMetadata() err: ", err);
     resData = mockDataGenerateMetadata;
   }

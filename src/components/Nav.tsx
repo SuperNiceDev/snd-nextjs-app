@@ -1,10 +1,12 @@
 "use server";
 
+import { AxiosResponse } from "axios";
 import { headers } from "next/headers";
 
-import NavClient from "@/components/NavClient";
+// import NavClient from "@/components/NavClient";
 import { AppSidebar } from "@/components/app-sidebar";
 import { mockDataNav } from "@/mockData/mockDataNav";
+import { NavDataNavItemType, NavDataType } from "@/types/types";
 import axiosInstance from "@/utils/axiosInstance";
 import getNavRestApiUrl from "@/utils/getNavRestApiUrl";
 
@@ -14,23 +16,25 @@ export default async function Nav() {
   const url = getNavRestApiUrl(pathname);
   console.clear();
 
-  let resData: any = null;
+  let resData: NavDataType;
   try {
-    const res: any = await axiosInstance.get(url);
+    const res: AxiosResponse<NavDataType> = await axiosInstance.get(url);
     resData = res.data;
-  } catch (err: any) {
+  } catch (err) {
     console.warn("Nav() err: ", err);
     resData = mockDataNav;
   }
-  const items = resData?.data?.navigation?.items?.map((item: any) => {
-    const { label, href, target } = item;
-    const slug = item?.page?.slug;
-    return {
-      title: label,
-      href: slug || href,
-      target,
-    };
-  });
+  const items = resData?.data?.navigation?.items?.map(
+    (item: NavDataNavItemType) => {
+      const { label, href, target } = item;
+      const slug = item?.page?.slug;
+      return {
+        label,
+        href: slug || href,
+        target,
+      };
+    },
+  );
 
   // return <NavClient items={items} />;
   return <AppSidebar variant="inset" items={items} />;

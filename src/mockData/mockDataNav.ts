@@ -1,4 +1,6 @@
-export const mockDataNav = {
+import { NavDataType } from "@/types/types";
+
+export const mockDataNav: NavDataType = {
   data: {
     id: 1,
     createdAt: "2024-05-03T08:03:28.356Z",

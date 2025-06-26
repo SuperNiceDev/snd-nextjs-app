@@ -3,11 +3,13 @@
 import React, { Fragment, useEffect, useState } from "react";
 
 import Button from "@mui/material/Button";
+import { AxiosResponse } from "axios";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { mockDataNav } from "@/mockData/mockDataNav";
+import { NavDataNavItemType, NavDataType } from "@/types/types";
 import axiosInstance from "@/utils/axiosInstance";
 import getNavRestApiUrl from "@/utils/getNavRestApiUrl";
 
@@ -16,7 +18,9 @@ type NavClientProps = {
 };
 
 export default function NavClient({ items: itemsProps }: NavClientProps) {
-  const [navItems, setNavItems] = useState<any[] | undefined>(itemsProps);
+  const [navItems, setNavItems] = useState<NavDataNavItemType[] | undefined>(
+    itemsProps,
+  );
   const pathname = usePathname();
   const { setTheme } = useTheme();
 
@@ -24,11 +28,11 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
     const callApi = async () => {
       const url = getNavRestApiUrl(pathname);
 
-      let resData: any = null;
+      let resData;
       try {
-        const res: any = await axiosInstance.get(url);
+        const res: AxiosResponse<NavDataType> = await axiosInstance.get(url);
         resData = res.data;
-      } catch (err: any) {
+      } catch (err) {
         console.warn("NavClient() err: ", err);
         resData = mockDataNav;
       }
@@ -48,9 +52,8 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
   const items = navItems?.map?.((item: any) => {
     const { label, href, target } = item;
     const slug = item?.page?.slug;
-
     return {
-      title: label,
+      label,
       href: slug || href,
       target,
     };
@@ -59,22 +62,20 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
   return (
     <div className="NavClient fixed top-0 right-0 w-full_ bg-white_ dark:bg-neutral-900_">
       <div className="max-w-6xl mx-auto px-4 py-3">
-        {items?.map(({ title, href, target }, idx) => {
+        {items?.map(({ label, href, target }, idx) => {
           const Cmp: any = href ? Link : Fragment;
           const cmpProps = href ? { href, target } : {};
 
           return (
             <Cmp key={idx} {...cmpProps}>
-              {/* <Link key={idx} href={href} target={target}> */}
               <Button
                 variant="outlined"
                 className="mb-2 mr-2"
                 onClick={onBtnClick}
               >
-                {title}
+                {label}
               </Button>
             </Cmp>
-            // </Link>
           );
         })}
         <Button

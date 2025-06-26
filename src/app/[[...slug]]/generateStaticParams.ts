@@ -1,10 +1,10 @@
-import axios from "axios";
+// import axios from "axios";
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 // https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration#replacing-fallback
 
 export default async function generateStaticParams() {
-  const url = `${process.env.NEXT_PUBLIC_CMS_API_URL}/pages?locale=de&populate=*`;
+  // const url = `${process.env.NEXT_PUBLIC_CMS_API_URL}/pages?locale=de&populate=*`;
 
   // const res = await axios.get(url);
   // const resData = res.data;
@@ -41,6 +41,6 @@ export default async function generateStaticParams() {
 
   // return paths;
 
-  const mock: any = [{ slug: ["home"] }, { slug: ["about"] }];
+  const mock = [{ slug: ["home"] }, { slug: ["about"] }];
   return mock;
 }
