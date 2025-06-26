@@ -6,6 +6,10 @@ This is a Next.js app boilerplate that uses [snd-react-lib](https://github.com/S
 
 Best option is to use it with [snd-nextjs-app-monorepo](https://github.com/SuperNiceDev/snd-nextjs-app-monorepo)
 
+Feel free to use, fork, improve or share. You are also welcome to raise questions and issues. 
+The code is still work in progress, but constantly improved.
+The plan is to add one new item every few days.
+
 ## Main Technologies
 
 - [Node.js 22](https://nodejs.org/docs/latest-v22.x/api/index.html)
