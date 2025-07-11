@@ -1,9 +1,10 @@
 "use client";
 
 import { createTheme } from "@mui/material/styles";
-import { formatHex, oklch } from "culori";
+// import { formatHex, oklch } from "culori";
 import { Roboto } from "next/font/google";
-import colors from "tailwindcss/colors";
+
+// import colors from "tailwindcss/colors";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "800"],
@@ -11,8 +12,8 @@ const roboto = Roboto({
   display: "swap",
 });
 
-const bgDarkColor = colors.neutral[900];
-const bgDarkColorHex = formatHex(oklch(bgDarkColor)) || "#000000";
+// const bgDarkColor = colors.neutral[900];
+// const bgDarkColorHex = formatHex(oklch(bgDarkColor)) || "#000000";
 
 // const primColor = colors.fuchsia[800];
 // const primColorHex = formatHex(oklch(primColor)) || "#FF0000";

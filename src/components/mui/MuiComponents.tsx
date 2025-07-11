@@ -16,7 +16,7 @@ export default function MuiComponents() {
       <div className="px-4">
         <div className="mb-2">
           <code>{`<h1>`}</code>
-          <h1 className="text-3xl font-bold text-fuchsia-800_">
+          <h1 className="text-fuchsia-800_ text-3xl font-bold">
             {`Tailwind <h1 />`}
           </h1>
           <code>{`</h1>`}</code>
@@ -25,7 +25,7 @@ export default function MuiComponents() {
         <div className="mb-2">
           <code>{`<Typography variant="h1">`}</code>
           <Typography
-            className="text-3xl font-bold text-fuchsia-800_"
+            className="text-fuchsia-800_ text-3xl font-bold"
             variant="h1"
             // component="div"
           >
@@ -43,7 +43,7 @@ export default function MuiComponents() {
         <div className="mb-2">
           <code>{`<Stack>`}</code>
           <Stack
-            className="my-4 text-3xl font-bold underline text-fuchsia-800_"
+            className="text-fuchsia-800_ my-4 text-3xl font-bold underline"
             spacing={2}
             direction="column"
           >

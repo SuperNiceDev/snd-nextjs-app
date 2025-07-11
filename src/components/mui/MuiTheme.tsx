@@ -2,7 +2,7 @@
 
 import { ReactNode, useMemo } from "react";
 
-import { useMediaQuery } from "@mui/material";
+// import { useMediaQuery } from "@mui/material";
 import { useTheme } from "next-themes";
 
 import { muiThemeDark, muiThemeLight } from "@/app/muiTheme";

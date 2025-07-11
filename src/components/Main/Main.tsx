@@ -3,7 +3,7 @@ import ReactJson from "@/components/ReactJson";
 import css from "./Main.module.scss";
 
 type MainProps = {
-  sections: any[];
+  sections: object[];
 };
 
 const Main = ({ sections }: MainProps) => {
@@ -17,8 +17,8 @@ const Main = ({ sections }: MainProps) => {
     <div className={`${css.root} Main twCenterContent`}>
       <code>{`<Main>`}</code>
 
-      <div className="px-4 flex">
-        {sections?.map((item: any, idx: number) => {
+      <div className="flex px-4">
+        {sections?.map((item: object, idx: number) => {
           return (
             <div key={idx} className="lg:w-1/2">
               <ReactJson src={item} />

@@ -114,7 +114,7 @@ export function AppSidebar(props: AppSidebarProps) {
                 <span className="text-base font-semibold">SuperNice Dev</span>
               </a>
             </SidebarMenuButton>
-            <div className="absolute right-0 top-0">
+            <div className="absolute top-0 right-0">
               <ThemeToggle />
             </div>
           </SidebarMenuItem>

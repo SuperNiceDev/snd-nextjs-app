@@ -4,7 +4,11 @@ import dynamic from "next/dynamic";
 
 const ReactJsonLib = dynamic(() => import("react-json-view"), { ssr: false });
 
-export default function ReactJson({ src }: any) {
+type PropsType = {
+  src: object;
+};
+
+export default function ReactJson({ src }: PropsType) {
   if (!src) return;
 
   return (

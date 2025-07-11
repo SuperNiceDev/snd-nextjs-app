@@ -29,7 +29,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <link rel="preconnect" href={process.env.NEXT_PUBLIC_CMS_DOMAIN} />
       <body
-        className={`RootLayout text-fuchsia-800 bg-white dark:bg-neutral-900`}
+        className={`RootLayout bg-white text-fuchsia-800 dark:bg-neutral-900`}
       >
         <ThemeProvider
           attribute="class"

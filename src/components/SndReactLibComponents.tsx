@@ -22,7 +22,7 @@ export default function SndReactLibComponents() {
           <code>{`<InputText>`}</code>
           <div>
             <InputText
-              className="px-2 border"
+              className="border px-2"
               placeholder="InputText prop placeholder test"
               // value="InputText prop value test"
             />
@@ -31,7 +31,7 @@ export default function SndReactLibComponents() {
         </div>
 
         <div className="">
-          <UseDidMountEffectDemo className="py-1 px-3 text-white_ text-gray-100 bg-fuchsia-800 rounded-sm " />
+          <UseDidMountEffectDemo className="text-white_ rounded-sm bg-fuchsia-800 px-3 py-1 text-gray-100" />
         </div>
       </div>
 

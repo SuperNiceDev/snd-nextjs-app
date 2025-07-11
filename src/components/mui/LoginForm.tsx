@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { Button } from "@mui/material";
+import { Session } from "next-auth";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 
@@ -11,7 +12,7 @@ import ReactJson from "@/components/ReactJson";
 const signinUrl = "/auth/signin";
 
 export default function LoginForm() {
-  const [data, setData] = useState<any>();
+  const [data, setData] = useState<Session | undefined | null>();
   const { data: session, status } = useSession();
   const searchParams = useSearchParams();
   const error = searchParams.get("error");

@@ -13,7 +13,7 @@ const paramsOrBody = {
 };
 
 export default function ApiHelloTestPage() {
-  const [data, setData] = useState<any>();
+  const [data, setData] = useState<null | object>();
 
   const onGetBtnClick = async () => {
     setData(null);

@@ -6,12 +6,12 @@ import Image, { ImageProps } from "next/image";
 
 import css from "./ImageExt.module.scss";
 
-export interface IImageExt extends ImageProps {
-  // quality?: number;
-  // fill?: boolean;
-  // priority?: boolean;
-  // sizes?: string;
-}
+// export interface IImageExt extends ImageProps {
+//   // quality?: number;
+//   // fill?: boolean;
+//   // priority?: boolean;
+//   // sizes?: string;
+// }
 
 export const defaultProps = {
   quality: 85,
@@ -27,7 +27,7 @@ export const defaultProps = {
   // 100vw`,
 };
 
-const ImageExt = ({ className, src, alt, ...rest }: IImageExt) => {
+const ImageExt = ({ className, src, alt, ...rest }: ImageProps) => {
   const [show, setShow] = useState(false);
 
   const onLoad = () => {
