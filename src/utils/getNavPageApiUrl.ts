@@ -6,7 +6,7 @@ const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 const getNavPageApiUrl = (slug: string[]) => {
   const slugTmp = `/${slug?.join("/") || ""}`;
   const filters = getPopulateSlugFilter(slugTmp);
-  const locale = getLocale(slug);
+  const locale = getLocale(slugTmp);
   const rootFields = ``;
   const sectionsFields = `&populate[sections][populate]=*`;
   const fields = `${rootFields}${sectionsFields}`;

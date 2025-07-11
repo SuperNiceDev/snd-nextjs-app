@@ -25,7 +25,7 @@ export default async function generateMetadata({
   const slug = `/${pSlug?.join("/") || ""}`;
 
   const filters = getPopulateSlugFilter(slug);
-  const locale = getLocale(pSlug);
+  const locale = getLocale(slug);
   const fields = `&populate[seo][populate]=*`;
   const publicationState = ``;
   const url = `${apiUrl}/pages?${filters}${locale}${fields}${publicationState}`;
