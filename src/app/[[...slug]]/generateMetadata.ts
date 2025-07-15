@@ -2,6 +2,7 @@ import { AxiosResponse } from "axios";
 import type { Metadata } from "next";
 
 import { mockDataGenerateMetadata } from "@/mockData/mockDataGenerateMetadata";
+import { PageParamsType, SearchParamsType } from "@/types/types";
 import axiosInstance from "@/utils/axiosInstance";
 import getLocale from "@/utils/getLocale";
 import getPopulateSlugFilter from "@/utils/getPopulateSlugFilter";
@@ -10,29 +11,36 @@ import getPopulateSlugFilter from "@/utils/getPopulateSlugFilter";
 
 const apiUrl = process.env.NEXT_PUBLIC_CMS_API_URL;
 
-type SearchParams = { [key: string]: string | string[] | undefined };
+type ApiResType = {
+  data: {
+    seo: {
+      metaTitle: string;
+      metaDescription: string;
+    };
+  }[];
+};
 
 type GenerateMetadataType = {
-  params: Promise<{ slug: string[] }>;
-  searchParams: SearchParams;
+  params: PageParamsType;
+  searchParams: SearchParamsType;
 };
 
 export default async function generateMetadata({
   params,
   // searchParams,
 }: GenerateMetadataType): Promise<Metadata> {
-  const { slug: pSlug } = await params;
-  const slug = `/${pSlug?.join("/") || ""}`;
+  const { slug } = await params;
+  const path = `/${slug?.join("/") || ""}`;
 
-  const filters = getPopulateSlugFilter(slug);
-  const locale = getLocale(slug);
+  const filters = getPopulateSlugFilter(path);
+  const locale = getLocale(path);
   const fields = `&populate[seo][populate]=*`;
   const publicationState = ``;
   const url = `${apiUrl}/pages?${filters}${locale}${fields}${publicationState}`;
 
   let resData;
   try {
-    const res: AxiosResponse<any> = await axiosInstance.get(url);
+    const res: AxiosResponse<ApiResType> = await axiosInstance.get(url);
     resData = res.data;
   } catch (err) {
     console.warn("generateMetadata() err: ", err);

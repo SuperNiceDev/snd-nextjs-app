@@ -1,3 +1,7 @@
+export type SearchParamsType = { [key: string]: string | string[] | undefined };
+
+export type PageParamsType = Promise<{ slug: string[] }>;
+
 export type NavDataNavItemType = {
   id?: number;
   href?: null | string;
