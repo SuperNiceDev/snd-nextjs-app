@@ -35,13 +35,13 @@ const data = {
       icon: IconFolder,
     },
     {
-      label: "MUI Components",
-      href: "/mui-components",
+      label: "shadcn Dashboard",
+      href: "/dashboard",
       icon: IconFolder,
     },
     {
-      label: "shadcn Dashboard",
-      href: "/dashboard",
+      label: "MUI Components",
+      href: "/mui-components",
       icon: IconFolder,
     },
     {

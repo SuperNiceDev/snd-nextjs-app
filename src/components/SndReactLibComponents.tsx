@@ -14,7 +14,7 @@ export default function SndReactLibComponents() {
       <div className="px-4">
         <div className="mb-2">
           <code>{`<Text>`}</code>
-          <Text className="text-fuchsia-800_" text="Text prop text test" />
+          <Text className="" text="Text prop text test" />
           <code>{`</Text>`}</code>
         </div>
 
@@ -31,7 +31,7 @@ export default function SndReactLibComponents() {
         </div>
 
         <div className="">
-          <UseDidMountEffectDemo className="text-white_ rounded-sm bg-fuchsia-800 px-3 py-1 text-gray-100" />
+          <UseDidMountEffectDemo />
         </div>
       </div>
 
