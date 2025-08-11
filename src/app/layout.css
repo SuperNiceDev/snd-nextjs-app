@@ -2,6 +2,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@source "../../../../packages/snd-react-lib/src/";
+
 :root {
   --base-foreground: oklch(0.145 0 0);
   /* --base-foreground: red; */
@@ -134,7 +136,7 @@
 
 :root {
   --cst-color: #a00876;
-  /* --cst-color: #5478c7; */
+  /* --cst-color: #375fb4; */
   --cst-color-code: #999999;
 
   --base-foreground: var(--cst-color);

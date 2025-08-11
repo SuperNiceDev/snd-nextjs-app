@@ -8,31 +8,30 @@ import UseDidMountEffectDemo from "snd-react-lib/stories/hooks/UseDidMountEffect
 
 export default function SndReactLibComponents() {
   return (
-    <div className="SndReactLibComponents twCenterContent">
+    <div className="SndReactLibComponents twCenterContent text-[var(--foreground)]">
       <code>{`<SndReactLibComponents>`}</code>
 
-      <div className="px-4">
-        <div className="mb-2">
-          <code>{`<Text>`}</code>
-          <Text className="" text="Text prop text test" />
-          <code>{`</Text>`}</code>
-        </div>
+      <div className="my-2">
+        <code>{`<Text>`}</code>
+        <Text className="text-sm font-bold" text="Text text prop test" />
+        <code>{`</Text>`}</code>
+      </div>
 
-        <div className="mb-2">
-          <code>{`<InputText>`}</code>
-          <div>
-            <InputText
-              className="border px-2"
-              placeholder="InputText prop placeholder test"
-              // value="InputText prop value test"
-            />
-          </div>
-          <code>{`</InputText>`}</code>
+      <div className="my-2">
+        <code>{`<InputText>`}</code>
+        <div className="text-sm font-bold">
+          <InputText
+            className="border border-[var(--foreground)] px-2 py-1 text-xs"
+            placeholder="InputText prop placeholder test"
+            defaultValue="InputText prop default value test"
+            // value="InputText prop value test"
+          />
         </div>
+        <code>{`</InputText>`}</code>
+      </div>
 
-        <div className="">
-          <UseDidMountEffectDemo />
-        </div>
+      <div className="my-2">
+        <UseDidMountEffectDemo className="" />
       </div>
 
       <code>{`</SndReactLibComponents>`}</code>
