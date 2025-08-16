@@ -14,7 +14,7 @@ export default async function Nav() {
   const headersList = await headers();
   const pathname = headersList.get("x-pathname");
   const url = getNavRestApiUrl(pathname);
-  console.clear();
+  // console.clear();
 
   let resData: NavDataType;
   try {

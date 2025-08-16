@@ -12,7 +12,7 @@ import { createTheme } from "@mui/material/styles";
 //   display: "swap",
 // });
 
-const theme = createTheme({
+const muiThemeDefault = createTheme({
   typography: {
     // fontFamily: roboto.style.fontFamily,
     fontFamily: "Roboto, Arial, sans-serif",
@@ -43,4 +43,4 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+export default muiThemeDefault;

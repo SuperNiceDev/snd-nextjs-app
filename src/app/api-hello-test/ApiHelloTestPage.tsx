@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 
-import { Button } from "@mui/material";
 import axios from "axios";
 
 import ReactJson from "@/components/ReactJson";
+import { Button } from "@/components/ui/button";
 
 const paramsOrBody = {
   a: "value_a",
@@ -47,19 +47,19 @@ export default function ApiHelloTestPage() {
       <code>{`<ApiHelloTestPage>`}</code>
       <div className="px-4">
         <div className="pb-4">
-          <Button className="" variant="contained" onClick={onGetBtnClick}>
+          <Button className="" variant="default" onClick={onGetBtnClick}>
             GET /api/hello
           </Button>
         </div>
         <div className="pb-4">
-          <Button className="" variant="contained" onClick={onPostJsonBtnClick}>
+          <Button className="" variant="default" onClick={onPostJsonBtnClick}>
             POST /api/hello JSON
           </Button>
         </div>
         <div className="pb-4">
           <Button
             className=""
-            variant="contained"
+            variant="default"
             onClick={onPostFormDataBtnClick}
           >
             POST /api/hello FormData

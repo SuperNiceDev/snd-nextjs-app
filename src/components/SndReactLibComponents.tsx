@@ -4,7 +4,7 @@ import React from "react";
 
 import InputText from "snd-react-lib/components/atoms/InputText";
 import Text from "snd-react-lib/components/atoms/Text";
-import UseDidMountEffectDemo from "snd-react-lib/stories/hooks/UseDidMountEffect.stories/UseDidMountEffectDemo";
+import UseDidMountEffectDemo from "snd-react-lib/stories/hooks/useDidMountEffect/UseDidMountEffectDemo";
 
 export default function SndReactLibComponents() {
   return (

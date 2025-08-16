@@ -20,10 +20,10 @@ export default function MuiTheme(
   // );
 
   const { theme: themeClass } = useTheme();
-  const theme = useMemo(
+  const muiTheme = useMemo(
     () => (themeClass === "light" ? muiThemeLight : muiThemeDark),
     [themeClass],
   );
 
-  return <MuiProvider theme={theme}>{props.children}</MuiProvider>;
+  return <MuiProvider theme={muiTheme}>{props.children}</MuiProvider>;
 }

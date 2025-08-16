@@ -1,4 +1,4 @@
-import LoginForm from "@/components/mui/LoginForm";
+import LoginForm from "@/components/LoginForm";
 
 export default function SignInPage() {
   return (
