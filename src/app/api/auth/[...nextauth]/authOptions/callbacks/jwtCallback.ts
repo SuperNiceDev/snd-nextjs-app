@@ -34,9 +34,12 @@ export async function jwtCallback(args: any) {
       console.log("- - - - - - - - - - - - - - - -");
 
       if (strapiAuthData) {
-        // token.jwt = strapiAuthData?.jwt;
         token.strapiJwt = strapiAuthData?.jwt;
-        token.strapiUser = strapiAuthData?.user;
+        const addData = {
+          lastLogin: new Date().toISOString(),
+          name: strapiAuthData?.user?.name || token.name,
+        };
+        token.strapiUser = { ...strapiAuthData?.user, ...addData };
 
         const strapiUsersMeRes = await axios({
           method: "PUT",
@@ -45,9 +48,7 @@ export async function jwtCallback(args: any) {
             "Content-Type": "application/json",
             Authorization: `Bearer ${strapiAuthData.jwt}`,
           },
-          data: JSON.stringify({
-            lastLogin: new Date().getTime(),
-          }),
+          data: JSON.stringify(addData),
         }).catch((err) => {
           console.error("jwtCallback() /api/users/me error: ", err);
         });

@@ -16,6 +16,18 @@ const nextConfigFunc = (
   const nextConfig: NextConfig = {
     ...defaultConfig,
 
+    images: {
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: "lh3.googleusercontent.com",
+          // port: "",
+          // pathname: "/my-bucket/**",
+          // search: "",
+        },
+      ],
+    },
+
     // :::::::::::::::::::::::::::::::::::::::::::: webpack
 
     // https://nextjs.org/docs/app/api-reference/config/next-config-js/webpack

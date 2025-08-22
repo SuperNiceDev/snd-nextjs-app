@@ -40,7 +40,7 @@ export default function LoginForm() {
                 variant="default"
                 onClick={onSignInBtnClick("google")}
               >
-                SignIn Google
+                Google - Sign In
               </Button>
             </div>
             <div>
@@ -49,7 +49,7 @@ export default function LoginForm() {
                 variant="default"
                 onClick={onSignInBtnClick("linkedin")}
               >
-                SignIn LinkedIn
+                LinkedIn - Sign In
               </Button>
             </div>
           </>
@@ -58,7 +58,7 @@ export default function LoginForm() {
         {session && (
           <div>
             <Button variant="default" onClick={onSignOutBtnClick}>
-              SignOut
+              Sign out
             </Button>
           </div>
         )}

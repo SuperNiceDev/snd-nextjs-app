@@ -4,9 +4,11 @@ import React, { ComponentProps, useEffect, useState } from "react";
 
 import { IconFolder, IconInnerShadowTop } from "@tabler/icons-react";
 import { AxiosResponse } from "axios";
+import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
 import { NavMain } from "@/components/nav-main";
+import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -57,16 +59,19 @@ const data = {
   ],
 };
 
-type AppSidebarProps = ComponentProps<typeof Sidebar> & {
+type Props = ComponentProps<typeof Sidebar> & {
   items?: NavDataNavItemType[];
 };
 
-export function AppSidebar(props: AppSidebarProps) {
+export function AppSidebar(props: Props) {
   const { items, ...propsRest } = props;
   const [navItems, setNavItems] = useState<NavDataNavItemType[] | undefined>(
     items,
   );
   const pathname = usePathname();
+
+  const { data: session } = useSession();
+  // console.log("session: ", session);
 
   useEffect(() => {
     const callApi = async () => {
@@ -125,8 +130,7 @@ export function AppSidebar(props: AppSidebarProps) {
         <NavMain groupLabel="Dynamic Routes (Strapi CMS)" items={navItems} />
       </SidebarContent>
       <SidebarFooter>
-        {/* <NavUser user={data.user} /> */}
-        {/*  */}
+        <NavUser user={session?.user} />
       </SidebarFooter>
     </Sidebar>
   );

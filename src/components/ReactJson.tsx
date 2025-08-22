@@ -14,7 +14,7 @@ export default function ReactJson({ src }: PropsType) {
   return (
     <ReactJsonLib
       src={src}
-      name="response"
+      name="ReactJson"
       enableClipboard={false}
       theme="ocean"
     />
