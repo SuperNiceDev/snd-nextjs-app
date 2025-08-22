@@ -28,7 +28,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     // TODO: remove suppressHydrationWarning
     <html lang="en" suppressHydrationWarning>
       <link rel="preconnect" href={process.env.NEXT_PUBLIC_CMS_DOMAIN} />
-      <body className={cn("RootLayout", "text-[var(--foreground)]")}>
+      <body className={cn("RootLayout", "text-[var(--primary-color)]_")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
