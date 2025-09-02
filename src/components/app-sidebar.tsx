@@ -25,11 +25,6 @@ import axiosInstance from "@/utils/axiosInstance";
 import getNavRestApiUrl from "@/utils/getNavRestApiUrl";
 
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
       label: "snd-react-lib Components",

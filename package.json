@@ -3,7 +3,7 @@
   "description": "A Next.js boilerplate",
   "version": "0.1.0",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "yarn removeNextJsTmp && NODE_OPTIONS='--inspect' next dev --turbopack",
     "build": "yarn removeNextJsTmp && next build",

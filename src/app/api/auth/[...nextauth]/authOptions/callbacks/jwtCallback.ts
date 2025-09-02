@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const DOMAIN = process.env.NEXT_PUBLIC_CMS_DOMAIN;
+// const API_TOKEN_FULL_ACCESS = process.env.API_TOKEN_FULL_ACCESS as string;
 
 export async function jwtCallback(args: any) {
   const { account, token } = args;
@@ -47,6 +48,7 @@ export async function jwtCallback(args: any) {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${strapiAuthData.jwt}`,
+            // Authorization: `Bearer ${API_TOKEN_FULL_ACCESS}`,
           },
           data: JSON.stringify(addData),
         }).catch((err) => {
