@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions/authOptions";
 import Nav from "@/components/Nav";
-import { SiteHeader } from "@/components/site-header";
+import { SiteHeader } from "@/components/dashboard/site-header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import NextAuthProvider from "@/provider/NextAuthProvider";

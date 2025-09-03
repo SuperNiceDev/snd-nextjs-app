@@ -3,7 +3,7 @@
 import { AxiosResponse } from "axios";
 import { headers } from "next/headers";
 
-import { AppSidebar } from "@/components/app-sidebar";
+import { AppSidebar } from "@/components/dashboard/app-sidebar";
 import { mockDataNav } from "@/mockData/mockDataNav";
 import { NavDataNavItemType, NavDataType } from "@/types/types";
 import axiosInstance from "@/utils/axiosInstance";
