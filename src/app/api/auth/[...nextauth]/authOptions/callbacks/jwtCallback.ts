@@ -3,18 +3,22 @@ import axios from "axios";
 const DOMAIN = process.env.NEXT_PUBLIC_CMS_DOMAIN;
 // const API_TOKEN_FULL_ACCESS = process.env.API_TOKEN_FULL_ACCESS as string;
 
+const log = (mthd: "log" | "warn" | "error" | "log", ...args: any) => {
+  // console?.[mthd](...args);
+};
+
 export async function jwtCallback(args: any) {
   const { account, token } = args;
 
-  console.log("-------------------------------");
-  console.warn("------------------------------- jwtCallback() - start");
-  console.log("-------------------------------");
-  console.log("jwtCallback() args: ", args);
-  console.log("- - - - - - - - - - - - - - - -");
-  console.log("jwtCallback() account: ", account);
-  console.log("- - - - - - - - - - - - - - - -");
-  console.log("jwtCallback() token: ", token);
-  console.log("- - - - - - - - - - - - - - - -");
+  log("log", "-------------------------------");
+  log("warn", "------------------------------- jwtCallback() - start");
+  log("log", "-------------------------------");
+  log("log", "jwtCallback() args: ", args);
+  log("log", "- - - - - - - - - - - - - - - -");
+  log("log", "jwtCallback() account: ", account);
+  log("log", "- - - - - - - - - - - - - - - -");
+  log("log", "jwtCallback() token: ", token);
+  log("log", "- - - - - - - - - - - - - - - -");
 
   try {
     if (account) {
@@ -23,16 +27,16 @@ export async function jwtCallback(args: any) {
       token.accessToken = access_token;
 
       const strapiAuthUrl = `${DOMAIN}/api/auth/${provider}/callback?access_token=${access_token}`;
-      console.log("jwtCallback() strapiAuthUrl: ", strapiAuthUrl);
+      log("log", "jwtCallback() strapiAuthUrl: ", strapiAuthUrl);
 
       const strapiAuthRes = await axios(strapiAuthUrl).catch((err) => {
-        console.error("jwtCallback() /api/auth/ error: ", err);
+        log("error", "jwtCallback() /api/auth/ error: ", err);
       });
 
       const strapiAuthData = strapiAuthRes?.data;
-      console.log("jwtCallback() strapiAuthData.jwt: ", strapiAuthData?.jwt);
-      console.log("jwtCallback() trapiAuthData.user: ", strapiAuthData?.user);
-      console.log("- - - - - - - - - - - - - - - -");
+      log("log", "jwtCallback() strapiAuthData.jwt: ", strapiAuthData?.jwt);
+      log("log", "jwtCallback() trapiAuthData.user: ", strapiAuthData?.user);
+      log("log", "- - - - - - - - - - - - - - - -");
 
       if (strapiAuthData) {
         token.strapiJwt = strapiAuthData?.jwt;
@@ -52,23 +56,27 @@ export async function jwtCallback(args: any) {
           },
           data: JSON.stringify(addData),
         }).catch((err) => {
-          console.error("jwtCallback() /api/users/me error: ", err);
+          log("error", "jwtCallback() /api/users/me error: ", err);
         });
 
-        console.log(
+        log(
+          "log",
           "jwtCallback() strapiUsersMeRes?.data: ",
           strapiUsersMeRes?.data,
         );
-        console.log("- - - - - - - - - - - - - - - -");
+        log("log", "- - - - - - - - - - - - - - - -");
+      } else {
+        token.strapiJwt = null;
+        token.strapiUser = null;
       }
     }
   } catch (err) {
-    console.error("jwtCallback() error: ", err);
+    log("error", "jwtCallback() error: ", err);
   }
 
-  console.log("-------------------------------");
-  console.warn("------------------------------- jwtCallback() - end");
-  console.log("-------------------------------");
+  log("log", "-------------------------------");
+  log("warn", "------------------------------- jwtCallback() - end");
+  log("log", "-------------------------------");
 
   return token;
 }
