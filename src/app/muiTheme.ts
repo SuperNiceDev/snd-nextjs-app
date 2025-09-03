@@ -7,7 +7,7 @@ import { Roboto } from "next/font/google";
 // import colors from "tailwindcss/colors";
 
 const roboto = Roboto({
-  // weight: ["300", "400", "500", "800"],
+  weight: ["300", "400", "500", "800"],
   subsets: ["latin"],
   display: "swap",
 });
