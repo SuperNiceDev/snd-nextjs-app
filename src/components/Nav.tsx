@@ -3,7 +3,6 @@
 import { AxiosResponse } from "axios";
 import { headers } from "next/headers";
 
-// import NavClient from "@/components/NavClient";
 import { AppSidebar } from "@/components/app-sidebar";
 import { mockDataNav } from "@/mockData/mockDataNav";
 import { NavDataNavItemType, NavDataType } from "@/types/types";
@@ -14,14 +13,13 @@ export default async function Nav() {
   const headersList = await headers();
   const pathname = headersList.get("x-pathname");
   const url = getNavRestApiUrl(pathname);
-  // console.clear();
 
   let resData: NavDataType;
   try {
     const res: AxiosResponse<NavDataType> = await axiosInstance.get(url);
     resData = res.data;
   } catch (err) {
-    console.warn("Nav() err: ", err);
+    // console.warn("Nav() err: ", err);
     resData = mockDataNav;
   }
   const items = resData?.data?.navigation?.items?.map(
@@ -36,6 +34,5 @@ export default async function Nav() {
     },
   );
 
-  // return <NavClient items={items} />;
   return <AppSidebar variant="inset" items={items} />;
 }

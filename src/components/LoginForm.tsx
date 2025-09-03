@@ -6,24 +6,26 @@ import { useSearchParams } from "next/navigation";
 import ReactJson from "@/components/ReactJson";
 import { Button } from "@/components/ui/button";
 
-const signinUrl = "/auth/signin";
-
 export default function LoginForm() {
   const { data: session, status } = useSession();
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
-  // const callbackUrl = searchParams.get("callbackUrl");
+  const callbackUrl = searchParams.get("callbackurl") || "/";
 
-  const onSignInBtnClick = (provider: string) => () => {
-    signIn(
+  const onSignInBtnClick = (provider: string) => async () => {
+    const res = await signIn(
       provider,
-      { callbackUrl: signinUrl },
+      { callbackUrl },
       // { key1: "value1", key2: "value2" },
     );
+    console.log("onSignInBtnClick() res: ", res);
   };
 
   const onSignOutBtnClick = () => {
-    signOut({ callbackUrl: signinUrl });
+    signOut({
+      redirect: false,
+      // callbackUrl: "/",
+    });
   };
 
   // console.log("data: ", data);

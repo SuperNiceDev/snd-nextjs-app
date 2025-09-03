@@ -25,7 +25,7 @@ export function NavMain({
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
-        <SidebarGroupLabel>{groupLabel || "Static Routes"}</SidebarGroupLabel>
+        {groupLabel && <SidebarGroupLabel>{groupLabel}</SidebarGroupLabel>}
         <SidebarMenu>
           {items?.map(({ label, href, target }, idx) => {
             // const Icon = icon || IconFolder;

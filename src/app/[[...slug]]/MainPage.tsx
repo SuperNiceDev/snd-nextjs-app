@@ -6,7 +6,7 @@ import { mockDataMainPage } from "@/mockData/mockDataMainPage";
 import axiosInstance from "@/utils/axiosInstance";
 import getNavPageApiUrl from "@/utils/getNavPageApiUrl";
 
-type MainPagePropsType = {
+export type MainPagePropsType = {
   params: Promise<{ slug: string[] }>;
 };
 
@@ -20,7 +20,7 @@ export default async function MainPage({ params }: MainPagePropsType) {
     const res: AxiosResponse = await axiosInstance.get(url);
     resData = res.data;
   } catch (err) {
-    console.warn("MainPage() err: ", err);
+    // console.warn("MainPage() err: ", err);
     resData = mockDataMainPage;
   }
 

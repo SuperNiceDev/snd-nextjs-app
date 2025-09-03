@@ -21,7 +21,7 @@ export type NavDataNavItemType = {
 };
 
 export type NavDataType = {
-  data: {
+  data?: {
     id: number;
     createdAt: string;
     updatedAt: string;
@@ -34,5 +34,5 @@ export type NavDataType = {
       items: NavDataNavItemType[];
     };
   };
-  meta: unknown;
+  meta?: unknown;
 };

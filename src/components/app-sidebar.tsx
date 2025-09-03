@@ -5,6 +5,7 @@ import React, { ComponentProps, useEffect, useState } from "react";
 import { IconFolder, IconInnerShadowTop } from "@tabler/icons-react";
 import { AxiosResponse } from "axios";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { NavMain } from "@/components/nav-main";
@@ -24,8 +25,8 @@ import { NavDataNavItemType, NavDataType } from "@/types/types";
 import axiosInstance from "@/utils/axiosInstance";
 import getNavRestApiUrl from "@/utils/getNavRestApiUrl";
 
-const data = {
-  navMain: [
+const data1 = {
+  nav: [
     {
       label: "snd-react-lib Components",
       href: "/snd-react-lib-components",
@@ -77,8 +78,9 @@ export function AppSidebar(props: Props) {
         const res: AxiosResponse<NavDataType> = await axiosInstance.get(url);
         resData = res.data;
       } catch (err) {
-        console.warn("NavClient() err: ", err);
-        resData = mockDataNav;
+        // console.warn("NavClient() err: ", err);
+        // resData = mockDataNav;
+        resData = {};
       }
 
       const items = resData?.data?.navigation?.items?.map(
@@ -109,10 +111,10 @@ export function AppSidebar(props: Props) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <a href="https://www.supernice-dev.com/en" target="_blank">
+              <Link href="/">
                 <IconInnerShadowTop />
                 <span className="text-base font-semibold">SuperNice Dev</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
             <div className="absolute top-0 right-0">
               <ThemeToggle />
@@ -121,7 +123,7 @@ export function AppSidebar(props: Props) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain groupLabel="" items={data1.nav} />
         <NavMain groupLabel="Dynamic Routes (Strapi CMS)" items={navItems} />
       </SidebarContent>
       <SidebarFooter>

@@ -2,7 +2,6 @@
 
 import React, { Fragment, useEffect, useState } from "react";
 
-import Button from "@mui/material/Button";
 import { AxiosResponse } from "axios";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -12,6 +11,8 @@ import { mockDataNav } from "@/mockData/mockDataNav";
 import { NavDataNavItemType, NavDataType } from "@/types/types";
 import axiosInstance from "@/utils/axiosInstance";
 import getNavRestApiUrl from "@/utils/getNavRestApiUrl";
+
+import { Button } from "./ui/button";
 
 type NavClientProps = {
   items: { title: string; href?: string; target?: string }[];
@@ -33,7 +34,7 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
         const res: AxiosResponse<NavDataType> = await axiosInstance.get(url);
         resData = res.data;
       } catch (err) {
-        console.warn("NavClient() err: ", err);
+        // console.warn("NavClient() err: ", err);
         resData = mockDataNav;
       }
 
@@ -68,18 +69,13 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
 
           return (
             <Cmp key={idx} {...cmpProps}>
-              <Button
-                variant="outlined"
-                className="mr-2 mb-2"
-                onClick={onBtnClick}
-              >
+              <Button className="mr-2 mb-2" onClick={onBtnClick}>
                 {label}
               </Button>
             </Cmp>
           );
         })}
         <Button
-          variant="outlined"
           className="mr-2 mb-2 ml-6"
           onClick={() => {
             setTheme("light");
@@ -88,7 +84,6 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
           light
         </Button>
         <Button
-          variant="outlined"
           className="mr-2 mb-2"
           onClick={() => {
             setTheme("dark");
@@ -97,7 +92,6 @@ export default function NavClient({ items: itemsProps }: NavClientProps) {
           dark
         </Button>
         <Button
-          variant="outlined"
           className="mr-2 mb-2"
           onClick={() => {
             setTheme("system");

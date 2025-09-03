@@ -10,6 +10,7 @@ import {
 } from "@tabler/icons-react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -39,12 +40,16 @@ type Props = {
 
 export function NavUser({ user }: Props) {
   const { isMobile } = useSidebar();
+  const pathname = usePathname();
 
   return (
-    <SidebarMenu>
+    <SidebarMenu className="NavUser">
       <SidebarMenuItem>
         {!user && (
-          <Link href="/auth/signin" className="w-full">
+          <Link
+            href={`/auth/signin?callbackurl=${pathname}`}
+            className="w-full"
+          >
             <Button className="mb-2 w-full" variant="default">
               <IconLogin />
               Sign In
